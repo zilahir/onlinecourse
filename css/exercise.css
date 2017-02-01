@@ -1,0 +1,28 @@
+/* exercise css - rzilahi - 2017 */
+
+body {
+  background-color: #ccc;
+}
+
+.exercise-container {
+  background-color: #fff;
+  margin-top: 40px;
+}
+
+.exercise-title {
+  border-bottom: 1px solid #000;
+}
+
+.exercise-warning {
+  padding: 10px;
+  margin: 10px;
+}
+
+.exercise-details {
+  margin: 10px;
+
+}
+
+h2 {
+  font-size: 20px;
+}
