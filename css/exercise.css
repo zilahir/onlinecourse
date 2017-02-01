@@ -26,3 +26,11 @@ body {
 h2 {
   font-size: 20px;
 }
+
+a.exercise-links {
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+}
