@@ -34,3 +34,11 @@ a.exercise-links {
 .italic {
   font-style: italic;
 }
+
+.solution {
+  float: right;
+}
+
+.next-exercise {
+  font-size: 2em;
+}
