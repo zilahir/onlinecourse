@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Quiz 01</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/exercise.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 exercise-container">
+                <div class="exercise-details">
+                    <form action="grade.php" method="post" id="quiz">
+                        <li>
+                            <h3>CSS Stands for...</h3>
+                            <div>
+                                <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+                                <label for="question-1-answers-A">A) Computer Styled Sections </label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+                                <label for="question-1-answers-B">B) Cascading Style Sheets</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
+                                <label for="question-1-answers-C">C) Crazy Solid Shapes</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
+                                <label for="question-1-answers-D">D) None of the above</label>
+                            </div>
+                        </li>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 exercise-container">
+              <div class="exercise-details">
+                <p class="result-text">
+                  Your result:
+                </p>
+                <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    <span class="sr-only">45% Complete</span>
+  </div>
+</div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
