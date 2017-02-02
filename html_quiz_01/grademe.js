@@ -3,7 +3,8 @@ $(document).ready(function() {
     //alert("pushed");
     var answerData = {
           answer1: $('input[name=question-1-answers]:checked').val(),
-          answer2: $('input[name=question-2-answers]:checked').val()
+          answer2: $('input[name=question-2-answers]:checked').val(),
+          answer3: $('input[name=question-3-answers]:checked').val()
         };
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET
@@ -13,9 +14,8 @@ $(document).ready(function() {
 
             success:function(response){
               //alert("success");
-              if (response.result == "100") {
-                $("#graderesult").addClass("hundredpercent");
-              }
+              console.log(answerData);
+                $("#graderesult").addClass(response.result);
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError);
