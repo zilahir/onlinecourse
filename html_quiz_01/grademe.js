@@ -2,7 +2,8 @@ $(document).ready(function() {
   $("#submitforgrade").click(function(e) {
     //alert("pushed");
     var answerData = {
-          firstAnswer: $('input[name=question-1-answers]:checked').val()
+          answer1: $('input[name=question-1-answers]:checked').val(),
+          answer2: $('input[name=question-2-answers]:checked').val()
         };
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET
@@ -11,7 +12,10 @@ $(document).ready(function() {
             data:answerData, //Form variables
 
             success:function(response){
-              alert("success");
+              //alert("success");
+              if (response.result == "100") {
+                $("#graderesult").addClass("hundredpercent");
+              }
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError);
