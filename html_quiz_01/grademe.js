@@ -14,8 +14,12 @@ $(document).ready(function() {
 
             success:function(response){
               //alert("success");
-              console.log(answerData);
+              console.log(response.result);
                 $("#graderesult").addClass(response.result);
+                /*$.each(response, function(i, obj) {
+                  //use obj.id and obj.name here, for example:
+                  console.log(obj);
+                });*/
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError);

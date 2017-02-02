@@ -22,13 +22,13 @@ if ($answer3 == "A") {
   $answer3Result = false;
 }
 
-$result = array (
-  "answer-1" => $answer1Result,
-  "answer-2" => $answer2Result,
-  "answer-3" => $answer3Result,
+$result["answers"] = array (
+  "question-1" => $answer1Result,
+  "question-2" => $answer2Result,
+  "question-3" => $answer3Result,
 );
 
-if (!in_array(false, $result)) {
+if (!in_array(false, $result["answers"])) {
   $result["result"] = "hundredpercent";
 } else {
   $result["result"] = "seventypercent";
