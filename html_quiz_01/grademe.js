@@ -14,12 +14,16 @@ $(document).ready(function() {
 
             success:function(response){
               //alert("success");
-              console.log(response.result);
+              //console.log(response.result);
                 $("#graderesult").addClass(response.result);
-                /*$.each(response, function(i, obj) {
-                  //use obj.id and obj.name here, for example:
-                  console.log(obj);
-                });*/
+                $.each(response.answers, function(i, obj) {
+
+                  //console.log(obj);
+                  if (obj == false) {
+                    //console.log(i);
+                    $("#errorcontainer").toggleClass("hidden");
+                  }
+                });
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError);
