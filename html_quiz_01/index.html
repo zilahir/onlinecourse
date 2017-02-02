@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/exercise.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="grademe.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
             <div class="col-lg-8 exercise-container">
                 <div class="exercise-details">
                   <ol>
-                    <li>
+                    <li id="question-1">
                         <h3>Mit csinál a következő CSS osztály?</h3>
                         <code>.important {color: red;}</code>
                         <div>
@@ -39,12 +40,12 @@
                         <h3>Mit csinál a következő CSS definíció?</h3>
                         <code>.underline {text-decoration: underline;}</code>
                         <div>
-                            <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+                            <input type="radio" name="question-2-answers" id="question-1-answers-A" value="A" />
                             <label for="question-2-answers-A">Aláhúzza a szöveget az <code>underline</code> osztállyal ellátott elemekben</label>
                         </div>
 
                         <div>
-                            <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+                            <input type="radio" name="question-2-answers" id="question-1-answers-B" value="B" />
                             <label for="question-2-answers-B">Aláhúzza a szöveget az <code>underline</code> egyéni azonosítóval ellátott elemekben</label>
                         </div>
                     </li>
@@ -52,22 +53,22 @@
                         <h3>Hogyan adnál hozzá külső CSS library-t a html fájlodhoz?</h3>
 
                         <div>
-                            <input type="checkbox" name="question-1-answers" id="question-1-answers-A" value="A" />
+                            <input type="checkbox" name="question-3-answers" id="question-1-answers-A" value="A" />
                             <label for="question-3-answers-A"><code> < link rel="stylesheet" type="text/css" href="stylesheet.css"/></code></label>
                         </div>
 
                         <div>
-                            <input type="checkbox" name="question-1-answers" id="question-1-answers-B" value="B" />
+                            <input type="checkbox" name="question-3-answers" id="question-1-answers-B" value="B" />
                             <label for="question-3-answers-B"><code>< style type="text/css" href="stylesheet.css" /></code></label>
                         </div>
                         <div>
-                            <input type="checkbox" name="question-1-answers" id="question-1-answers-B" value="B" />
+                            <input type="checkbox" name="question-3-answers" id="question-1-answers-B" value="B" />
                             <label for="question-3-answers-C"><code>< style type="text/css" href="stylesheet.css" /></code></label>
                         </div>
                     </li>
                   </ol>
                 </div>
-
+                <button id="submitforgrade" class="btn btn-success">Grade me!</button>
             </div>
             <div class="col-lg-4 exercise-container">
               <div class="exercise-details">
