@@ -50,3 +50,9 @@ a.exercise-links {
 .seventypercent {
   width: 70%;
 }
+
+.wrong-answer {
+  border: 2px solid #ff0000;
+  padding: 15px;
+  margin-top: 10px;
+}

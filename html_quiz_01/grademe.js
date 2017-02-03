@@ -21,7 +21,8 @@ $(document).ready(function() {
                   //console.log(obj);
                   if (obj == false) {
                     //console.log(i);
-                    $("#errorcontainer").toggleClass("hidden");
+                    $("#errorcontainer").toggleClass("hidden"); //show the error message container
+                    $("li#"+i).addClass("wrong-answer");
                   }
                 });
             },
