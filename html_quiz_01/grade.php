@@ -30,20 +30,26 @@ $result["answers"] = array (
 );
 
 $goodAnswers = 0;
+$goodAnswers = 0;
 
 if (!in_array(false, $result["answers"])) {
   $result["result"] = "100";
 } else {
   for ($i=0; $i<count($result); $i++) {
-    if ($result[$i] == false) {
+    if (!$result[$i]) {
+      $badAnswers++;
+    } elseif ($result[$i] == true) {
       $goodAnswers++;
     }
-    $badAnswers = $numberOfQuestions - $goodAnswers;
+    $goodAnswers = $numberOfQuestions - $badAnswers;
     $count = $goodAnswers / $numberOfQuestions;
     $percent = intval($count*100);
     $result["result"] = $percent;
   }
 }
+
+//echo "good: ".$goodAnswers."bad: ".$badAnswers; //change values
+//echo $percent;
 
 $result["numberofquestions"] = $numberOfQuestions;
 //$result["result"] = "100";
