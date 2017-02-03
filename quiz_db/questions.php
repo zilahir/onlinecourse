@@ -37,7 +37,8 @@ include_once("functions.php");
         <th>#</th>
         <th>Question</th>
         <th>Is Active</th>
-        <th></th>
+        <th>Actions</th>
+        <th>Answer</th>
       </tr>
     </thead>
     <tbody>

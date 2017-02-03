@@ -19,6 +19,12 @@ function getAllQuestions () {
         $icon = '<i class="fa fa-times"></i>';
       }
 
+      $hasAnswer = checkIfQuestionHasAnswer($id);
+
+      if ($hasAnswer == 0) {
+        $answerBadge = '<span class="label label-danger">Missing answer</span>';
+      }
+
       echo '<tr data-id="'.$id.'">
       <td>'.$id.'</td>
       <td>'.$question.'</td>
@@ -27,10 +33,19 @@ function getAllQuestions () {
         <i class="fa fa-pencil action-icon"></i>
         <i class="fa fa-times action-icon"></i>
       </td>
+      <td>
+      '.$answerBadge.'
+      </td>
       </tr>
       ';
     }
 
+}
+
+function checkIfQuestionHasAnswer ($question) {
+
+    $result = MySQL::countEntry('answers', 'question_id', $question);
+    return $result;
 }
 
 
