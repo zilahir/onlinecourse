@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#addnewquestion").click(function(e) {
+    $("#submitbutton").click(function(e) {
 
         var questionData = {
           question: $('#newquestion').val(),

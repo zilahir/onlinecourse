@@ -7,7 +7,7 @@ $newQuestion = $_POST['question'];
 
 $array = array(
   "question" => $newQuestion,
-  "is_active" => true;
+  "is_active" => true
 );
 
 MySQL::insertIntoGroup('`questions`', $array);
