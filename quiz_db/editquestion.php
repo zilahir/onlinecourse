@@ -29,7 +29,7 @@ $currentQuestion = getASpecificQuestion($questionId);
   <body>
     <div class="container">
       <div class="row addnewquestionbox">
-        <div class="col-lg-12">
+        <div id="optioncontainer" class="col-lg-12">
           <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid"><?php echo $currentQuestion['question']; ?></h2>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
@@ -46,13 +46,16 @@ $currentQuestion = getASpecificQuestion($questionId);
           </div>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
-              1.
+              2.
             </span>
             <input id="choice-2" name="choice-2" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
           </div>
-          <div id="submitbutton" class="input-group pull-right">
-            <button id="sbmitchoices" class="btn btn-success">Add new choices</button>
-          </div>
+        </div>
+        <div class="input-group pull-left">
+          <button id="addnewoption" class="btn btn-primary">Add new option</button>
+        </div>
+        <div id="submitbutton" class="input-group pull-right">
+          <button id="sbmitchoices" class="btn btn-success">Add new choices</button>
         </div>
       </div>
     </div>
