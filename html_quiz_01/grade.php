@@ -32,27 +32,26 @@ $result["answers"] = array (
 $goodAnswers = 0;
 $goodAnswers = 0;
 
-if (!in_array(false, $result["answers"])) {
-  $result["result"] = "100";
-} else {
-  for ($i=0; $i<count($result); $i++) {
-    if ($result[$i] == false ) {
-      $badAnswers++;
-    } elseif ($result[$i] == true) {
-      $goodAnswers++;
-    }
-    $goodAnswers = $numberOfQuestions - $badAnswers;
-    $count = $goodAnswers / $numberOfQuestions;
-    $percent = intval($count*100);
-    $result["result"] = $goodAnswers;
+
+  foreach ($result['answers'] as $key => $value) {
+  if (true === $value) {
+    $goodAnswers++;
+  } else {
+    $badAnswers++;
   }
 }
 
-//echo "good: ".$goodAnswers."bad: ".$badAnswers; //change values
-//echo $percent;
+$percent = intval($goodAnswers/$numberOfQuestions);
+
+if ($percent == 1) {
+  $percent = "100";
+}
+//echo "good: ".$goodAnswers."bad: ".$badAnswers;
+
 
 $result["numberofquestions"] = $numberOfQuestions;
-//$result["result"] = "100";
+$result["result"] = $percent;
+
 
 if (!isset($result)) {
   echo json_encode("error");
