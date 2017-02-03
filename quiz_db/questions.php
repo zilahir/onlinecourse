@@ -13,6 +13,15 @@ include_once("functions.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="addnewquestion.js"></script>
     <script type="text/javascript" src="deletequestion.js"></script>
+    <script>
+    jQuery(document).ready(function($) {
+      $(".clickable-row").click(function() {
+          var url = "editquestion.php?id="+$(this).data("id");
+          window.document.location = url;
+      });
+    });
+
+    </script>
 </head>
   <body>
       <div class="container">
@@ -31,7 +40,7 @@ include_once("functions.php");
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <table id="questions" class="table">
+            <table id="questions" class="table table-hover">
     <thead>
       <tr>
         <th>#</th>

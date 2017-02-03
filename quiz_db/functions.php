@@ -25,7 +25,7 @@ function getAllQuestions () {
         $answerBadge = '<span class="label label-danger">Missing answer</span>';
       }
 
-      echo '<tr data-id="'.$id.'">
+      echo '<tr class="clickable-row" data-id="'.$id.'">
       <td>'.$id.'</td>
       <td>'.$question.'</td>
       <td>'.$icon.'</td>
