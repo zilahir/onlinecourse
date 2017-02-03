@@ -17,7 +17,8 @@ $(document).ready(function() {
               //alert("success");
               //console.log(response);
               console.log(thisRow);
-              $(thisRow).remove();
+              //$(thisRow).remove();
+              $(thisRow).fadeOut();
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(thrownError);
