@@ -42,13 +42,13 @@ $currentQuestion = getASpecificQuestion($questionId);
             <span class="input-group-addon" id="basic-addon1">
               1.
             </span>
-            <input id="choice-1" name="choice-1" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
+            <input id="choice-1" data-number="1" name="choice-1" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
           </div>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
               2.
             </span>
-            <input id="choice-2" name="choice-2" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
+            <input id="choice-2" data-number="2" name="choice-2" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
           </div>
         </div>
         <div class="input-group pull-left">
