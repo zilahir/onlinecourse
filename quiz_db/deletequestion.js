@@ -5,6 +5,8 @@ $(document).ready(function() {
           idToDelete: $(this).parent().parent().data("id")
         };
 
+        var thisRow = $(this).parent().parent();
+
         //console.log(deleteData);
         jQuery.ajax({
             type: "POST", // HTTP method POST or GET
@@ -13,7 +15,9 @@ $(document).ready(function() {
             data: deleteData, //Form variables
             success: function(response) {
               //alert("success");
-              console.log(response);
+              //console.log(response);
+              console.log(thisRow);
+              $(thisRow).remove();
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(thrownError);
