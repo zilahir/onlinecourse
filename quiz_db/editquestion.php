@@ -30,7 +30,7 @@ $currentQuestion = getASpecificQuestion($questionId);
     <div class="container">
       <div class="row addnewquestionbox">
         <div class="col-lg-12">
-          <h2><?php echo $currentQuestion['question']; ?></h2>
+          <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid"><?php echo $currentQuestion['question']; ?></h2>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
               <i class="fa fa-question"></i>
