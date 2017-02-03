@@ -1,10 +1,12 @@
 $(document).ready(function() {
   $("#submitforgrade").click(function(e) {
     //alert("pushed");
+    var numberOfQuestions = $(".exercise-container li").length;
     var answerData = {
           answer1: $('input[name=question-1-answers]:checked').val(),
           answer2: $('input[name=question-2-answers]:checked').val(),
-          answer3: $('input[name=question-3-answers]:checked').val()
+          answer3: $('input[name=question-3-answers]:checked').val(),
+          numberOfQuestions: numberOfQuestions
         };
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET

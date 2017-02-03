@@ -3,6 +3,7 @@
 $answer1 = $_POST['answer1'];
 $answer2 = $_POST['answer2'];
 $answer3 = $_POST['answer3'];
+$numberOfQuestions = $_POST['numberOfQuestions'];
 
 if ($answer1 == "C") {
   $answer1Result = true;
@@ -31,9 +32,16 @@ $result["answers"] = array (
 if (!in_array(false, $result["answers"])) {
   $result["result"] = "hundredpercent";
 } else {
-  $result["result"] = "seventypercent";
+  $count = 0;
+  for ($i=0; $i<count($result["answers"]); $i++) {
+    if ($result["answers"][$i] == false ) {
+      $count++;
+    }
+  }
+  $result["result"] = $count;
 }
 
+$result["numberofquestions"] = $numberOfQuestions;
 //$result["result"] = "100";
 
 echo json_encode($result);
