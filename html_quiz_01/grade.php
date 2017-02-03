@@ -32,18 +32,16 @@ $result["answers"] = array (
 if (!in_array(false, $result["answers"])) {
   $result["result"] = "hundredpercent";
 } else {
-  $count = 0;
-  for ($i=0; $i<count($result["answers"]); $i++) {
-    if ($result["answers"][$i] == false ) {
-      $count++;
-    }
-  }
-  $result["result"] = $count;
+  
 }
 
 $result["numberofquestions"] = $numberOfQuestions;
 //$result["result"] = "100";
 
-echo json_encode($result);
+if (!isset($result)) {
+  echo json_encode("error");
+} else {
+  echo json_encode($result);
+}
 
 ?>
