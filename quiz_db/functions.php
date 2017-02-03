@@ -48,5 +48,21 @@ function checkIfQuestionHasAnswer ($question) {
     return $result;
 }
 
+function getASpecificQuestion ($questionId) {
+  $getAQuestionSql = "SELECT * FROM `questions` WHERE `id` = $questionId ";
+  $rows = MySQL::getRows($getAQuestionSql);
+
+  foreach ($rows as $row ) {
+
+    $id = $row->id;
+    $question = $row->question;
+    $isActive = $row->is_active;
+
+    $question = array('question' => $question, 'id' => $id, 'is_active' => $isActive );
+  }
+
+  return $question;
+}
+
 
 ?>
