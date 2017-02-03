@@ -29,10 +29,20 @@ $result["answers"] = array (
   "question-3" => $answer3Result,
 );
 
+$goodAnswers = 0;
+
 if (!in_array(false, $result["answers"])) {
-  $result["result"] = "hundredpercent";
+  $result["result"] = "100";
 } else {
-  
+  for ($i=0; $i<count($result); $i++) {
+    if ($result[$i] == false) {
+      $goodAnswers++;
+    }
+    $badAnswers = $numberOfQuestions - $goodAnswers;
+    $count = $goodAnswers / $numberOfQuestions;
+    $percent = intval($count*100);
+    $result["result"] = $percent;
+  }
 }
 
 $result["numberofquestions"] = $numberOfQuestions;

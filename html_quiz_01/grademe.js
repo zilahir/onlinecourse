@@ -17,12 +17,11 @@ $(document).ready(function() {
             success:function(response){
               //alert("success");
               //console.log(response.result);
-                $("#graderesult").addClass(response.result);
+                //$("#graderesult").addClass(response.result);
+                $("#graderesult").css("width", response.result+"%");
                 $.each(response.answers, function(i, obj) {
-
-                  console.log(obj);
+                  //console.log(obj);
                   if (obj == false) {
-                    console.log(i);
                     $("li#"+i).addClass("wrong-answer");
                     showErrorBox = true;
                   }
