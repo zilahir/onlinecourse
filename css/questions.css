@@ -12,3 +12,17 @@ table#questions {
 #submitbutton {
   margin-top: 20px;
 }
+
+.action-icon {
+  margin-right: 10px;
+}
+
+.newlineadded {
+  background-color: #fdfd96;
+  transition: all 0.3s;
+}
+
+.action-icon:hover {
+  cursor: pointer;
+  color: #ff0000;
+}

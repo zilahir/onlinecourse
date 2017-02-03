@@ -11,7 +11,9 @@ $(document).ready(function() {
             dataType: "json", // Data type, HTML, json etc.
             data: questionData, //Form variables
             success: function(response) {
-                alert("success");
+                //alert("success");
+                var newLine = '<tr class="newlineadded"><td><span class="badge bg-warning">NEW</span></td><td>'+response.question+'</td><td><i class="fa fa-check"></i></td><td></td></tr>';
+                $("#questions tbody").prepend(newLine);
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(thrownError);

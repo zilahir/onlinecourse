@@ -1,3 +1,6 @@
+<?php
+include_once("functions.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,14 +36,11 @@
         <th>#</th>
         <th>Question</th>
         <th>Is Active</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
+      <?php getAllQuestions();?>
     </tbody>
   </table>
           </div>
