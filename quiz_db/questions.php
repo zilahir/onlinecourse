@@ -24,8 +24,15 @@ include_once("functions.php");
     </script>
 </head>
   <body>
+    <nav id="nav-header" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <div id="addnewquestion" class="row addnewquestionbox">
+        <button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </nav>
+      <div id="main" class="container">
+        <div id="addnewquestion" class="row addnewquestionbox hidden">
           <div class="col-lg-12">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">

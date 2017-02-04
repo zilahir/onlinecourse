@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    $("#showaddnewquestionform").click(function(e) {
+      $("#addnewquestion").toggleClass("hidden");
+    });
     $("#submitbutton").click(function(e) {
 
         var questionData = {

@@ -6,9 +6,9 @@ MySQL::connect();
 function getAllQuestions () {
     $getAllProjectsSql = "SELECT * FROM `questions` ORDER BY `id` ASC  ";
     $rows = MySQL::getRows($getAllProjectsSql);
-
+    $count = 0;
     foreach ($rows as $row ) {
-
+      $count++;
       $id = $row->id;
       $question = $row->question;
       $isActive = $row->is_active;
@@ -23,10 +23,12 @@ function getAllQuestions () {
 
       if ($hasAnswer == 0) {
         $answerBadge = '<span class="label label-danger">Missing answer</span>';
+      } else {
+        $answerBadge = '<span class="label label-success">OK</span>';
       }
 
       echo '<tr class="clickable-row" data-id="'.$id.'">
-      <td>'.$id.'</td>
+      <td>'.$count.'</td>
       <td>'.$question.'</td>
       <td>'.$icon.'</td>
       <td>
@@ -77,10 +79,10 @@ function getAllAnswerForQuestion ($id) {
 
     $rightChoiceIcon = getRightChoiceIcon($isRightChoice);
 
-    echo '<tr class="clickable-row" data-id="'.$id.'">
+    echo '<tr class="clickable-row '.$rightChoiceIcon['class'].'" data-id="'.$id.'">
     <td>'.$count.'</td>
     <td>'.$choice.'</td>
-    <td>'.$rightChoiceIcon.'</td>
+    <td>'.$rightChoiceIcon['icon'].'</td>
     </tr>
     ';
   }
@@ -89,11 +91,15 @@ function getAllAnswerForQuestion ($id) {
 function getRightChoiceIcon ($isRightChoice) {
   if ($isRightChoice) {
     $icon = '<i class="fa fa-check"></i>';
+    $class = 'right-choice';
   } else {
     $icon = '<i class="fa fa-times"></i>';
+    $class = '';
   }
 
-  return $icon;
+  $result = array('icon' => $icon, 'class' => $class);
+
+  return $result;
 }
 
 ?>

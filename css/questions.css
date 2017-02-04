@@ -50,3 +50,15 @@ table#questions {
   background-color: #d9534f;
   border-color: #d9534f
 }
+
+.right-choice {
+  background-color: #b4ecb4
+}
+
+.right-choice td {
+
+}
+
+div#main {
+  margin-top: 20px;
+}
