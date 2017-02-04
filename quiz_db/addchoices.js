@@ -6,7 +6,7 @@ $(document).ready(function() {
         var lastItem = Numbers[Numbers.length-1];
         var lastId = $(lastItem).data("number");
         var newId = lastId+1;
-        var newLine = '<div class="input-group"><span class="input-group-addon" id="basic-addon1">'+newId+'</span><input data-number="'+newId+'" id="choice-'+newId+'" name="choice-'+newId+'" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1"></div>';
+        var newLine = '<div class="input-group"><span class="input-group-addon" id="basic-addon1"><input id="choice-'+newId+'" data-number="'+newId+'" type="checkbox" aria-label=""></span><input data-number="'+newId+'" id="choice-'+newId+'" name="choice-'+newId+'" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1"></div>';
         $("#optioncontainer").append(newLine);;
         //console.log(allChoises)
     });
@@ -19,6 +19,7 @@ $(document).ready(function() {
         };*/
 
         //create the json object for inserting the values to the DB
+        // get the correct choice id = if ($('#uho').is(':checked')) {
         allChoises = $("input[id^='choice-']")
         var allChoisesLength = allChoises.length;
         $.each(allChoises, function() {
