@@ -1,14 +1,19 @@
 $(document).ready(function() {
-  var selectedquestions = 0;
+  var numberOfQuestions = 0;
+  var selectedQuestions = [];
   $("input[type='checkbox']").change(function() {
       if(this.checked) {
         var questionId = $(this).data("questionid");
-        console.log(questionId);
-        selectedquestions = selectedquestions+1;
-        $("#selectedquestions").html(selectedquestions);
+        numberOfQuestions = numberOfQuestions+1;
+        selectedQuestions.push(questionId);
+        //console.log(selectedQuestions);
+        $("#selectedquestions").html(numberOfQuestions);
       } else {
-        selectedquestions = selectedquestions-1;
-        $("#selectedquestions").html(selectedquestions);
+        var questionId = $(this).data("questionid");
+        selectedQuestions.splice($.inArray(questionId, selectedQuestions), 1);
+        numberOfQuestions = numberOfQuestions-1;
+        //console.log(selectedQuestions);
+        $("#selectedquestions").html(numberOfQuestions);
       }
       });
 
@@ -23,7 +28,7 @@ $(document).ready(function() {
               data: quizData, //Form variables
               success: function(response) {
                 //alert("success")
-                
+
               },
               error: function(xhr, ajaxOptions, thrownError) {
                   alert(thrownError);
