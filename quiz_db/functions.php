@@ -84,6 +84,9 @@ function getAllAnswerForQuestion ($id) {
     <td>'.$count.'</td>
     <td>'.$choice.'</td>
     <td>'.$rightChoiceIcon['icon'].'</td>
+    <td>
+    <i class="fa fa-times action-icon"></i>
+    </td>
     </tr>
     ';
   }
