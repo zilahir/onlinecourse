@@ -38,6 +38,20 @@ table#questions, #questions {
   margin-top: 20px;
 }
 
+.btn-outline-success {
+  color: #449d44;
+  background-image: none;
+  background-color: transparent;
+  border-color: #449d44
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #449d44
+}
+
+
 .btn-outline-danger {
   color: #d9534f;
   background-image: none;

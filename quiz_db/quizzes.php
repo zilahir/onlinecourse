@@ -16,27 +16,12 @@ include_once("functions.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="addnewquestion.js"></script>
     <script type="text/javascript" src="deletequestion.js"></script>
+    <script type="text/javascript" src="addnewquiz.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    <script>
-    $(document).ready(function() {
-      var selectedquestions = 0;
-      $("input[type='checkbox']").change(function() {
-          if(this.checked) {
-            var questionId = $(this).data("questionid");
-            console.log(questionId);
-            selectedquestions = selectedquestions+1;
-            $("#selectedquestions").html(selectedquestions);
-          } else {
-            selectedquestions = selectedquestions-1;
-            $("#selectedquestions").html(selectedquestions);
-          }
-          });
-      });
 
-    </script>
 
 </head>
   <body>
