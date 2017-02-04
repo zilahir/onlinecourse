@@ -30,7 +30,9 @@ $currentQuestion = getASpecificQuestion($questionId);
     <div class="container">
       <div class="row addnewquestionbox">
         <div id="optioncontainer" class="col-lg-12">
-          <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid">Q: <?php echo $currentQuestion['question']; ?></h2>
+          <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid">Q: <?php echo $currentQuestion['question']; ?>
+            <button id="deletequestion" class="btn btn-outline-danger pull-right">Delete this question</button>
+          </h2>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
               <i class="fa fa-question"></i>
