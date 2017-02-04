@@ -102,4 +102,10 @@ function getRightChoiceIcon ($isRightChoice) {
   return $result;
 }
 
+function countAllQuestionsInDb () {
+
+    $result = MySQL::countEverything('questions', 'id', "%");
+    return $result;
+}
+
 ?>

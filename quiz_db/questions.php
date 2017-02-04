@@ -1,5 +1,8 @@
 <?php
 include_once("functions.php");
+
+$numberOfQuestions = countAllQuestionsInDb();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,9 +48,12 @@ include_once("functions.php");
             </div>
           </div>
         </div>
-        <div class="row">
+        <div id="questions" class="row">
           <div class="col-lg-12">
-            <table id="questions" class="table table-hover">
+            <div class="alert alert-info" role="alert">
+                <a href="#">Questions in the database <span class="badge"><?php echo $numberOfQuestions; ?></span></a>
+            </div>
+            <table id="" class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
