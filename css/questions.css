@@ -62,3 +62,7 @@ table#questions, #questions {
 div#main {
   margin-top: 20px;
 }
+
+code {
+  color: #c7254e !important;
+}

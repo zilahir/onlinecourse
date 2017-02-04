@@ -16,6 +16,8 @@ $numberOfQuestions = countAllQuestionsInDb();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="addnewquestion.js"></script>
     <script type="text/javascript" src="deletequestion.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script>
     jQuery(document).ready(function($) {
       $(".clickable-row").click(function() {
@@ -43,6 +45,8 @@ $numberOfQuestions = countAllQuestionsInDb();
               </span>
               <input id="newquestion" name="newquestion" type="text" class="form-control" placeholder="Question" aria-describedby="basic-addon1">
             </div>
+
+              <textarea id="markdowneditor"></textarea>
             <div id="submitbutton" class="input-group pull-right">
               <button id="" class="btn btn-success">Add new question</button>
             </div>

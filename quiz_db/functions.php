@@ -59,8 +59,9 @@ function getASpecificQuestion ($questionId) {
     $id = $row->id;
     $question = $row->question;
     $isActive = $row->is_active;
+    $description = $row->description;
 
-    $question = array('question' => $question, 'id' => $id, 'is_active' => $isActive );
+    $question = array('question' => $question, 'id' => $id, 'is_active' => $isActive, 'desc' => $description );
   }
 
   return $question;

@@ -1,11 +1,15 @@
 $(document).ready(function() {
+    var simplemde = new SimpleMDE({
+        element: document.getElementById("markdowneditor")
+    });
     $("#showaddnewquestionform").click(function(e) {
-      $("#addnewquestion").toggleClass("hidden");
+        $("#addnewquestion").toggleClass("hidden");
     });
     $("#submitbutton").click(function(e) {
-
+        var context = simplemde.value();
         var questionData = {
-          question: $('#newquestion').val(),
+            question: $('#newquestion').val(),
+            context: context
         };
 
         jQuery.ajax({
@@ -15,7 +19,7 @@ $(document).ready(function() {
             data: questionData, //Form variables
             success: function(response) {
                 //alert("success");
-                var newLine = '<tr class="newlineadded"><td><span class="badge bg-warning">NEW</span></td><td>'+response.question+'</td><td><i class="fa fa-check"></i></td><td></td></tr>';
+                var newLine = '<tr class="newlineadded"><td><span class="badge bg-warning">NEW</span></td><td>' + response.question + '</td><td><i class="fa fa-check"></i></td><td></td></tr>';
                 $("#questions tbody").prepend(newLine);
             },
             error: function(xhr, ajaxOptions, thrownError) {
