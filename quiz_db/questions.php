@@ -41,19 +41,19 @@ include_once("functions.php");
         <div class="row">
           <div class="col-lg-12">
             <table id="questions" class="table table-hover">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Question</th>
-        <th>Is Active</th>
-        <th>Actions</th>
-        <th>Answer</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php getAllQuestions();?>
-    </tbody>
-  </table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Question</th>
+                  <th>Is Active</th>
+                  <th>Actions</th>
+                  <th>Answer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php getAllQuestions();?>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
