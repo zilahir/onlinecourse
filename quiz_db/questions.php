@@ -32,6 +32,9 @@ $numberOfQuiz = countAllQuizInDb();
   <body>
     <nav id="nav-header" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
+        <button id="" type="button" class="btn btn-success navbar-btn pull-right">
+          <i class="fa fa-check-square-o"></i>
+        </button>
         <button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
           <i class="fa fa-plus"></i>
         </button>

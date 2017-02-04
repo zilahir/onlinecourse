@@ -70,3 +70,7 @@ code {
 ul.stat {
   list-style-type: none;
 }
+
+.navbar-btn {
+  margin-left: 10px;
+}
