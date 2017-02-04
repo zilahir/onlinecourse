@@ -1,5 +1,7 @@
 <?php
 
-echo json_encode("success");
+$selectedQuestions = $_POST['selectedquestions'];
+
+echo json_encode($selectedQuestions);
 
 ?>

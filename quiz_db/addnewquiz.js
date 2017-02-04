@@ -19,7 +19,7 @@ $(document).ready(function() {
 
       $("#createnewquiz").click(function(e) {
         var quizData = {
-          lofasz : "lofasz"
+          selectedquestions : selectedQuestions
         }
           jQuery.ajax({
               type: "POST", // HTTP method POST or GET
