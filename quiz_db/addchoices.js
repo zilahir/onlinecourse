@@ -20,12 +20,15 @@ $(document).ready(function() {
 
         //create the json object for inserting the values to the DB
         allChoises = $("input[id^='choice-']")
+        var allChoisesLength = allChoises.length;
         $.each(allChoises, function() {
           //console.log($(this).data("number"));
           var number = $(this).data("number");
           var value = $(this).val();
           var name = "choice"+number;
           choicesData[name] = value;
+          choicesData["length"] = allChoisesLength;
+          choicesData ["questionId"] = $('#questionid').data("id");
         });
 
         console.log(choicesData);

@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once("MySQL.php");
 MySQL::connect();
 
@@ -8,15 +10,24 @@ $choice2 = $_POST['choice2'];
 $id = $_POST['questionId'];
 $isRightChoice = false;
 
-$insertResult = array($choice1, $choice2);
+$length = $_POST['length'];
 
-$result = array('choice1' => $choice1, 'choice2' => $choice2, 'id' => $id );
+//echo $length;
+
+$insertResult = array();
+
+for ($i=1; $i<=$length; $i++) {
+  array_push ($insertResult, $_POST['choice'.$i]);
+}
+
+//var_dump($result); // testing
+
 
 for ($i=0; $i<count($insertResult); $i++) {
   $insertArray = array('question_id' => $id, "is_right_choice" => $isRightChoice, "choice" => $insertResult[$i] );
   MySQL::insertIntoGroup('`answers`', $insertArray);
 }
 
-echo json_encode($result);
+echo json_encode($insertResult);
 
 ?>
