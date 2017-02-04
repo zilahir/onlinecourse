@@ -117,4 +117,41 @@ function countAllQuestionsInDb () {
     return $result;
 }
 
+function getAllQuestionsForQuiz () {
+  $getAllQuestionsSql = "SELECT * FROM `questions` ORDER BY `id` ASC  ";
+  $rows = MySQL::getRows($getAllQuestionsSql);
+  $count = 0;
+  foreach ($rows as $row ) {
+    $count++;
+    $id = $row->id;
+    $question = $row->question;
+    $isActive = $row->is_active;
+
+    if ($isActive) {
+      $icon = '<i class="fa fa-check"></i>';
+    } else {
+      $icon = '<i class="fa fa-times"></i>';
+    }
+
+    $hasAnswer = checkIfQuestionHasAnswer($id);
+
+    if ($hasAnswer == 0) {
+      $answerBadge = '<span class="label label-danger">Missing answer</span>';
+    } else {
+      $answerBadge = '<span class="label label-success">OK</span>';
+    }
+
+    echo '<tr class="clickable-row" data-id="'.$id.'">
+    <td>'.$count.'</td>
+    <td>'.$question.'</td>
+    <td>'.$icon.'</td>
+    <td>
+      <input data-number="'.$id.'" type="checkbox" aria-label="">
+    </td>
+    </tr>
+    ';
+  }
+
+}
+
 ?>
