@@ -64,5 +64,36 @@ function getASpecificQuestion ($questionId) {
   return $question;
 }
 
+function getAllAnswerForQuestion ($id) {
+  $getAllAnswerForQuestionSql = "SELECT * FROM `answers` WHERE `question_id` = $id  ";
+  $rows = MySQL::getRows($getAllAnswerForQuestionSql);
+
+    $count = 0;
+  foreach ($rows as $row ) {
+    $count++;
+    $id = $row->id;
+    $choice = $row->choice;
+    $isRightChoice = $row->is_right_choice;
+
+    $rightChoiceIcon = getRightChoiceIcon($isRightChoice);
+
+    echo '<tr class="clickable-row" data-id="'.$id.'">
+    <td>'.$count.'</td>
+    <td>'.$choice.'</td>
+    <td>'.$rightChoiceIcon.'</td>
+    </tr>
+    ';
+  }
+}
+
+function getRightChoiceIcon ($isRightChoice) {
+  if ($isRightChoice) {
+    $icon = '<i class="fa fa-check"></i>';
+  } else {
+    $icon = '<i class="fa fa-times"></i>';
+  }
+
+  return $icon;
+}
 
 ?>

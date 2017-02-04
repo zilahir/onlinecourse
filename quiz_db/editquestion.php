@@ -30,7 +30,7 @@ $currentQuestion = getASpecificQuestion($questionId);
     <div class="container">
       <div class="row addnewquestionbox">
         <div id="optioncontainer" class="col-lg-12">
-          <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid"><?php echo $currentQuestion['question']; ?></h2>
+          <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid">Q: <?php echo $currentQuestion['question']; ?></h2>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
               <i class="fa fa-question"></i>
@@ -59,5 +59,24 @@ $currentQuestion = getASpecificQuestion($questionId);
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <div class="row addnewquestionbox">
+        <div id="answerscontainer" class="col-lg-12">
+          <table id="questions" class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Answer</th>
+                <th>Is Right Choice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php getAllAnswerForQuestion($questionId);?>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
