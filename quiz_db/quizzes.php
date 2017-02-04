@@ -86,7 +86,10 @@ include_once("functions.php");
               </tbody>
             </table>
             <div class="addnewquestionbox">
-              <a href="#">Number of selected questions <span id="selectedquestions" class="badge"></span></a>
+              <div class="row">
+                <a href="#">Number of selected questions <span id="selectedquestions" class="badge"></span></a>
+                <button id="createnewquiz" class="btn btn-success pull-right">Add new quiz</button>
+              </div>
             </div>
           </div>
         </div>
