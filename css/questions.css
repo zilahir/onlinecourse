@@ -66,3 +66,7 @@ div#main {
 code {
   color: #c7254e !important;
 }
+
+ul.stat {
+  list-style-type: none;
+}

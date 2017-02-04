@@ -2,6 +2,7 @@
 include_once("functions.php");
 
 $numberOfQuestions = countAllQuestionsInDb();
+$numberOfQuiz = countAllQuizInDb();
 
 ?>
 <!DOCTYPE html>
@@ -55,7 +56,14 @@ $numberOfQuestions = countAllQuestionsInDb();
         <div id="questions" class="row">
           <div class="col-lg-12">
             <div class="alert alert-info" role="alert">
-                <a href="#">Questions in the database <span class="badge"><?php echo $numberOfQuestions; ?></span></a>
+                <ul class="stat">
+                  <li>
+                    <a href="#">Questions in the database <span class="badge"><?php echo $numberOfQuestions; ?></span></a>
+                  </li>
+                  <li>
+                    <a href="#">Quizzes in the database <span class="badge"><?php echo $numberOfQuiz; ?></span></a>
+                  </li>
+                </ul>
             </div>
             <table id="" class="table table-hover">
               <thead>
