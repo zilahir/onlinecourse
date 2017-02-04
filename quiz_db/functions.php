@@ -146,7 +146,7 @@ function getAllQuestionsForQuiz () {
     <td>'.$question.'</td>
     <td>'.$icon.'</td>
     <td>
-      <input data-number="'.$id.'" type="checkbox" aria-label="">
+      <input data-questionid="'.$id.'" type="checkbox" aria-label="">
     </td>
     </tr>
     ';
