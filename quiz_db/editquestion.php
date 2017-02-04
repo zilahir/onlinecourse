@@ -42,13 +42,13 @@ $currentQuestion = getASpecificQuestion($questionId);
           <h4>Add Choices</h4>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
-              <input id="choice-1" data-number="1" type="checkbox" aria-label="">
+              <input data-number="1" type="checkbox" aria-label="">
             </span>
             <input id="choice-1" data-number="1" name="choice-1" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
           </div>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
-              <input id="choice-2" data-number="2" type="checkbox" aria-label="">
+              <input data-number="2" type="checkbox" aria-label="">
             </span>
             <input id="choice-2" data-number="2" name="choice-2" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
           </div>
