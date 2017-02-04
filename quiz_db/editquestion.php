@@ -40,7 +40,7 @@ $currentQuestion = getASpecificQuestion($questionId);
           <h4>Add Choices</h4>
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
-              1.
+              1. <!-- TODO: implement checkbox here for setting the answer as correct one -->
             </span>
             <input id="choice-1" data-number="1" name="choice-1" type="text" class="form-control" placeholder="Provide a choice" aria-describedby="basic-addon1">
           </div>
