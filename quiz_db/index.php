@@ -1,9 +1,11 @@
 <?php
 
-if (isset($_SESSION['logged_in'])) {
-  echo "this is the main page";
+session_start();
+
+if ($_SESSION['login'] == true ) {
+  echo "siker!";
 } else {
-  header("Location: login.php"); /* Redirect browser */
+  header("Location: login.php");
 }
 
 
