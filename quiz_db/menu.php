@@ -5,10 +5,10 @@
         <a href="#">Home</a>
       </li>
       <li>
-        <a href="#">Questions</a>
+        <a href="questions.php">Questions</a>
       </li>
       <li>
-        <a href="#">Quizzes</a>
+        <a href="quizzes.php">Quizzes</a>
       </li>
       <li>
         <a href="#">
