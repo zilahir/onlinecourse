@@ -20,6 +20,9 @@ $numberOfQuiz = countAllQuizInDb();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
     <script>
     jQuery(document).ready(function($) {
       $(".linkme").click(function() {
@@ -30,6 +33,11 @@ $numberOfQuiz = countAllQuizInDb();
       /*$(".clickable-row").on('click', function(event){
       console.log(event);
     });*/
+
+    $("#tags").select2({
+      tags: true,
+      tokenSeparators: [',', ' ']
+      })
     });
 
     </script>
@@ -47,9 +55,15 @@ $numberOfQuiz = countAllQuizInDb();
             </div>
 
               <textarea id="markdowneditor"></textarea>
+              <div style="width: 100%;" class="input-group">
+                <select style="width: 100%;" id="tags" class="js-example-tokenizer form-control" multiple="multiple">
+                  <option>html</option>
+                </select>
+              </div>
             <div id="submitbutton" class="input-group pull-right">
               <button id="" class="btn btn-success">Add new question</button>
             </div>
+
           </div>
         </div>
         <div id="questions" class="row">

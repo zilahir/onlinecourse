@@ -100,3 +100,7 @@ ul.stat {
 .editquestion-container {
   margin-top: 80px;
 }
+
+#tags {
+  width: 100%;
+}
