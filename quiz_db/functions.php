@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once("MySQL.php");
 MySQL::connect();
 
