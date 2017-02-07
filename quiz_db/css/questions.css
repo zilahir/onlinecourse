@@ -30,8 +30,8 @@ table#questions, #questions {
   padding: 15px;
 }
 
-.table-hover {
-  cursor: pointer;
+tr.table-hover {
+  cursor: default;
 }
 
 .input-group {
@@ -51,6 +51,10 @@ table#questions, #questions {
   border-color: #449d44
 }
 
+td.linkme:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
 .btn-outline-danger {
   color: #d9534f;

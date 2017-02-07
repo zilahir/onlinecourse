@@ -29,7 +29,7 @@ function getAllQuestions () {
 
       echo '<tr class="clickable-row" data-id="'.$id.'">
       <td>'.$count.'</td>
-      <td>'.$question.'</td>
+      <td class="linkme">'.$question.'</td>
       <td>'.$icon.'</td>
       <td>
         <i class="fa fa-pencil action-icon"></i>

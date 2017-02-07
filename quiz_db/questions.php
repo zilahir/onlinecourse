@@ -22,10 +22,14 @@ $numberOfQuiz = countAllQuizInDb();
     <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
     <script>
     jQuery(document).ready(function($) {
-      $(".clickable-row").click(function() {
-          var url = "editquestion.php?id="+$(this).data("id");
+      $(".linkme").click(function() {
+          var url = "editquestion.php?id="+$(this).parent().data("id");
           window.document.location = url;
       });
+
+      /*$(".clickable-row").on('click', function(event){
+      console.log(event);
+    });*/
     });
 
     </script>
