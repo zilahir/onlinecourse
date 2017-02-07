@@ -19,6 +19,7 @@ $numberOfQuiz = countAllQuizInDb();
     <script type="text/javascript" src="deletequestion.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
     <script>
     jQuery(document).ready(function($) {
       $(".clickable-row").click(function() {
