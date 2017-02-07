@@ -6,7 +6,7 @@ include_once("functions.php");
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Add new quiz</title>
+    <title>Quizzes - Maintance</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
@@ -61,13 +61,13 @@ include_once("functions.php");
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Question</th>
-                  <th>Is Active</th>
-                  <th></th>
+                  <th>Name</th>
+                  <th>Number of questions</th>
+                  <th>Deadline</th>
                 </tr>
               </thead>
               <tbody>
-                <?php getAllQuestionsForQuiz();?>
+                <?php getAllQuizzes();?>
               </tbody>
             </table>
             <div class="addnewquestionbox">

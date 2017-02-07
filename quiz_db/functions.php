@@ -174,4 +174,35 @@ function getUserCredentials ($username, $password) {
 
 }
 
+function getNumberOfQuestionsForAQuiz ($quiz) {
+  $count = explode(",", $quiz);
+  $number = count($count)-1;
+  return $number;
+}
+
+function getAllQuizzes () {
+  $getAllQuizzesSql = "SELECT * FROM `quizs` ORDER BY `id` ASC  ";
+  $rows = MySQL::getRows($getAllQuizzesSql);
+  $count = 0;
+  foreach ($rows as $row ) {
+    $count++;
+    $id = $row->id;
+    $name = $row->name;
+    $deadline = $row->deadline;
+    $questions = $row->questions;
+
+    $numberOfQuestions = getNumberOfQuestionsForAQuiz($questions);
+
+
+    echo '<tr class="clickable-row" data-id="'.$id.'">
+    <td>'.$count.'</td>
+    <td>'.$name.'</td>
+    <td>'.$numberOfQuestions.'</td>
+    <td>'.$deadline.'</td>
+    </tr>
+    ';
+  }
+
+}
+
 ?>
