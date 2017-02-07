@@ -10,10 +10,10 @@
       <li>
         <a href="quizzes.php">Quizzes</a>
       </li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
       <li>
-        <a href="#">
-          <?php echo $_SESSION['username']; ?>
-        </a>
+        <a href="#">Howdy, <?php echo $_SESSION['username'] ?>!</a>
       </li>
     </ul>
     <button id="" type="button" class="btn btn-success navbar-btn pull-right">
@@ -24,5 +24,6 @@
     <button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
         <i class="fa fa-plus"></i>
     </button>
-  </div>
+
+    </div>
 </nav>
