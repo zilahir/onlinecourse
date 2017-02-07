@@ -88,3 +88,7 @@ ul.stat {
 .navbar-btn {
   margin-left: 10px;
 }
+
+.navbar-btn a {
+  color: #fff;
+}

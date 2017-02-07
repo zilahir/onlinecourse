@@ -27,6 +27,24 @@ include_once("functions.php");
   <body>
     <?php include_once("menu.php"); ?>
       <div id="main" class="container">
+        <div id="addnewquestion" class="row addnewquestionbox">
+          <div class="col-lg-12">
+            <h4>Name your quiz:</h4>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <i class="fa fa-question"></i>
+              </span>
+              <input id="quiezname" name="quiezname" type="text" class="form-control" placeholder="Question" aria-describedby="basic-addon1">
+            </div>
+            <h4>Set deadline to your quiz:</h4>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <input id="deadline" name="deadline" type="text" class="form-control" placeholder="Deadline" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
         <div id="questions" class="row">
           <div class="col-lg-12">
 
@@ -40,9 +58,15 @@ include_once("functions.php");
                 </tr>
               </thead>
               <tbody>
-                <?php getAllQuizzes();?>
+                <?php getAllQuestionsForQuiz();?>
               </tbody>
             </table>
+            <div class="addnewquestionbox">
+              <div class="row">
+                <a href="#">Number of selected questions <span id="selectedquestions" class="badge"></span></a>
+                <button id="createnewquiz" class="btn btn-success pull-right">Add new quiz</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
