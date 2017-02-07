@@ -87,3 +87,16 @@ input#username:hover, input#password:hover, input#password:focus, input#username
 	margin-left: 3rem;
 	margin-right: 3rem;
 }
+
+.error {
+  background-color: #ff6961;
+  color: #fff;
+  text-align: left;
+  padding: 15px;
+}
+
+span.who {
+  background-color: #fff;
+  color: #ff6961;
+
+}

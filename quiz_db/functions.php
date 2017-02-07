@@ -154,4 +154,24 @@ function getAllQuestionsForQuiz () {
 
 }
 
+function getUserCredentials ($username, $password) {
+    $getUserCredentialsSql = "SELECT * FROM `users` where `username` = '$username' LIMIT 1" ;
+    $rows = MySQL::getRows($getUserCredentialsSql);
+    $firstRow = $rows[0];
+
+    $loginUsername = $firstRow->username;
+    $loginPassword = $firstRow->password;
+    $loginFullName = $firstRow->fullname;
+    $loginNeptun = $firstRow->neptun;
+    $loginUserLevel = $firstRow->user_level;
+
+    //$isadmin = $firstRow->isadmin;
+
+    //$result = array('username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_level' => $loginUserLevel);
+    $result = array('neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName);
+
+    return $result;
+
+}
+
 ?>
