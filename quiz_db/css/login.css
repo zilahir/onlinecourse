@@ -41,10 +41,33 @@ h2 {
 .btn {
 	border-radius: 0.2rem;
 }
-.btn .glyphicon {
+.btn {
 	font-size: 3rem;
 	color: #fff;
 }
+
+#login {
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+  border-bottom: 2px solid #ff6961;
+  font-size: 2rem;
+}
+
+#login:hover {
+  color: #fff;
+  background-color: #ff6961;
+  cursor: pointer;
+}
+
+input#username, input#password {
+  outline: none;
+}
+
+input#username:hover, input#password:hover, input#password:focus, input#username:focus {
+  background-color: #f9f9f9;
+}
+
 .full-width {
 	background-color: #8eb5e2;
 	width: 100%;

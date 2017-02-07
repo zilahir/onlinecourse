@@ -18,7 +18,9 @@ echo "you are not logged in";
     <div class="box">
         <input type="text" placeholder="username" name="username" id="username">
 	    <input type="password" name="password" id="password" placeholder="password">
-	    <button class="btn btn-default full-width"><span class="glyphicon glyphicon-ok"></span></button>
+	    <button id="login" class="btn btn-default full-width">
+        LOGIN
+      </button>
     </div>
   </div>
 </div>
