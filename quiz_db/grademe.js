@@ -16,7 +16,7 @@ $(document).ready(function() {
             data:answerData, //Form variables
             success:function(response){
               //alert("success");
-              //console.log(response.result);
+              console.log(response.result);
                 //$("#graderesult").addClass(response.result);
                 $("#graderesult").css("width", response.result+"%");
                 $.each(response.answers, function(i, obj) {

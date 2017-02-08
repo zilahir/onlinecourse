@@ -164,6 +164,10 @@ function getAllQuestionsForQuiz () {
 
 }
 
+function checkForPendingQuizes ($userId) {
+
+}
+
 function getUserCredentials ($username, $password) {
     $getUserCredentialsSql = "SELECT * FROM `users` where `username` = '$username' LIMIT 1" ;
     $rows = MySQL::getRows($getUserCredentialsSql);
@@ -227,6 +231,19 @@ function getUserDetails ($username) {
     $result = array('fullname' => $usersFullname, );
 
     return $result;
+}
+
+function generateQuizPage ($quizId) {
+  $getQuizDetailsSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
+  $rows = MySQL::getRows($getQuizDetailsSql);
+  $firstRow = $rows[0];
+  $count = 0;
+
+  $quizName = $firstRow->name;
+  $deadline = $firstRow->deadline;
+
+  return $quizName;
+
 }
 
 
