@@ -9,9 +9,11 @@ session_start();
 $loggedInUserName = $_SESSION['username'];
 
 $selectedQuestions = $_POST['selectedquestions'];
-$deadline = "2017-12-21";
+//$deadline = "2017-12-21";
+$deadline = $_POST['deadline'];
+$startsFrom = $_POST['startsFrom'];
 $length = count($selectedQuestions);
-$quizName = "lofasz";
+$quizName = $_POST['quizname'];
 
 $question = '';
 
@@ -19,7 +21,7 @@ for ($i=0; $i<count($selectedQuestions); $i++) {
   $question .= $selectedQuestions[$i].",";
 }
 
-$insertArray = array('name' => $quizName, 'deadline' => $deadline, 'questions' => $question, 'owner' => $loggedInUserName  );
+$insertArray = array('name' => $quizName, 'deadline' => $deadline, 'starts_from' => $startsFrom, 'questions' => $question, 'owner' => $loggedInUserName  );
 
 MySQL::insertIntoGroup('`quizs`', $insertArray);
 

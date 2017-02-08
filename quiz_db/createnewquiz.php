@@ -47,7 +47,7 @@ include_once("functions.php");
               <span class="input-group-addon" id="basic-addon1">
                 <i class="fa fa-question"></i>
               </span>
-              <input id="quiezname" name="quiezname" type="text" class="form-control" placeholder="Question" aria-describedby="basic-addon1">
+              <input id="quizname" name="quizname" type="text" class="form-control" placeholder="Question" aria-describedby="basic-addon1">
             </div>
             <h4>Set deadline to your quiz:</h4>
             <div class="input-group">

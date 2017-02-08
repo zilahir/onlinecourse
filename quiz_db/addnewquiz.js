@@ -18,8 +18,15 @@ $(document).ready(function() {
       });
 
       $("#createnewquiz").click(function(e) {
+        var startsFrom = $("#opendate").val();
+        var deadline = $("#deadline").val();
+        var quizname = $("#quizname").val();
         var quizData = {
-          selectedquestions : selectedQuestions
+          selectedquestions : selectedQuestions,
+          startsFrom : startsFrom,
+          deadline : deadline,
+          quizname : quizname
+
         }
           jQuery.ajax({
               type: "POST", // HTTP method POST or GET
@@ -28,6 +35,7 @@ $(document).ready(function() {
               data: quizData, //Form variables
               success: function(response) {
                 //alert("success")
+                console.log(quizData);
                 var n = noty({
                   text: 'New quiz has been added successfully!',
                 	theme: 'relax',
