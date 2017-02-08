@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once("functions.php");
 
 $answer1 = $_POST['answer1'];
@@ -32,7 +34,7 @@ $result["answers"] = array (
 );
 
 $goodAnswers = 0;
-$goodAnswers = 0;
+$badAnswers = 0;
 
 
   foreach ($result['answers'] as $key => $value) {
@@ -56,13 +58,13 @@ if ($percent == 1) {
 $result["numberofquestions"] = $numberOfQuestions;
 $result["result"] = $percent;
 
-$array = array(
-  "quiz_id" => $quizId,
-  "user_id" => $userId,
-  "result" => $result,
-  "submission_count" => $numberOfSubmission; //get back the current count
 
-);
+$quizId = $_SESSION['quizid']; // DONE
+$userId = $_SESSION['user_id']; // DONE
+$resultPoints = "66";
+$submission_count = "1";
+
+$array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
 
 MySQL::insertIntoGroup('`submissions`', $array);
 

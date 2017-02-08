@@ -34,7 +34,7 @@ if ($_SESSION['login'] == true ) {
 
         </div>
         <div class="col-lg-2">
-          <!-- statistics here -->
+          <?php var_dump ($_SESSION); ?>
         </div>
       </div>
     </div>

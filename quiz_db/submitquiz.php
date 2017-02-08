@@ -9,7 +9,7 @@ if ($_SESSION['login'] == true ) {
 }
 
 $quizId = $_GET['id'];
-
+$_SESSION['quizid'] = $quizId;
 $quizDetails = generateQuizPage($quizId);
 
 ?>
