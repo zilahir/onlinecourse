@@ -39,7 +39,7 @@ $quizDetails = generateQuizPage($quizId);
         <div id="errorcontainer" class="alert alert-danger hidden" role="alert">
           Hiba! Nem sikerült minden kérdésre helyesen válaszolni!
         </div>
-        <div class="col-lg-10 exercise-container">
+        <div class="col-lg-9 exercise-container">
           <div class="exercise-details">
             <ol>
               <li id="question-1">
@@ -94,7 +94,7 @@ $quizDetails = generateQuizPage($quizId);
           </div>
           <button id="submitforgrade" class="btn btn-success">Grade me!</button>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
           <div class="exercise-details">
             <p class="result-text">
               Your result:
