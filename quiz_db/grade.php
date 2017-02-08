@@ -1,5 +1,7 @@
 <?php
 
+include_once("functions.php");
+
 $answer1 = $_POST['answer1'];
 $answer2 = $_POST['answer2'];
 $answer3 = $_POST['answer3'];
@@ -54,6 +56,15 @@ if ($percent == 1) {
 $result["numberofquestions"] = $numberOfQuestions;
 $result["result"] = $percent;
 
+$array = array(
+  "quiz_id" => $quizId,
+  "user_id" => $userId,
+  "result" => $result,
+  "submission_count" => $numberOfSubmission; //get back the current count
+
+);
+
+MySQL::insertIntoGroup('`submissions`', $array);
 
 if (!isset($result)) {
   echo json_encode("error");
