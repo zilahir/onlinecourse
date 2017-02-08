@@ -4,12 +4,16 @@
       <li class="active">
         <a href="index.php">Home</a>
       </li>
-      <li>
-        <a href="questions.php">Questions</a>
-      </li>
-      <li>
-        <a href="quizzes.php">Quizzes</a>
-      </li>
+      <?php
+      if ($_SESSION['user_level'] == 0) {
+        echo '<li>
+          <a href="questions.php">Questions</a>
+        </li>
+        <li>
+          <a href="quizzes.php">Quizzes</a>
+        </li>';
+      }
+      ?>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
