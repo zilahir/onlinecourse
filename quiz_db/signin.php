@@ -19,6 +19,7 @@ if (isset($loginCredentials['username'])) {
     $_SESSION['username'] = $loginCredentials['username'];
     $_SESSION['fullname'] = $loginCredentials['fullname'];
     $_SESSION['neptun'] = $loginCredentials['neptun'];
+    $_SESSION['user_level'] = $loginCredentials['user_level'];
 
     //var_dump($_SESSION);
 

@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="active">
-        <a href="#">Home</a>
+        <a href="index.php">Home</a>
       </li>
       <li>
         <a href="questions.php">Questions</a>
@@ -11,11 +11,18 @@
         <a href="quizzes.php">Quizzes</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav pull-right">
-      <li>
-        <a href="#">Howdy, <?php echo $_SESSION['username'] ?>!</a>
-      </li>
-    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Howdy <?php echo $_SESSION['username'] ?> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="logout.php">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     <button id="" type="button" class="btn btn-success navbar-btn pull-right">
       <a href="createnewquiz.php">
         <i class="fa fa-check-square-o"></i>

@@ -178,7 +178,7 @@ function getUserCredentials ($username, $password) {
     //$isadmin = $firstRow->isadmin;
 
     //$result = array('username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_level' => $loginUserLevel);
-    $result = array('neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName);
+    $result = array('user_level' => $loginUserLevel, 'neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, );
 
     return $result;
 
