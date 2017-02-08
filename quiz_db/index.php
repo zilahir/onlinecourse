@@ -24,8 +24,19 @@ if ($_SESSION['login'] == true ) {
   </head>
   <body>
     <?php include_once("menu.php");?>
-    <div style="margin-top: 100px;" class="row">
-        <?php var_dump($_SESSION['user_level']); ?>
+
+    <div class="container gimmeplace">
+      <div class="row">
+        <div class="alert alert-info" role="alert">
+          Kitöltendő kvízed van!
+        </div>
+        <div class="col-lg-10">
+
+        </div>
+        <div class="col-lg-2">
+          <!-- statistics here -->
+        </div>
+      </div>
     </div>
 
   </body>
