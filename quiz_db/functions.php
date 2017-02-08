@@ -247,5 +247,15 @@ function generateQuizPage ($quizId) {
 
 }
 
+function getCurrentSubmissionForQuiz ($quizdid, $userid) {
+  $getCurrentNumberOfSubmissiosnSql = "SELECT * FROM `submissions` where `quiz_id` = '$quizdid' AND `user_id` = '$userid' " ;
+  $rows = MySQL::getRows($getCurrentNumberOfSubmissiosnSql);
+  $firstRow = $rows[0];
+
+  $currentNumberOfSubmissions = $firstRow->submission_count;
+
+  return $currentNumberOfSubmissions;
+}
+
 
 ?>
