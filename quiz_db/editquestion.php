@@ -37,6 +37,9 @@ $currentQuestion = getASpecificQuestion($questionId);
           </h2>
           <pre><?php echo $currentQuestion['desc'] ?></pre>
           <div class="input-group">
+            <?php echo $currentQuestion['tags'] ?>
+          </div>
+          <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
               <i class="fa fa-question"></i>
             </span>

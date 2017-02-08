@@ -60,8 +60,15 @@ function getASpecificQuestion ($questionId) {
     $question = $row->question;
     $isActive = $row->is_active;
     $description = $row->description;
+    $tags = $row->tags;
 
-    $question = array('question' => $question, 'id' => $id, 'is_active' => $isActive, 'desc' => $description );
+    $tagsArray = explode(",", $tags);
+
+    for ($i=0; $i<count($tagsArray)-1; $i++) {
+      $tagsResult .= '<span class="label label-info tags">'.$tagsArray[$i].'</span>';
+    }
+
+    $question = array('tags' => $tagsResult, 'question' => $question, 'id' => $id, 'is_active' => $isActive, 'desc' => $description,);
   }
 
   return $question;
@@ -204,5 +211,6 @@ function getAllQuizzes () {
   }
 
 }
+
 
 ?>
