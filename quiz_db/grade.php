@@ -64,7 +64,7 @@ $userId = $_SESSION['user_id']; // DONE
 $resultPoints = $percent;
 //$submission_count = "1";
 $currentSubbmissionCount = getCurrentSubmissionForQuiz($quizId, $userId);
-$submission_count = $currentSubbmissionCount+1;
+$submission_count = $currentSubbmissionCount['numberof_submisoins']+1;
 
 $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
 

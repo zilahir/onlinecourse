@@ -1,7 +1,9 @@
 <?php
 
 include_once("functions.php");
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 if ($_SESSION['login'] == true ) {
 } else {
@@ -11,6 +13,7 @@ if ($_SESSION['login'] == true ) {
 $quizId = $_GET['id'];
 $_SESSION['quizid'] = $quizId;
 $quizDetails = generateQuizPage($quizId);
+$lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
 
 ?>
 
@@ -103,7 +106,7 @@ $quizDetails = generateQuizPage($quizId);
 <div id="graderesult" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
 </div>
 </div>
-<h2>Pontszám</h2>
+<h2>Pontszám: <?php echo $lastSubmission['result']; ?></h2>
           </div>
         </div>
       </div>
