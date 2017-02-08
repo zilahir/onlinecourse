@@ -9,7 +9,8 @@ $(document).ready(function() {
         var context = simplemde.value();
         var questionData = {
             question: $('#newquestion').val(),
-            context: context
+            context: context,
+            tags: $('#tags').val()
         };
 
         jQuery.ajax({

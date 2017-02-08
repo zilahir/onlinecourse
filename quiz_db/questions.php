@@ -36,6 +36,7 @@ $numberOfQuiz = countAllQuizInDb();
 
     $("#tags").select2({
       tags: true,
+      placeholder: "Add tags for the question",
       tokenSeparators: [',', ' ']
       })
     });
@@ -57,7 +58,6 @@ $numberOfQuiz = countAllQuizInDb();
               <textarea id="markdowneditor"></textarea>
               <div style="width: 100%;" class="input-group">
                 <select style="width: 100%;" id="tags" class="js-example-tokenizer form-control" multiple="multiple">
-                  <option>html</option>
                 </select>
               </div>
             <div id="submitbutton" class="input-group pull-right">

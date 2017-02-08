@@ -7,13 +7,19 @@ session_start();
 
 $newQuestion = $_POST['question'];
 $description = $_POST['context'];
+$tags = $_POST['tags'];
 $loggedInUserName = $_SESSION['username'];
+
+for ($i=0; $i<count($tags); $i++) {
+  $tagsToInsert .= $tags[$i].", ";
+}
 
 $array = array(
   "question" => $newQuestion,
   "is_active" => true,
   "description" => $description,
-  "owner" => $loggedInUserName
+  "owner" => $loggedInUserName,
+  "tags" => $tagsToInsert
 );
 
 MySQL::insertIntoGroup('`questions`', $array);
