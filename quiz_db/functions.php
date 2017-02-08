@@ -61,6 +61,9 @@ function getASpecificQuestion ($questionId) {
     $isActive = $row->is_active;
     $description = $row->description;
     $tags = $row->tags;
+    $owner = $row->owner;
+
+    $quizOwner = getUserDetails($owner);
 
     $tagsArray = explode(",", $tags);
 
@@ -68,7 +71,7 @@ function getASpecificQuestion ($questionId) {
       $tagsResult .= '<span class="label label-info tags">'.$tagsArray[$i].'</span>';
     }
 
-    $question = array('tags' => $tagsResult, 'question' => $question, 'id' => $id, 'is_active' => $isActive, 'desc' => $description,);
+    $question = array('tags' => $tagsResult, 'question' => $question, 'id' => $id, 'is_active' => $isActive, 'desc' => $description, 'owner' => $quizOwner['fullname']);
   }
 
   return $question;

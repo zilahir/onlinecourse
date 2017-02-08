@@ -35,6 +35,11 @@ $currentQuestion = getASpecificQuestion($questionId);
           <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid">Q: <?php echo $currentQuestion['question']; ?>
             <button id="deletequestion" class="btn btn-outline-danger pull-right">Delete this question</button>
           </h2>
+          <div class="input-group">
+            <p>
+              <i class="fa fa-user"></i> <?php echo $currentQuestion['owner']; ?>
+            </p>
+          </div>
           <pre><?php echo $currentQuestion['desc'] ?></pre>
           <div class="input-group">
             <?php echo $currentQuestion['tags'] ?>
