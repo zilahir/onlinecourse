@@ -41,10 +41,12 @@ $goodAnswers = 0;
   }
 }
 
-$percent = intval($goodAnswers/$numberOfQuestions);
+$percent = $goodAnswers/$numberOfQuestions;
 
 if ($percent == 1) {
   $percent = "100";
+} else {
+  $percent = $percent*100;
 }
 //echo "good: ".$goodAnswers."bad: ".$badAnswers;
 
