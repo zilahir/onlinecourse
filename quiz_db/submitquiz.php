@@ -36,14 +36,11 @@ $quizDetails = generateQuizPage($quizId);
 
     <div class="container gimmeplace">
       <div class="row">
-        <div class="alert alert-info" role="alert">
-          Kvíz
+        <div id="errorcontainer" class="alert alert-danger hidden" role="alert">
+          Hiba! Nem sikerült minden kérdésre helyesen válaszolni!
         </div>
         <div class="col-lg-10 exercise-container">
           <div class="exercise-details">
-            <div id="errorcontainer" class="alert alert-danger hidden" role="alert">
-              Hiba! Nem sikerült minden kérdésre helyesen válaszolni!
-            </div>
             <ol>
               <li id="question-1">
                   <h3>Mit csinál a következő CSS osztály?</h3>
