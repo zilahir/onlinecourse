@@ -19,9 +19,21 @@ include_once("functions.php");
     <script type="text/javascript" src="addnewquiz.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <script type="text/javascript">
+            $(function () {
+                $('#deadline').datetimepicker({
+                  format:  "YYYY-MM-DD"
+                });
+                $('#opendate').datetimepicker({
+                  format:  "YYYY-MM-DD"
+                });
+            });
+
+    </script>
 
 
 </head>
@@ -42,6 +54,7 @@ include_once("functions.php");
               <span class="input-group-addon" id="basic-addon1">
                 <i class="fa fa-calendar-o"></i>
               </span>
+              <input id="opendate" name="opendate" type="text" class="form-control" placeholder="Opens at" aria-describedby="basic-addon1">
               <input id="deadline" name="deadline" type="text" class="form-control" placeholder="Deadline" aria-describedby="basic-addon1">
             </div>
           </div>
