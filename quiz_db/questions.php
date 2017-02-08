@@ -4,6 +4,12 @@ include_once("functions.php");
 $numberOfQuestions = countAllQuestionsInDb();
 $numberOfQuiz = countAllQuizInDb();
 
+if (isset($_GET['action'])) {
+  $deleedAction = '<div class="alert alert-warning" role="alert">
+      The question has been deleted!
+  </div>';
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,6 +74,7 @@ $numberOfQuiz = countAllQuizInDb();
         </div>
         <div id="questions" class="row">
           <div class="col-lg-12">
+            <?php echo $deleedAction; ?>
             <div class="alert alert-info" role="alert">
                 <ul class="stat">
                   <li>

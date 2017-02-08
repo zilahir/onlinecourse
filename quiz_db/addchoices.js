@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var allChoises = "";
+    var error = "";
     $("#addnewoption").click(function(e) {
         //alert("clicked");
         var Numbers = $("#optioncontainer input");
@@ -23,14 +24,16 @@ $(document).ready(function() {
 
         $.each(allCheckbox, function() {
             if ($(this).is(':checked')) {
-              console.log($(this).data("number"));  //WORKS
+              //console.log($(this).data("number"));  //WORKS
               var correctChoise = $(this).data("number");
               choicesData["correct_choice"] = correctChoise;
             } else {
-              console.log("no checkbox is checked");
+              //
             }
         });
-
+        if (choicesData["correct_choice"] == undefined) {
+          error = "Missing correnct answer!";
+        }
         allChoises = $("input[id^='choice-']")
         var allChoisesLength = allChoises.length;
         $.each(allChoises, function() {
@@ -43,18 +46,33 @@ $(document).ready(function() {
           choicesData ["questionId"] = $('#questionid').data("id");
         });
 
-        console.log(choicesData);
-        jQuery.ajax({
-            type: "POST", // HTTP method POST or GET
-            url: "addnewchoices.php", //Where to make Ajax calls
-            dataType: "json", // Data type, HTML, json etc.
-            data: choicesData, //Form variables
-            success: function(response) {
-                //alert("success");
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(thrownError);
-            }
-        });
+        //console.log(choicesData);
+        console.log(error);
+        if (error == undefined || error == "") {
+          jQuery.ajax({
+              type: "POST", // HTTP method POST or GET
+              url: "addnewchoices.php", //Where to make Ajax calls
+              dataType: "json", // Data type, HTML, json etc.
+              data: choicesData, //Form variables
+              success: function(response) {
+                  //alert("success");
+              },
+              error: function(xhr, ajaxOptions, thrownError) {
+              }
+          });
+        } else {
+          var n = noty({
+            text: error,
+            theme: 'relax',
+            type: 'warning',
+            timeout: '5000',
+              animation: {
+                  open: {height: 'toggle'},
+                  close: {height: 'toggle'},
+                  easing: 'swing',
+                  speed: 500 
+              }
+          });
+        }
     });
 });

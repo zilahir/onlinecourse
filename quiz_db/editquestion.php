@@ -20,8 +20,8 @@ $currentQuestion = getASpecificQuestion($questionId);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="addchoices.js"></script>
-    <script type="text/javascript" src="deletechoice.js"></script>
-
+    <script type="text/javascript" src="editquestion.js"></script>
+    <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
     <script>
 
     </script>
@@ -33,7 +33,7 @@ $currentQuestion = getASpecificQuestion($questionId);
       <div class="row addnewquestionbox editquestion-container">
         <div id="optioncontainer" class="col-lg-12">
           <h2 data-id="<?php echo $currentQuestion['id']; ?>" id="questionid">Q: <?php echo $currentQuestion['question']; ?>
-            <button id="deletequestion" class="btn btn-outline-danger pull-right">Delete this question</button>
+            <button data-id="<?php echo $questionId;?>" id="deletequestion" class="btn btn-outline-danger pull-right">Delete this question</button>
           </h2>
           <div class="input-group">
             <p>
