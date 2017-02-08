@@ -24,6 +24,9 @@ if ($_SESSION['login'] == true ) {
   </head>
   <body>
     <?php include_once("menu.php");?>
-    
+    <div style="margin-top: 100px;" class="row">
+        <?php var_dump($_SESSION['user_level']); ?>
+    </div>
+
   </body>
 </html>

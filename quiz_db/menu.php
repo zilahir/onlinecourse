@@ -23,14 +23,22 @@
           </ul>
         </li>
       </ul>
-    <button id="" type="button" class="btn btn-success navbar-btn pull-right">
-      <a href="createnewquiz.php">
-        <i class="fa fa-check-square-o"></i>
-      </a>
-    </button>
-    <button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
-        <i class="fa fa-plus"></i>
-    </button>
+      <!-- admin related menu -->
+    <?php
+      if ($_SESSION['user_level'] == 0) {
+        echo '<button id="" type="button" class="btn btn-success navbar-btn pull-right">
+          <a href="createnewquiz.php">
+            <i class="fa fa-check-square-o"></i>
+          </a>
+        </button>
+        <button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
+            <i class="fa fa-plus"></i>
+        </button>';
+      }
+
+    ?>
+
+    <!-- // admin related menu -->
 
     </div>
 </nav>
