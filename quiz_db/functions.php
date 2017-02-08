@@ -197,19 +197,33 @@ function getAllQuizzes () {
     $name = $row->name;
     $deadline = $row->deadline;
     $questions = $row->questions;
+    $owner = $row->owner;
 
     $numberOfQuestions = getNumberOfQuestionsForAQuiz($questions);
-
+    $quizOwner = getUserDetails($owner);
 
     echo '<tr class="clickable-row" data-id="'.$id.'">
     <td>'.$count.'</td>
     <td>'.$name.'</td>
     <td>'.$numberOfQuestions.'</td>
     <td>'.$deadline.'</td>
+    <td>'.$quizOwner['fullname'].'</td>
     </tr>
     ';
   }
 
+}
+
+function getUserDetails ($username) {
+    $getUserDetailsSql = "SELECT * FROM `users` where `username` = '$username' LIMIT 1" ;
+    $rows = MySQL::getRows($getUserDetailsSql);
+    $firstRow = $rows[0];
+
+    $usersFullname = $firstRow->fullname;
+
+    $result = array('fullname' => $usersFullname, );
+
+    return $result;
 }
 
 

@@ -37,6 +37,7 @@ include_once("functions.php");
                   <th>Name</th>
                   <th>Number of questions</th>
                   <th>Deadline</th>
+                  <th>Owner</th>
                 </tr>
               </thead>
               <tbody>
