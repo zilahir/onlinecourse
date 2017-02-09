@@ -254,8 +254,9 @@ function getCurrentSubmissionForQuiz ($quizid, $userid) {
     $firstRow = $rows[0];
     $currentNumberOfSubmissions = $firstRow->submission_count;
     $bestPoints = $firstRow->result;
+    $submissionId = $firstRow->id;
 
-    $result = array('numberof_submission' => $currentNumberOfSubmissions, 'result' => $bestPoints );
+    $result = array('numberof_submission' => $currentNumberOfSubmissions, 'result' => $bestPoints, 'id' => $submissionId );
   } else {
     $result = array('numberof_submission' => 0, 'result' => 0 );
   }

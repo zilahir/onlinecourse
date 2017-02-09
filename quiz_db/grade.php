@@ -72,6 +72,13 @@ $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPo
 if ($currentSubbmissionCount['numberof_submission'] == 0) {
   //insert for first time
   MySQL::insertIntoGroup('`submissions`', $array);
+} else { //get id for this user's first submission
+  $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
+  $lastSubmissionId = $lastSubmission['id'];
+
+  //echo $lastSubmissionId; //check if it works
+  // UPDATE the submission row in DB
+  MySQL::update('`submissions`', $lastSubmissionId, $array);
 }
 
 if (!isset($result)) {
