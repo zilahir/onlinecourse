@@ -98,13 +98,12 @@ $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
         <div class="col-lg-3">
           <div class="exercise-details">
             <p class="result-text">
-              Your result:
+              Your result: <?php echo $lastSubmission['result'];?> /100
             </p>
             <div class="progress">
 <div id="graderesult" style="width:<?php echo $lastSubmission['result'].'%';?>" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
 </div>
 </div>
-<h2>Pontszám: <?php echo $lastSubmission['result']; ?></h2>
           </div>
         </div>
       </div>
