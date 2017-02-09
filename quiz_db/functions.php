@@ -268,7 +268,9 @@ function getCurrentSubmissionForQuiz ($quizid, $userid) {
 function checkIfTheresOpenQuizzes() {
   $currentDate = date("Y-m-d");
 
-  $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ; //TODO check if user has no submission at all for the quiz
+  $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
+  //TODO check if user has no submission at all for the quiz
+    // check if submission is exits for the current quizid in submissions DB
   $rows = MySQL::getRows($getAllOpenQuizzesSql);
   foreach ($rows as $row ) {
     $count++;
