@@ -268,15 +268,17 @@ function getCurrentSubmissionForQuiz ($quizid, $userid) {
 function checkIfTheresOpenQuizzes() {
   $currentDate = date("Y-m-d");
 
-  $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
+  $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ; //TODO check if user has no submission at all
   $rows = MySQL::getRows($getAllOpenQuizzesSql);
   foreach ($rows as $row ) {
     $count++;
     $id = $row->id;
     $name = $row->name;
 
-    echo $name;
+    $result .= '<a href="submitquiz.php?id="'.$id.'">'.$name.'</a> ';
   }
+
+  echo $result;
 
 }
 
