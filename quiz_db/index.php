@@ -4,6 +4,14 @@ if ($_SESSION['login'] == true ) {
 } else {
   header("Location: login.php");
 }
+
+include_once("functions.php");
+//$nextQuizDetails($userId);
+
+$details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +39,9 @@ if ($_SESSION['login'] == true ) {
           Kitöltendő kvízed van!
         </div>
         <div class="col-lg-10">
-
+          <?php
+          
+           ?>
         </div>
         <div class="col-lg-2">
           <?php var_dump ($_SESSION); ?>

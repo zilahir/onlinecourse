@@ -250,11 +250,15 @@ function generateQuizPage ($quizId) {
 function getCurrentSubmissionForQuiz ($quizid, $userid) {
   $getCurrentNumberOfSubmissiosnSql = "SELECT * FROM `submissions` where `quiz_id` = '$quizid' AND `user_id` = '$userid' LIMIT 1 " ;
   $rows = MySQL::getRows($getCurrentNumberOfSubmissiosnSql);
-  $firstRow = $rows[0];
-  $currentNumberOfSubmissions = $firstRow->submission_count;
-  $bestPoints = $firstRow->result;
+  if (!empty($rows)) {
+    $firstRow = $rows[0];
+    $currentNumberOfSubmissions = $firstRow->submission_count;
+    $bestPoints = $firstRow->result;
 
-  $result = array('numberof_submisoins' => $currentNumberOfSubmissions, 'result' => $bestPoints );
+    $result = array('numberof_submission' => $currentNumberOfSubmissions, 'result' => $bestPoints );
+  } else {
+    $result = array('numberof_submission' => 0, 'result' => 0 );
+  }
 
   return $result;
 }

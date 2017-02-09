@@ -64,16 +64,20 @@ $userId = $_SESSION['user_id']; // DONE
 $resultPoints = $percent;
 //$submission_count = "1";
 $currentSubbmissionCount = getCurrentSubmissionForQuiz($quizId, $userId);
-$submission_count = $currentSubbmissionCount['numberof_submisoins']+1;
+
+$submission_count = $currentSubbmissionCount['numberof_submission']+1;
 
 $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
 
-MySQL::insertIntoGroup('`submissions`', $array);
+if ($currentSubbmissionCount['numberof_submission'] == 0) {
+  //insert for first time
+  MySQL::insertIntoGroup('`submissions`', $array);
+}
 
 if (!isset($result)) {
   echo json_encode("error");
 } else {
-  echo json_encode($result);
+  echo json_encode($array);
 }
 
 ?>
