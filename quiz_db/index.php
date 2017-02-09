@@ -36,7 +36,7 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
     <div class="container gimmeplace">
       <div class="row">
         <div class="alert alert-info" role="alert">
-          Kitöltendő kvízed van! <?php checkIfTheresOpenQuizzes(); ?>
+          Kitöltendő kvízed van! 
         </div>
         <div class="col-lg-10">
           <?php
