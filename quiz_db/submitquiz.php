@@ -12,6 +12,7 @@ $quizId = $_GET['id'];
 $_SESSION['quizid'] = $quizId;
 $quizDetails = generateQuizPage($quizId);
 $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
+$submissionsSum = countSubbmissionForQuiz ($quizId);
 
 ?>
 
@@ -99,6 +100,9 @@ $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
           <div class="exercise-details">
             <p class="result-text">
               Your result: <?php echo $lastSubmission['result'];?> /100
+            </p>
+            <p class="result-text">
+              Total number of submissions: <? echo $submissionsSum; ?>
             </p>
             <div class="progress">
 <div id="graderesult" style="width:<?php echo $lastSubmission['result'].'%';?>" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">

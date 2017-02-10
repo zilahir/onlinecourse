@@ -48,6 +48,6 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
         </div>
       </div>
     </div>
-
+    <?php include_once("footer.php");?>
   </body>
 </html>
