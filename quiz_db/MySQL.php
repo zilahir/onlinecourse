@@ -188,6 +188,16 @@ class MySQL {
         return count(self::getRows($query)) ;
     }
 
+    // check if user hsa submisson for that particular quiz
+
+    static function checkUserSubmisson($table, $quizIdRow, $quizIdValue, $userRow, $userValue) {
+        $query = "SELECT id FROM " . $table . " WHERE " . $quizIdRow . "='" . $quizIdValue . "' AND " . $userRow . " = '" . $userValue .  "';";
+        //echo $query;
+        return count(self::getRows($query)) ;
+    }
+
+    // end of function
+
     static function countEntry($table, $key, $value) {
         $query = "SELECT id FROM " . '`'.$table.'`' . " WHERE " . '`'.$key.'`' . "='" . $value . "' ;";
         //echo $query;
