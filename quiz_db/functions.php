@@ -264,17 +264,23 @@ function getCurrentSubmissionForQuiz ($quizid, $userid) {
   return $result;
 }
 
-function createTemplateForUnsubmittedQuiz ($count, $name, $deadline) {
+function createTemplateForUnsubmittedQuiz ($count, $name, $deadline, $numberOfSubmission) {
   $htmlElement = '
   <tr>
     <td>'.$count.'</td>
     <td>'.$name.'</td>
     <td>'.$deadline.'</td>
-    <td>99</td>
+    <td>'.$numberOfSubmission.'</td>
   </tr>
   ';
 
   return $htmlElement;
+}
+
+function countSubbmissionForQuiz ($quizId) {
+  $result = MySQL::countEntry("submissions", "quiz_id", $quizId);
+
+  return $result;
 }
 
 function checkIfTheresOpenQuizzes() {
@@ -287,7 +293,7 @@ function checkIfTheresOpenQuizzes() {
         <th>#</th>
         <th>Quiz name</th>
         <th>Deadline</th>
-        <th>Submissions</th>
+        <th>Total number of submissions</th>
       </tr>
     </thead>
     <tbody>
@@ -303,11 +309,11 @@ $tableFooter = '</tbody>
     //echo 'quiz_id: '.$id.' ';
     $name = $row->name;
     $deadline = $row->deadline;
-
+    $numberOfSubmission = countSubbmissionForQuiz($id);
     $isThereAnySubmission = MySQL::checkUserSubmisson('`submissions`', '`quiz_id`', $id, '`user_id`', $_SESSION['user_id']);
     if ($isThereAnySubmission == 0 ) {
       //$result .= $name.", ";
-      $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline);
+      $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission);
     }
     //$result .= '<a href="submitquiz.php?id="'.$id.'">'.$name.'</a> ';
   }
