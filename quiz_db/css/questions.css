@@ -112,3 +112,7 @@ span.tags {
 .gimmeplace {
   margin-top: 100px;
 }
+
+.red, .pastel-red {
+  color: #ff6961;
+}
