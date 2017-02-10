@@ -124,3 +124,9 @@ span.tags {
 input#submission_limit {
   width: 10%;
 }
+
+.wrong-answer {
+  border: 2px solid #ff0000;
+  padding: 15px;
+  margin-top: 10px;
+}

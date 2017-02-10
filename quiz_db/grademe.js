@@ -9,6 +9,8 @@ $(document).ready(function() {
           answer3: $('input[name=question-3-answers]:checked').val(),
           numberOfQuestions: numberOfQuestions
         };
+
+        console.log(answerData);
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET
             url: "grade.php", //Where to make Ajax calls
@@ -16,12 +18,13 @@ $(document).ready(function() {
             data:answerData, //Form variables
             success:function(response){
               //alert("success");
-              console.log(response.result);
+              console.log(response);
+              //console.log(response.result);
                 //$("#graderesult").addClass(response.result);
                 $("#graderesult").css("width", response.result+"%");
                 $.each(response.answers, function(i, obj) {
-                  //console.log(obj);
-                  if (obj == false) {
+                  console.log(obj);
+                  if (obj == false || obj == undefined) {
                     $("li#"+i).addClass("wrong-answer");
                     showErrorBox = true;
                   }
