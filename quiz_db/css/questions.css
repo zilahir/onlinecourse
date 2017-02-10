@@ -116,3 +116,11 @@ span.tags {
 .red, .pastel-red {
   color: #ff6961;
 }
+
+.total {
+  font-size: 12px;
+}
+
+input#submission_limit {
+  width: 10%;
+}

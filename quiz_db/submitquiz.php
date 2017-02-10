@@ -106,7 +106,7 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
             <p class="result-text">
               Your number of submission: <? echo $lastSubmission['numberof_submission']; ?>
             </p>
-            <p class="result-text">
+            <p class="result-text total">
               Total number of submissions: <? echo $submissionsSum; ?>
             </p>
             <div class="progress">

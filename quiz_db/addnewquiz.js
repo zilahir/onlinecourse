@@ -21,13 +21,16 @@ $(document).ready(function() {
         var startsFrom = $("#opendate").val();
         var deadline = $("#deadline").val();
         var quizname = $("#quizname").val();
+        var limit = $("#submission_limit").val();
         var quizData = {
           selectedquestions : selectedQuestions,
           startsFrom : startsFrom,
           deadline : deadline,
-          quizname : quizname
+          quizname : quizname,
+          limit : limit
 
         }
+        //console.log(quizData);
           jQuery.ajax({
               type: "POST", // HTTP method POST or GET
               url: "addnewquiz.php", //Where to make Ajax calls

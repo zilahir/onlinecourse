@@ -57,6 +57,12 @@ include_once("functions.php");
               <input id="opendate" name="opendate" type="text" class="form-control" placeholder="Opens at" aria-describedby="basic-addon1">
               <input id="deadline" name="deadline" type="text" class="form-control" placeholder="Deadline" aria-describedby="basic-addon1">
             </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <i class="fa fa-hourglass-end"></i>
+              </span>
+              <input pattern="[1-9]{2}" id="submission_limit" name="submission_limit" value="5" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
           </div>
         </div>
         <div id="questions" class="row">
