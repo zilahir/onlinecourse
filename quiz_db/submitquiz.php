@@ -104,7 +104,7 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
               Your result: <?php echo $lastSubmission['result'];?> /100
             </p>
             <p class="result-text">
-              Your number of submission: <? echo $lastSubmission['numberof_submission']; ?>
+              Your number of submission: <? echo $lastSubmission['numberof_submission'].' / '.$quizDetails['max_sub']; ?>
             </p>
             <p class="result-text total">
               Total number of submissions: <? echo $submissionsSum; ?>

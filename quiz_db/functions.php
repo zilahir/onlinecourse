@@ -242,8 +242,10 @@ function generateQuizPage ($quizId) {
 
   $quizName = $firstRow->name;
   $deadline = $firstRow->deadline;
+  $max_sub = $firstRow->max_sub;
 
-  return $quizName;
+  $result = array('max_sub' => $max_sub, );
+  return $result;
 
 }
 
