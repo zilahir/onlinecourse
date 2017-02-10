@@ -64,8 +64,12 @@ $userId = $_SESSION['user_id']; // DONE
 $resultPoints = $percent;
 //$submission_count = "1";
 $currentSubbmissionCount = getCurrentSubmissionForQuiz($quizId, $userId);
+$currentPoint = $currentSubbmissionCount['result'];
+
 
 $submission_count = $currentSubbmissionCount['numberof_submission']+1;
+
+//TODO if ($reultPoints >  $currentPoint) --> array -> resultPoints // else array --> currentPoints 
 
 $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
 
@@ -79,6 +83,7 @@ if ($currentSubbmissionCount['numberof_submission'] == 0) {
   //echo $lastSubmissionId; //check if it works
   // UPDATE the submission row in DB
   MySQL::update('`submissions`', $lastSubmissionId, $array);
+  //TODO check if current point is the best one. if is -> update array , else count++
 }
 
 if (!isset($result)) {

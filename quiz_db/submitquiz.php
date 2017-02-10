@@ -12,6 +12,7 @@ $quizId = $_GET['id'];
 $_SESSION['quizid'] = $quizId;
 $quizDetails = generateQuizPage($quizId);
 $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
+
 $submissionsSum = countSubbmissionForQuiz ($quizId);
 
 ?>
@@ -97,9 +98,13 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
           <button id="submitforgrade" class="btn btn-success">Grade me!</button>
         </div>
         <div class="col-lg-3">
+          <?php //var_dump($lastSubmission); //testing purposes ?>
           <div class="exercise-details">
             <p class="result-text">
               Your result: <?php echo $lastSubmission['result'];?> /100
+            </p>
+            <p class="result-text">
+              Your number of submission: <? echo $lastSubmission['numberof_submission']; ?>
             </p>
             <p class="result-text">
               Total number of submissions: <? echo $submissionsSum; ?>
