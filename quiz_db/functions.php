@@ -4,7 +4,7 @@ include_once("MySQL.php");
 MySQL::connect();
 
 function getAllQuestions () {
-    $getAllProjectsSql = "SELECT * FROM `questions` ORDER BY `id` ASC  ";
+    $getAllProjectsSql = "SELECT * FROM `questions` ORDER BY `id` DESC  ";
     $rows = MySQL::getRows($getAllProjectsSql);
     $count = 0;
     foreach ($rows as $row ) {
