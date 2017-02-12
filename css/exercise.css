@@ -1,0 +1,55 @@
+/* exercise css - rzilahi - 2017 */
+
+
+.exercise-container {
+  background-color: #fff;
+  margin-top: 40px;
+}
+
+.exercise-title {
+  border-bottom: 1px solid #000;
+}
+
+.exercise-warning {
+  padding: 10px;
+  margin: 10px;
+}
+
+.exercise-details {
+  margin: 10px;
+
+}
+
+h2 {
+  font-size: 20px;
+}
+
+a.exercise-links {
+  text-decoration: underline;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.solution {
+  float: right;
+}
+
+.next-exercise {
+  font-size: 2em;
+}
+
+.hundredpercent {
+  width: 100%;
+}
+
+.seventypercent {
+  width: 70%;
+}
+
+.wrong-answer {
+  border: 2px solid #ff0000;
+  padding: 15px;
+  margin-top: 10px;
+}

@@ -1,0 +1,102 @@
+/*
+Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
+*/
+body {
+    background: url(http://habrastorage.org/files/c9c/191/f22/c9c191f226c643eabcce6debfe76049d.jpg);
+}
+
+.jumbotron {
+	text-align: center;
+	width: 30rem;
+	border-radius: 0.5rem;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	margin: 4rem auto;
+	background-color: #fff;
+	padding: 2rem;
+}
+
+.container .login-icon {
+	font-size: 10rem;
+	margin-top: 3rem;
+	color: #f96145;
+}
+
+input {
+	width: 100%;
+	margin-bottom: 1.4rem;
+	padding: 1rem;
+	background-color: #ecf2f4;
+	border-radius: 0.2rem;
+	border: none;
+}
+h2 {
+	margin-bottom: 3rem;
+	font-weight: bold;
+	color: #ababab;
+}
+.btn {
+	border-radius: 0.2rem;
+}
+.btn {
+	font-size: 3rem;
+	color: #fff;
+}
+
+#login {
+  border: none;
+  background-color: transparent;
+  color: #ccc;
+  border-bottom: 2px solid #ff6961;
+  font-size: 2rem;
+}
+
+#login:hover {
+  color: #fff;
+  background-color: #ff6961;
+  cursor: pointer;
+}
+
+input#username, input#password {
+  outline: none;
+}
+
+input#username:hover, input#password:hover, input#password:focus, input#username:focus {
+  background-color: #f9f9f9;
+}
+
+.full-width {
+	background-color: #8eb5e2;
+	width: 100%;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	-moz-border-radius-topright: 0;
+	-moz-border-radius-bottomright: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.box {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: 3rem;
+	margin-left: 3rem;
+	margin-right: 3rem;
+}
+
+.error {
+  background-color: #ff6961;
+  color: #fff;
+  text-align: left;
+  padding: 15px;
+}
+
+span.who {
+  background-color: #fff;
+  color: #ff6961;
+
+}
