@@ -21,6 +21,7 @@ include_once("functions.php");
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script src="randomgen.js"></script>
 
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <script type="text/javascript">
@@ -62,22 +63,23 @@ include_once("functions.php");
                 <i class="fa fa-hourglass-end"></i>
               </span>
               <input pattern="[1-9]{2}" id="submission_limit" name="submission_limit" value="5" type="text" class="form-control" aria-describedby="basic-addon1">
+              <button id="randomquiz" class="btn btn-success pull-right">Generate a random quiz</button>
             </div>
           </div>
         </div>
         <div id="questions" class="row">
           <div class="col-lg-12">
 
-            <table id="" class="table table-hover">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Number of questions</th>
-                  <th>Deadline</th>
+                  <th>Is Active</th>
+                  <th>Select</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="questioncontainer">
                 <?php getAllQuestionsForQuiz();?>
               </tbody>
             </table>
