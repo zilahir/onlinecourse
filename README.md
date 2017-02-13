@@ -4,6 +4,6 @@
 
 * python
 * robotframework
-** selenium2library
-** database library
+  *selenium2library
+  *database library
 * jenkins
