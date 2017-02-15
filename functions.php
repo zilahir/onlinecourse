@@ -95,7 +95,7 @@ function getAllAnswerForQuestion ($id) {
     <td>'.$choice.'</td>
     <td>'.$rightChoiceIcon['icon'].'</td>
     <td>
-    <i class="fa fa-times action-icon"></i>
+    <i class="fa fa-trash action-icon deletechoice"></i>
     </td>
     </tr>
     ';

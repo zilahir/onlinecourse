@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".fa-times").click(function(e) {
+    $(".deletechoice").click(function(e) {
 
         var deleteData = {
           idToDelete: $(this).parent().parent().data("id")
