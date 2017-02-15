@@ -38,22 +38,14 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
     <?php include_once("menu.php");?>
 
     <div class="container gimmeplace">
-      <div id="chart" class="row">
+      <?php
+      if ($_SESSION["user_level"] != 0) {
+        include_once ("user.php");
+      } else {
+        include_once("admin.php");
+      }
 
-      </div>
-      <div class="row">
-        <div class="alert alert-info" role="alert">
-          Kitöltendő kvízed van!
-        </div>
-        <div class="col-lg-10">
-          <?php
-          checkIfTheresOpenQuizzes();
-           ?>
-        </div>
-        <div class="col-lg-2">
-          <?php var_dump ($_SESSION); ?>
-        </div>
-      </div>
+      ?>
     </div>
     <?php include_once("footer.php");?>
     <script src="drawadminchart.js"></script>
