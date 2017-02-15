@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/exercise.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="../../js/triggertc.js"></script>
   </head>
   <body>
     <div class="container">
@@ -252,8 +253,29 @@
 
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 exercise-container">
+              <div class="col-lg-8">
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">
+                    <i class="fa fa-git"></i>
+                  </span>
+                  <input id="gitpath" type="text" class="form-control" placeholder="gitrepo url" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <button id="grademe" type="button" class="btn btn-success" aria-label="Left Align">
+                  Grade me
+                </button>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="buildinprogress" class="alert alert-warning alert-dismissible hidden" role="alert">
+                      <p id="loading" class=""></p>
+                      <p id="buildconsoletext"></p>
+                    </div>
+                </div>
+              </div>
               <p class="next-exercise">
-                <a href="../02_html5_2/instructions.html">Következő feladatsor <i class="fa fa-angle-right"></i></a>
+                <a href="../02_html5_2/index.html">Következő feladatsor <i class="fa fa-angle-right"></i></a>
               </p>
             </div>
           </div>
