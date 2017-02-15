@@ -11,7 +11,7 @@ $(document).ready(function() {
   $("#grademe").click(function (e) {
     e.preventDefault();
     var parameter = $("#gitpath").val();
-    console.log(parameter);
+    //console.log(parameter);
     jQuery.ajax({
         type: "POST",
         //url: "http://robot:bd6259f0769976dc672fe22d30cb174d@kat.inf.elte.hu/jenkins/job/robot-demo/build?token=m2L5t8jlA0r880pjzQIrxGn9L6pzg410",
@@ -34,13 +34,23 @@ $(document).ready(function() {
         dataType:"html",
         success:function(response){
             $("#loading").toggleClass("hidden");
-            $("#buildconsoletext").append(response);
-            console.log(response);
+            //$("#buildconsoletext").append(response);
+            //console.log(response);
             var regex = /(\*{3})(.*)(\*{3})/;
             var matches = regex.exec(response);
             var jsonResult = matches[2];
             var jsonObject = jQuery.parseJSON(jsonResult);
-            console.log(jsonObject);
+            var error = false;
+            //console.log(jsonObject);
+            $.each(jsonObject, function(i, obj) {
+              if (obj != "PASS") { error = true }
+              $("#buildinprogress").append("<p class='result-row'>"+i+": "+obj+"</p>");
+            });
+            console.log(error);
+            if (error === false) {
+              $("#buildinprogress").removeClass("alert-warning").addClass("alert-success");
+            }
+
         },
         error:function (xhr, ajaxOptions, thrownError){
             alert(thrownError);
