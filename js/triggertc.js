@@ -36,9 +36,11 @@ $(document).ready(function() {
             $("#loading").toggleClass("hidden");
             $("#buildconsoletext").append(response);
             console.log(response);
-            // regex for the json
-            //var regex = "(\*{3})(.*)(\*{3})";
-
+            var regex = /(\*{3})(.*)(\*{3})/;
+            var matches = regex.exec(response);
+            var jsonResult = matches[2];
+            var jsonObject = jQuery.parseJSON(jsonResult);
+            console.log(jsonObject);
         },
         error:function (xhr, ajaxOptions, thrownError){
             alert(thrownError);
