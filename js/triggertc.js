@@ -46,7 +46,7 @@ $(document).ready(function() {
               if (obj != "PASS") { error = true }
               $("#buildinprogress").append("<p class='result-row'>"+i+": "+obj+"</p>");
             });
-            console.log(error);
+            //console.log(error);
             if (error === false) {
               $("#buildinprogress").removeClass("alert-warning").addClass("alert-success");
             }
