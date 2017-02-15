@@ -327,7 +327,7 @@ $tableFooter = '</tbody>
 }
 
 function getRandomQuestions ($limit) {
-  $getRandomQuestionsSql = "SELECT * FROM `questions` where `is_active` = 1 ORDER BY rand() LIMIT 10 " ;
+  $getRandomQuestionsSql = "SELECT * FROM `questions` where `is_active` = 1 ORDER BY rand() LIMIT $limit " ;
   $rows = MySQL::getRows($getRandomQuestionsSql);
   foreach ($rows as $row ) {
     $id = $row->id;

@@ -17,7 +17,19 @@ $(document).ready(function() {
           dataType:"json", // Data type, HTML, json etc.
           data:quizData, //Form variables
           success:function(response){
-            console.log(quizData);
+            //console.log(quizData);
+            var n = noty({
+              text: 'New quiz has been added successfully!',
+              theme: 'relax',
+              type: 'success',
+              timeout: '5000',
+                animation: {
+                    open: {height: 'toggle'},
+                    close: {height: 'toggle'},
+                    easing: 'swing',
+                    speed: 500 // opening & closing animation speed
+                }
+            });
           },
           error:function (xhr, ajaxOptions, thrownError){
               alert(thrownError);
