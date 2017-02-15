@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>test exercise</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="triggertc.js"></script>
     <script>
     function dotdotdot(cursor, times, string) {
         return Array(times - Math.abs(cursor % (times * 2) - times) + 2).join(string);
@@ -21,7 +22,8 @@
     </style>
   </head>
   <body>
-    <input id="#hitme" value="hit me!" type="submit" />
+    <input id="hitme" value="hit me!" type="submit" />
+    <input id="parameter" placeholder="filename"  />
     <div id="buildinprogress" class="alert alert-warning alert-dismissible hidden" role="alert">
 
         <p id="loading" class=""></p>
