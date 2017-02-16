@@ -248,12 +248,28 @@ function showQuestionsForQuizPage ($quizId) {
   $firstRow = $rows[0];
   $name = $firstRow->name;
   $quizQuestions = $firstRow->questions;
-
+  $array = json_encode($quizQuestions);
   $numberOfQuestions = explode(",", $quizQuestions);
 
-  $numberOfQuestions = count($numberOfQuestions)-1;
+  $count = count($numberOfQuestions)-1;
+  for ($i=0; $i<$count; $i++) {
+    $currentQuestionId = $numberOfQuestions[$i];
+    $liId = $i+1;
+    $getAQuestionDetailSql = "SELECT * FROM `questions` where `id` = '$currentQuestionId' " ;
+    $rows = MySQL::getRows($getAQuestionDetailSql);
+    $firstRow = $rows[0];
+    var_dump($firstRow);
+    $question = $firstRow->question;
+    $desc = $firstRow->description;
+    //echo $question;
+    $result .= '
+    <li id="question-'.$liId.'">
+    <h3>'.$question.'</h3>
+    '.$desc.'
+    </li>';
+  }
 
-  //echo $numberOfQuestions; //counting questions for the quiz
+  echo $result;
 
 }
 

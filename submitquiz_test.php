@@ -36,10 +36,13 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
   </head>
   <body>
     <?php include_once("menu.php");?>
-
     <div class="container gimmeplace">
       <div class="row">
         <?php showQuestionsForQuizPage($quizId) ?>
+      </div>
+    </div>
+    <div class="container gimmeplace hidden">
+      <div class="row">
         <div id="errorcontainer" class="alert alert-danger hidden" role="alert">
           Hiba! Nem sikerült minden kérdésre helyesen válaszolni!
         </div>
