@@ -242,6 +242,20 @@ function getUserDetails ($username) {
     return $result;
 }
 
+function getChoiceOptionForQuestion($questionId) {
+  $getAllChoiceForQuestionSql = "SELECT * FROM `answers` where `question_id` = '$questionId'" ;
+  $rows = MySQL::getRows($getAllChoiceForQuestionSql);
+  foreach ($rows as $row ) {
+    $id = $row->id;
+    $choice = $row->choice;
+    $isRightChoice = $row->is_right_choice;
+    $questionId = $row->question_id;
+    $resultArray[$questionId][$id] = array('choice' => $choice, 'id' => $id, 'is_rightchoice' => $isRightChoice, 'question_id' => $questionId );
+  }
+
+  return $resultArray;
+}
+
 function showQuestionsForQuizPage ($quizId) {
   $getQuizDetailsSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
   $rows = MySQL::getRows($getQuizDetailsSql);
@@ -254,11 +268,15 @@ function showQuestionsForQuizPage ($quizId) {
   $count = count($numberOfQuestions)-1;
   for ($i=0; $i<$count; $i++) {
     $currentQuestionId = $numberOfQuestions[$i];
+    $choices = getChoiceOptionForQuestion($currentQuestionId);
     $liId = $i+1;
     $getAQuestionDetailSql = "SELECT * FROM `questions` where `id` = '$currentQuestionId' " ;
     $rows = MySQL::getRows($getAQuestionDetailSql);
     $firstRow = $rows[0];
-    var_dump($firstRow);
+    //var_dump($firstRow);
+    var_dump($choices);
+    $numberOfOptions = count($choices);
+
     $question = $firstRow->question;
     $desc = $firstRow->description;
     //echo $question;
@@ -266,7 +284,10 @@ function showQuestionsForQuizPage ($quizId) {
     <li id="question-'.$liId.'">
     <h3>'.$question.'</h3>
     '.$desc.'
-    </li>';
+    </li>'
+    .$numberOfOptions
+    ;
+
   }
 
   echo $result;
