@@ -30,14 +30,19 @@
       <!-- admin related menu -->
     <?php
       if ($_SESSION['user_level'] == 0) {
-        echo '<button id="" type="button" class="btn btn-success navbar-btn pull-right">
-          <a href="createnewquiz.php">
-            <i class="fa fa-check-square-o"></i>
-          </a>
-        </button>
-        <button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
+        $page = basename($_SERVER['PHP_SELF']);
+        if ($page == 'questions.php') {
+          $button = '<button id="" type="button" class="btn btn-success navbar-btn pull-right">
+            <a href="createnewquiz.php">
+              <i class="fa fa-check-square-o"></i>
+            </a>
+          </button>';
+        }
+        $button .= '<button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
             <i class="fa fa-plus"></i>
         </button>';
+
+        echo $button;
       }
 
     ?>
