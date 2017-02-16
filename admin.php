@@ -1,8 +1,12 @@
+<?php
+$totalNumberOfQuestions = countAllQuestionsInDb();
+?>
 <div class="row">
   <div class="col-lg-12">
     <div class="col-lg-6">
       <div class="panel panel-default">
-  <div class="panel-heading">Questions <i class="fa fa-tag"></i></div>
+  <div class="panel-heading">
+    <span class="badge"><?php echo $totalNumberOfQuestions; ?></span> Questions <i class="fa fa-tag"></i></div>
   <div class="panel-body">
     <div class="col-lg-6">
       <div id="questionsbytags"></div>

@@ -377,13 +377,19 @@ function getAllQuizIds() {
 
 function getQuizResults () {
   $allQuizIds = getAllQuizIds();
-
-  for ($i=0; $i<count($allQuizIds) $i++) {
+  $numberOfQuizzes = count($allQuizIds);
+  for ($i=0; $i<$numberOfQuizzes; $i++) {
     //get this quiz name
-    
-    //colllect each result for this id
+    $currentQuizid = $allQuizIds[$i];
+    //echo $currentQuizid;
+    $getAllOpenQuizzesSql = "SELECT * FROM `submissions` where `quiz_id` = '$currentQuizid' " ;
+    $rows = MySQL::getRows($getAllOpenQuizzesSql);
+    foreach ($rows as $row) {
+      $id = $row->id;
+      $userId = $row->user_id;
+      echo $userId;
+    }
   }
-
 }
 
 function getAllOpenQuizzes() {
