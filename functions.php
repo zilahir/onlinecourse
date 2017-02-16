@@ -364,6 +364,17 @@ function creteListForQuestionTags () {
   ';
 }
 
+function getAllQuizIds() {
+  $currentDate = date("Y-m-d");
+  $getAllOpenQuizzesSql = "SELECT * FROM `quizs` " ;
+  $rows = MySQL::getRows($getAllOpenQuizzesSql);
+  foreach ($rows as $row ) {
+    $id = $row->id;
+    $result[] = $id;
+  }
+  return $result;
+}
+
 function getAllOpenQuizzes() {
   $currentDate = date("Y-m-d");
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
