@@ -345,4 +345,22 @@ function countQuestionsByTags($tag) {
   return $result;
 }
 
+function creteListForQuestionTags () {
+  $numberOfHtmlQuestions = countQuestionsByTags("html");
+  $numberOfCssQuestions = countQuestionsByTags("css");
+
+  echo '
+  <ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">'.$numberOfHtmlQuestions.'</span>
+    <code>html</code> questions
+  </li>
+  <li class="list-group-item">
+    <span class="badge">'.$numberOfCssQuestions.'</span>
+    <code>css</code> questions
+  </li>
+</ul>
+  ';
+}
+
 ?>

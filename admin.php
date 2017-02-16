@@ -4,8 +4,11 @@
       <div class="panel panel-default">
   <div class="panel-heading">Kérdések <i class="fa fa-tag"></i></div>
   <div class="panel-body">
-    <div id="questionsbytags" class="row">
-
+    <div class="col-lg-6">
+      <div id="questionsbytags"></div>
+    </div>
+    <div class="col-lg-6">
+      <?php creteListForQuestionTags() ?>
     </div>
   </div>
 </div>
