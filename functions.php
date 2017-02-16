@@ -222,6 +222,18 @@ function getAllQuizzes () {
 
 }
 
+function getUserById ($userId) {
+  $getUserDetailsSql = "SELECT * FROM `users` where `id` = '$userId' LIMIT 1" ;
+  $rows = MySQL::getRows($getUserDetailsSql);
+  $firstRow = $rows[0];
+
+  $usersFullname = $firstRow->fullname;
+
+  $result = array('fullname' => $usersFullname, );
+
+  return $result;
+}
+
 function getUserDetails ($username) {
     $getUserDetailsSql = "SELECT * FROM `users` where `username` = '$username' LIMIT 1" ;
     $rows = MySQL::getRows($getUserDetailsSql);
@@ -390,10 +402,27 @@ function getQuizResults () {
       $result = $row->result;
       $quiz_id = $row->quiz_id;
       //echo "userid: ".$userId.", result: ".$result.", quiz: ".$quiz_id;
-      $finals[$quiz_id][$id] = array($result, $id);
+      $finals[$quiz_id][$id] = array($result, $userId, $quiz_id);
     }
   }
-  var_dump($finals);
+  //var_dump($finals);
+  for ($i=0; $i<$numberOfQuizzes; $i++) {
+    $currentQuizid = $allQuizIds[$i];
+
+    $max = max($finals[$currentQuizid]);
+    if (!is_null($max)) {
+      //var_dump($max);  //dumping out the max array
+      $userFullName = getUserById($max[1]);
+      $quizName = generateQuizPage($max[2]);
+      //echo $userFullName['fullname'];  //geetting back submission's owner
+      echo '<li class="list-group-item"><i class="fa fa-user"></i>
+      '.$userFullName['fullname'].' – <i class="fa fa-check-square-o"></i> '.$quizName['quizname'].'
+      <span class="badge">'.$max[0].'</span>
+      </li>';
+    }
+  }
+  //$differentQuizzes = count($finals);  // different quizzes in the array
+
 }
 
 function getAllOpenQuizzes() {

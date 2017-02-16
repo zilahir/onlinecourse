@@ -35,18 +35,19 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
     <div class="col-lg-6">
       <div class="panel panel-default">
   <div class="panel-heading">Results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-up"></i></div>
-  <?php getQuizResults() ?>
+  <ul class="list-group">
+    <?php getQuizResults() ?>
+  </ul>
   </div>
     </div>
     <div class="col-lg-6">
       <div class="panel panel-default">
   <div class="panel-heading">Results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-down"></i></div>
-  <div class="list-group">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">List group item heading</h4>
-    <p class="list-group-item-text">...</p>
-  </a>
-  </div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      lorem
+    </li>
+  </ul>
   </div>
   </div>
 </div>
