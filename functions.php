@@ -339,4 +339,10 @@ function getRandomQuestions ($limit) {
   return $result;
 }
 
+function countQuestionsByTags($tag) {
+  $result = MySQL::countEverything("questions", "tags", "%$tag%");
+
+  return $result;
+}
+
 ?>

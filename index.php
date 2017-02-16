@@ -48,6 +48,5 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
       ?>
     </div>
     <?php include_once("footer.php");?>
-    <script src="drawadminchart.js"></script>
   </body>
 </html>

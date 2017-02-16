@@ -1,20 +1,33 @@
-function drawPieChart() {
+$(document).ready(function() {
+  jQuery.ajax({
+      type: "GET",
+      url: "php/getchartfortags.php",
+      success: function(response) {
+          var json = jQuery.parseJSON(response);
+          drawPieChart(json);
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+      }
+  });
+});
+
+function drawPieChart(json) {
     var chart = c3.generate({
         size: {
             width: 170,
             height: 170
         },
-        bindto: d3.select('#' + "chart"),
+        bindto: d3.select('#' + "questionsbytags"),
         data: {
             // iris data from R
             columns: [
-                ['Failure', 30],
-                ['Success', 70],
+                ['HTML', json.html],
+                ['CSS', json.css],
             ],
             type: 'pie',
             colors: {
-                'Failure': '#ff0000',
-                'Success': '#85D663'
+                'HTML': '#7ea4b3',
+                'CSS': '#ffb347'
             },
             /*onclick: function(d, i) { console.log("onclick", d, i); },
             onmouseover: function(d, i) { console.log("onmouseover", d, i); },
@@ -22,5 +35,3 @@ function drawPieChart() {
         },
     });
 }
-
-drawPieChart();
