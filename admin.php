@@ -31,12 +31,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
   <div class="panel-heading">Results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-up"></i></div>
-  <div class="list-group">
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">List group item heading</h4>
-    <p class="list-group-item-text">...</p>
-  </a>
-</div>
+  <?php getQuizResults() ?>
   </div>
     </div>
     <div class="col-lg-6">

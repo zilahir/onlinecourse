@@ -375,6 +375,17 @@ function getAllQuizIds() {
   return $result;
 }
 
+function getQuizResults () {
+  $allQuizIds = getAllQuizIds();
+
+  for ($i=0; $i<count($allQuizIds) $i++) {
+    //get this quiz name
+    
+    //colllect each result for this id
+  }
+
+}
+
 function getAllOpenQuizzes() {
   $currentDate = date("Y-m-d");
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
