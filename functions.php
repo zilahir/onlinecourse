@@ -364,21 +364,27 @@ function creteListForQuestionTags () {
   ';
 }
 
-function countQuizSubmissions ($limit) {
-  $countSubmissionForQuizzes = "SELECT * FROM `submissions` where `submission_count` >= 1 ORDER BY `timestamp` ASC LIMIT $limit " ;
-  $rows = MySQL::getRows($countSubmissionForQuizzes);
+function getAllOpenQuizzes() {
+  $currentDate = date("Y-m-d");
+  $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
+  $rows = MySQL::getRows($getAllOpenQuizzesSql);
   foreach ($rows as $row ) {
     $id = $row->id;
-    $QuizId = $row->quiz_id;
-    $quizDetails = generateQuizPage($QuizId);
-    //var_dump($quizDetails);
-    $submission_count = $row->submission_count;
-
-    echo '<li class="list-group-item">
-      <span class="badge">'.$submission_count.'</span>
-      '.$quizDetails['quizname'].'
-    </li>';
+    $result[] = $id;
   }
+  return $result;
+}
+
+function countQuizSubmissions ($limit) {
+  $rows = MySQL::getRows($countSubmissionForQuizzes);
+  $openQuizIds = getAllOpenQuizzes();
+  $numberOfOpenQuizzes = count($openQuizIds);
+
+  for ($i=0; $i<$numberOfOpenQuizzes; $i++) {
+    $result = MySQL::countEntry('submissions', 'quiz_id', $openQuizIds[$i]);
+    echo $result.", ";
+  }
+
 }
 
 ?>
