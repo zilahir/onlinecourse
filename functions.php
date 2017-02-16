@@ -387,7 +387,7 @@ function getAllQuizIds() {
   return $result;
 }
 
-function getQuizResults () {
+function getQuizResults ($method) {
   $allQuizIds = getAllQuizIds();
   $numberOfQuizzes = count($allQuizIds);
   for ($i=0; $i<$numberOfQuizzes; $i++) {
@@ -409,16 +409,30 @@ function getQuizResults () {
   for ($i=0; $i<$numberOfQuizzes; $i++) {
     $currentQuizid = $allQuizIds[$i];
 
-    $max = max($finals[$currentQuizid]);
-    if (!is_null($max)) {
-      //var_dump($max);  //dumping out the max array
-      $userFullName = getUserById($max[1]);
-      $quizName = generateQuizPage($max[2]);
-      //echo $userFullName['fullname'];  //geetting back submission's owner
-      echo '<li class="list-group-item"><i class="fa fa-user"></i>
-      '.$userFullName['fullname'].' – <i class="fa fa-check-square-o"></i> '.$quizName['quizname'].'
-      <span class="badge">'.$max[0].'</span>
-      </li>';
+    if ($method == "max") {
+      $max = max($finals[$currentQuizid]);
+      if (!is_null($max)) {
+        //var_dump($max);  //dumping out the max array
+        $userFullName = getUserById($max[1]);
+        $quizName = generateQuizPage($max[2]);
+        //echo $userFullName['fullname'];  //geetting back submission's owner
+        echo '<li class="list-group-item"><i class="fa fa-user"></i>
+        '.$userFullName['fullname'].' – <i class="fa fa-check-square-o"></i> '.$quizName['quizname'].'
+        <span class="badge">'.$max[0].'</span>
+        </li>';
+      }
+    } elseif ($method == "min") {
+      $max = min($finals[$currentQuizid]);
+      if (!is_null($max)) {
+        //var_dump($max);  //dumping out the max array
+        $userFullName = getUserById($max[1]);
+        $quizName = generateQuizPage($max[2]);
+        //echo $userFullName['fullname'];  //geetting back submission's owner
+        echo '<li class="list-group-item"><i class="fa fa-user"></i>
+        '.$userFullName['fullname'].' – <i class="fa fa-check-square-o"></i> '.$quizName['quizname'].'
+        <span class="badge">'.$max[0].'</span>
+        </li>';
+      }
     }
   }
   //$differentQuizzes = count($finals);  // different quizzes in the array
