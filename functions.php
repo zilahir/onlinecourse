@@ -238,14 +238,15 @@ function generateQuizPage ($quizId) {
   $getQuizDetailsSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
   $rows = MySQL::getRows($getQuizDetailsSql);
   $firstRow = $rows[0];
-  $count = 0;
+  //$count = 0;
 
   $quizName = $firstRow->name;
   $deadline = $firstRow->deadline;
   $max_sub = $firstRow->max_sub;
 
-  $result = array('max_sub' => $max_sub, );
-  return $result;
+  //$result = array('max_sub' => $max_sub, 'quizname' => $quizName );
+  $asd = array('max_sub' => $max_sub, 'quizname' => $quizName);
+  return $asd;
 
 }
 
@@ -361,6 +362,23 @@ function creteListForQuestionTags () {
   </li>
 </ul>
   ';
+}
+
+function countQuizSubmissions ($limit) {
+  $countSubmissionForQuizzes = "SELECT * FROM `submissions` where `submission_count` >= 1 ORDER BY `timestamp` ASC LIMIT $limit " ;
+  $rows = MySQL::getRows($countSubmissionForQuizzes);
+  foreach ($rows as $row ) {
+    $id = $row->id;
+    $QuizId = $row->quiz_id;
+    $quizDetails = generateQuizPage($QuizId);
+    //var_dump($quizDetails);
+    $submission_count = $row->submission_count;
+
+    echo '<li class="list-group-item">
+      <span class="badge">'.$submission_count.'</span>
+      '.$quizDetails['quizname'].'
+    </li>';
+  }
 }
 
 ?>

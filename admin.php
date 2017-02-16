@@ -15,13 +15,10 @@
     </div>
     <div class="col-lg-6">
       <div class="panel panel-default">
-  <div class="panel-heading">Quizzes</div>
+  <div class="panel-heading">Quizzes submissions <i class="fa fa-check-square-o"></i></div>
   <div class="panel-body">
     <ul class="list-group">
-    <li class="list-group-item">
-      <span class="badge">10</span>
-      kvíz 1
-    </li>
+    <?php countQuizSubmissions("10") ?>
   </ul>
   </div>
 </div>
