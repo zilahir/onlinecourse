@@ -382,7 +382,12 @@ function countQuizSubmissions ($limit) {
 
   for ($i=0; $i<$numberOfOpenQuizzes; $i++) {
     $result = MySQL::countEntry('submissions', 'quiz_id', $openQuizIds[$i]);
-    echo $result.", ";
+    //echo $result.", ";
+    $thisQuizDetails = generateQuizPage($openQuizIds[$i]);
+    echo '<li class="list-group-item">
+      <span class="badge">'.$result.'</span>
+      '.$thisQuizDetails['quizname'].'
+    </li>';
   }
 
 }

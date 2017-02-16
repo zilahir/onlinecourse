@@ -26,5 +26,15 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+<div class="panel-heading">Quizzes submissions <i class="fa fa-check-square-o"></i></div>
+TODO: show quiz results here.
+</div>
+  </div>
+</div>
+
+
 
 <script src="drawadminchart.js"></script>
