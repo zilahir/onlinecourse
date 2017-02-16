@@ -467,4 +467,11 @@ function countQuizSubmissions ($limit) {
 
 }
 
+function getVersionNumber () {
+  $file = "etc/ver.info";
+  $line = fgets(fopen($file, 'r'));
+
+  echo $line;
+}
+
 ?>
