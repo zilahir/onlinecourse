@@ -387,9 +387,13 @@ function getQuizResults () {
     foreach ($rows as $row) {
       $id = $row->id;
       $userId = $row->user_id;
-      echo $userId;
+      $result = $row->result;
+      $quiz_id = $row->quiz_id;
+      //echo "userid: ".$userId.", result: ".$result.", quiz: ".$quiz_id;
+      $finals[$quiz_id][$id] = array($result, $id);
     }
   }
+  var_dump($finals);
 }
 
 function getAllOpenQuizzes() {
