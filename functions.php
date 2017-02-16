@@ -164,10 +164,6 @@ function getAllQuestionsForQuiz () {
 
 }
 
-function checkForPendingQuizes ($userId) {
-
-}
-
 function getUserCredentials ($username, $password) {
     $getUserCredentialsSql = "SELECT * FROM `users` where `username` = '$username' LIMIT 1" ;
     $rows = MySQL::getRows($getUserCredentialsSql);
@@ -246,6 +242,21 @@ function getUserDetails ($username) {
     return $result;
 }
 
+function showQuestionsForQuizPage ($quizId) {
+  $getQuizDetailsSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
+  $rows = MySQL::getRows($getQuizDetailsSql);
+  $firstRow = $rows[0];
+  $name = $firstRow->name;
+  $quizQuestions = $firstRow->questions;
+
+  $numberOfQuestions = explode(",", $quizQuestions);
+
+  $numberOfQuestions = count($numberOfQuestions)-1;
+
+  //echo $numberOfQuestions; //counting questions for the quiz
+
+}
+
 function generateQuizPage ($quizId) {
   $getQuizDetailsSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
   $rows = MySQL::getRows($getQuizDetailsSql);
@@ -255,9 +266,10 @@ function generateQuizPage ($quizId) {
   $quizName = $firstRow->name;
   $deadline = $firstRow->deadline;
   $max_sub = $firstRow->max_sub;
+  $quizQuestions = $firstRow->questions;
 
   //$result = array('max_sub' => $max_sub, 'quizname' => $quizName );
-  $asd = array('max_sub' => $max_sub, 'quizname' => $quizName);
+  $asd = array('max_sub' => $max_sub, 'quizname' => $quizName,);
   return $asd;
 
 }
