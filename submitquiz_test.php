@@ -38,7 +38,18 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
     <?php include_once("menu.php");?>
     <div class="container gimmeplace">
       <div class="row">
-        <?php showQuestionsForQuizPage($quizId) ?>
+        <div id="errorcontainer" class="alert alert-danger hidden" role="alert">
+          Hiba! Nem sikerült minden kérdésre helyesen válaszolni!
+        </div>
+        <div class="col-lg-9 exercise-container">
+          <div class="exercise-details">
+            <ol>
+                <?php showQuestionsForQuizPage($quizId) ?>
+            </ol>
+          </div>
+          <button id="submitforgrade" class="btn btn-success">Grade me!</button>
+        </div>
+
       </div>
     </div>
     <div class="container gimmeplace hidden">

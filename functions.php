@@ -265,11 +265,13 @@ function showQuestionsForQuizPage ($quizId) {
   $array = json_encode($quizQuestions);
   $numberOfQuestions = explode(",", $quizQuestions);
 
+  $questionNumber = 0;
   $count = count($numberOfQuestions)-1;
   for ($i=0; $i<$count; $i++) {
     $currentQuestionId = $numberOfQuestions[$i];
     $choices = getChoiceOptionForQuestion($currentQuestionId);
     $liId = $i+1;
+    $questionNumber++;
     $getAQuestionDetailSql = "SELECT * FROM `questions` where `id` = '$currentQuestionId' " ;
     $rows = MySQL::getRows($getAQuestionDetailSql);
     $firstRow = $rows[0];
@@ -279,30 +281,34 @@ function showQuestionsForQuizPage ($quizId) {
     $question = $firstRow->question;
     $desc = $firstRow->description;
     //echo $question;
-    $currentOptionsArray = ($choices[24]);  // <-- QUESTIONID KELL IDE 
+    $currentOptionsArray = ($choices[$currentQuestionId]);  // <-- QUESTIONID KELL IDE
     $currentOptionsArrayCount = count($currentOptionsArray);
     //var_dump($currentOptionsArray);
+    $currentOption = '';
+    $answerCount = 0;
     for ($j=0; $j<$currentOptionsArrayCount; $j++) {
       $asd = ($currentOptionsArray[$j]['choice']);
-      $count=$count+1;
+      $das = ($currentOptionsArray[$j]['id']);
+      //$count=$count+1;
       $currentOption .= '<div>
-      <input type="radio" name="question-'.$count.'-answers" id="question-'.$count.'-answers-A" value="A" />
+      <input type="radio" data-questionid="'.$currentQuestionId.'" data-answerid="'.$das.'" name="question-'.$questionNumber.'-answers" id="question-'.$count.'-answers-A" value="A" />
       <label for="question-'.$count.'-answers-A">'.$asd.'</label></div>
       ';
     }
 
-    $result .= '
-    <li id="question-'.$liId.'">
-    <h3>'.$question.'</h3>
-    '.$desc.'
-    </li>
-    '.$currentOption.'
-    '
-    ;
-
+    if (!empty($currentOption)) {
+      echo '
+      <li id="question-'.$liId.'">
+      <h3>'.$question.' '.$currentQuestionId.'</h3>
+      '.$desc.'
+      '.$currentOption.'
+      </li>
+      '
+      ;
+    }
   }
 
-  echo $result;
+  //echo $result;
 
 }
 
@@ -407,7 +413,7 @@ function getRandomQuestions ($limit) {
     $id = $row->id;
     $question = $row->question;
 
-    $result .= $id.", "; //id-s of questions
+    $result .= $id.","; //id-s of questions
   }
 
   return $result;

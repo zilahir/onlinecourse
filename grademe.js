@@ -4,14 +4,17 @@ $(document).ready(function() {
     var showErrorBox = false;
     var numberOfQuestions = $(".exercise-container li").length;
     var answerData = {
-          answer1: $('input[name=question-1-answers]:checked').val(),
-          answer2: $('input[name=question-2-answers]:checked').val(),
+          answer1: {
+            answerid: $('input[name=question-1-answers]:checked').data("answerid"),
+            questionid: $('input[name=question-1-answers]:checked').data("questionid")
+          }
+          /*answer2: $('input[name=question-2-answers]:checked').val(),
           answer3: $('input[name=question-3-answers]:checked').val(),
-          numberOfQuestions: numberOfQuestions
+          numberOfQuestions: numberOfQuestions*/
         };
 
         console.log(answerData);
-    jQuery.ajax({
+/*    jQuery.ajax({
             type: "POST", // HTTP method POST or GET
             url: "grade.php", //Where to make Ajax calls
             dataType:"json", // Data type, HTML, json etc.
@@ -38,5 +41,5 @@ $(document).ready(function() {
                 alert(thrownError);
             }
         });
-  });
+  */});
 });
