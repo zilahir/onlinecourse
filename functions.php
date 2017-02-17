@@ -250,7 +250,7 @@ function getChoiceOptionForQuestion($questionId) {
     $choice = $row->choice;
     $isRightChoice = $row->is_right_choice;
     $questionId = $row->question_id;
-    $resultArray[$questionId][$id] = array('choice' => $choice, 'id' => $id, 'is_rightchoice' => $isRightChoice, 'question_id' => $questionId );
+    $resultArray[$questionId][] = array('choice' => $choice, 'id' => $id, 'is_rightchoice' => $isRightChoice, 'question_id' => $questionId );
   }
 
   return $resultArray;
@@ -274,18 +274,30 @@ function showQuestionsForQuizPage ($quizId) {
     $rows = MySQL::getRows($getAQuestionDetailSql);
     $firstRow = $rows[0];
     //var_dump($firstRow);
-    var_dump($choices);
-    $numberOfOptions = count($choices);
-
+    //var_dump($choices[24]);  //24 = questionId
+    $numberOfOptions = count($choices[$currentQuestionId]); //WORKS!
     $question = $firstRow->question;
     $desc = $firstRow->description;
     //echo $question;
+    $currentOptionsArray = ($choices[24]);  // <-- QUESTIONID KELL IDE 
+    $currentOptionsArrayCount = count($currentOptionsArray);
+    //var_dump($currentOptionsArray);
+    for ($j=0; $j<$currentOptionsArrayCount; $j++) {
+      $asd = ($currentOptionsArray[$j]['choice']);
+      $count=$count+1;
+      $currentOption .= '<div>
+      <input type="radio" name="question-'.$count.'-answers" id="question-'.$count.'-answers-A" value="A" />
+      <label for="question-'.$count.'-answers-A">'.$asd.'</label></div>
+      ';
+    }
+
     $result .= '
     <li id="question-'.$liId.'">
     <h3>'.$question.'</h3>
     '.$desc.'
-    </li>'
-    .$numberOfOptions
+    </li>
+    '.$currentOption.'
+    '
     ;
 
   }
