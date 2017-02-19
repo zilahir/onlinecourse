@@ -40,9 +40,43 @@ if ($percent == 1) {
 }
 
 $result["result"] = $percent;
-//echo "goodAnswers: ".$goodAnswers.", badAnswers: ".$badAnswers;
+
+$quizId = $_SESSION['quizid']; // DONE
+$userId = $_SESSION['user_id']; // DONE
+$resultPoints = $percent;
+//$submission_count = "1";
+$currentSubbmissionCount = getCurrentSubmissionForQuiz($quizId, $userId);
+$currentPoint = $currentSubbmissionCount['result'];
 
 
-echo json_encode($result);
+$submission_count = $currentSubbmissionCount['numberof_submission']+1;
+
+//TODO if ($reultPoints >  $currentPoint) --> array -> resultPoints // else array --> currentPoints
+
+
+if ($currentSubbmissionCount['numberof_submission'] == 0) {
+  //insert for first time
+  $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
+  MySQL::insertIntoGroup('`submissions`', $array);  //uncomment this
+} else { //get id for this user's first submission
+
+  $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
+  $lastSubmissionId = $lastSubmission['id'];
+
+  // check if the current submitted points is bigger than the last one in the DB
+  if ($resultPoints > $currentPoint) { //add the new result to DB
+    $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
+  } else {
+    $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $currentPoint, 'submission_count' => $submission_count );
+  }
+  MySQL::update('`submissions`', $lastSubmissionId, $array); //uncomment this
+
+}
+
+if (!isset($result)) {
+  echo json_encode("error");
+} else {
+  echo json_encode($result);
+}
 
 ?>
