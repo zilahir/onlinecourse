@@ -13,9 +13,11 @@ $countResults = count($givenanswers);
 for ($i=0; $i<$countResults; $i++) {
     $questionid = $givenanswers[$i]["questionid"];
     $givenanswerid = $givenanswers[$i]["givenanswer"];
-    $result = CheckIfAnswerWasCorrect ($questionid, $givenanswerid);
-    echo $result;
+    $result[$questionid] = CheckIfAnswerWasCorrect ($questionid, $givenanswerid);
+
 }
+
+var_dump($result);
 
 //echo json_encode($countResults);
 
