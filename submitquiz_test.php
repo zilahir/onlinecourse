@@ -49,10 +49,28 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
           </div>
           <button id="submitforgrade" class="btn btn-success">Grade me!</button>
         </div>
+        <div class="col-lg-3">
+          <?php //var_dump($lastSubmission); //testing purposes ?>
+          <div class="exercise-details">
+            <p class="result-text">
+              Your result: <?php echo $lastSubmission['result'];?> /100
+            </p>
+            <p class="result-text">
+              Your number of submission: <?php echo $lastSubmission['numberof_submission'].' / '.$quizDetails['max_sub']; ?>
+            </p>
+            <p class="result-text total">
+              Total number of submissions: <?php echo $submissionsSum; ?>
+            </p>
+            <div class="progress">
+<div id="graderesult" style="width:<?php echo $lastSubmission['result'].'%';?>" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+</div>
+</div>
+          </div>
+        </div>
 
       </div>
     </div>
-    
+
 <div id="graderesult" style="width:<?php echo $lastSubmission['result'].'%';?>" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
 </div>
 </div>
