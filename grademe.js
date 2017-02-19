@@ -24,21 +24,32 @@ $(document).ready(function() {
             dataType:"json", // Data type, HTML, json etc.
             data:{answerData, numberOfQuestions}, //Form variables
             success:function(response){
-              //alert("success");
-              //console.log(response);
-              //console.log(response.result);
-                //$("#graderesult").addClass(response.result);
-                $("#graderesult").css("width", response.result+"%");
-                $.each(response.answers, function(i, obj) {
-                  console.log(obj);
-                  if (obj == false || obj == undefined) {
-                    //$("li#question-"+i).addClass("wrong-answer");
-                    showErrorBox = true;
-                  }
-                });
+                if (response == "limitreached") {
+                  //alert("limit reached");
+                  var n = noty({
+                    text: 'You have reached the submission limit!',
+                  	theme: 'relax',
+                  	type: 'error',
+                  	timeout: '5000',
+                      animation: {
+                          open: {height: 'toggle'},
+                          close: {height: 'toggle'},
+                          easing: 'swing',
+                          speed: 500 // opening & closing animation speed
+                      }
+                  });
+                } else {
+                  $("#graderesult").css("width", response.result+"%");
+                  $.each(response.answers, function(i, obj) {
+                    console.log(obj);
+                    if (obj == false || obj == undefined) {
+                      showErrorBox = true;
+                    }
+                  });
 
-                if (showErrorBox == true) {
-                  $("#errorcontainer").toggleClass("hidden"); //show the error message container
+                  if (showErrorBox == true) {
+                    $("#errorcontainer").toggleClass("hidden"); //show the error message container
+                  }
                 }
             },
             error:function (xhr, ajaxOptions, thrownError){
