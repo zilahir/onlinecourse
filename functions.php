@@ -521,7 +521,8 @@ function drawQuizResultBar ($userId) {
     }
     echo '<div class="progress grade-progress">
   <div class="progress-bar grade-progressbar progress-bar-'.$class.'" role="progressbar" aria-valuenow="'.$result.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$result.'%;">
-    '.$quizName['quizname'].': '.$result.'%
+    '.$quizName['quizname'].'
+    <span class="badge pull-right bradge-progress">'.$result.'/100</span>
   </div>
 </div>';
   }
