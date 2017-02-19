@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
 
-    console.log(answerData);
+    //console.log(answerData);
 
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET
@@ -25,14 +25,14 @@ $(document).ready(function() {
             data:{answerData, numberOfQuestions}, //Form variables
             success:function(response){
               //alert("success");
-              console.log(response);
+              //console.log(response);
               //console.log(response.result);
                 //$("#graderesult").addClass(response.result);
                 $("#graderesult").css("width", response.result+"%");
                 $.each(response.answers, function(i, obj) {
                   console.log(obj);
                   if (obj == false || obj == undefined) {
-                    $("li#"+i).addClass("wrong-answer");
+                    //$("li#question-"+i).addClass("wrong-answer");
                     showErrorBox = true;
                   }
                 });
