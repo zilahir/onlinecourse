@@ -17,10 +17,8 @@ for ($i=0; $i<$countResults; $i++) {
 
 }
 
-var_dump($result);
+//var_dump($result);
 
-//echo json_encode($countResults);
-
-//echo json_encode($givenanswers);
+echo json_encode($result);
 
 ?>
