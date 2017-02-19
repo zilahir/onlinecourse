@@ -541,4 +541,23 @@ function getVersionNumber () {
   echo $line;
 }
 
+function CheckIfAnswerWasCorrect ($questionId, $givenAnswer) {
+  //getcorrect answer for question
+  $getCorrectAnswerForQuestionSql = "SELECT * FROM `answers` where `question_id` = '$questionId' AND `id` = '$givenAnswer' " ;
+  $rows = MySQL::getRows($getCorrectAnswerForQuestionSql);
+  $firstRow = $rows[0];
+
+  $isRightChoise = $firstRow->is_right_choice;
+
+  if ($isRightChoise) {
+    $result = true;
+  } else {
+    $result = false;
+  }
+
+  return $result;
+
+}
+
+
 ?>

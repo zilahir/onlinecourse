@@ -4,6 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include_once("functions.php");
 
+var_dump($_POST);
+
 $answer1 = $_POST['answer1'];
 $answer2 = $_POST['answer2'];
 $answer3 = $_POST['answer3'];
@@ -75,7 +77,7 @@ $submission_count = $currentSubbmissionCount['numberof_submission']+1;
 if ($currentSubbmissionCount['numberof_submission'] == 0) {
   //insert for first time
   $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $resultPoints, 'submission_count' => $submission_count );
-  MySQL::insertIntoGroup('`submissions`', $array);
+  //MySQL::insertIntoGroup('`submissions`', $array);  //uncomment this
 } else { //get id for this user's first submission
 
   $lastSubmission = getCurrentSubmissionForQuiz ($quizId, $_SESSION['user_id']);
@@ -87,8 +89,8 @@ if ($currentSubbmissionCount['numberof_submission'] == 0) {
   } else {
     $array = array('quiz_id' => $quizId, 'user_id' => $userId, 'result' => $currentPoint, 'submission_count' => $submission_count );
   }
-  MySQL::update('`submissions`', $lastSubmissionId, $array);
-  //TODO check if current point is the best one. if is -> update array , else count++
+  //MySQL::update('`submissions`', $lastSubmissionId, $array); //uncomment this
+
 }
 
 if (!isset($result)) {

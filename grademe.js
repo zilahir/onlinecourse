@@ -3,22 +3,25 @@ $(document).ready(function() {
     //alert("pushed");
     var showErrorBox = false;
     var numberOfQuestions = $(".exercise-container li").length;
-    var answerData = {
-          answer1: {
-            answerid: $('input[name=question-1-answers]:checked').data("answerid"),
-            questionid: $('input[name=question-1-answers]:checked').data("questionid")
-          }
-          /*answer2: $('input[name=question-2-answers]:checked').val(),
-          answer3: $('input[name=question-3-answers]:checked').val(),
-          numberOfQuestions: numberOfQuestions*/
-        };
+    var questions = $('input[name^=question-]:checked');
+    var answerData = [];
+    $(questions).each(function() {
+        //console.log(this);
+        var questionid = $(this).data("questionid");
+        var givenanswer = $(this).data("answerid");
+        item = {}
+        item ["questionid"] = questionid;
+        item ["givenanswer"] = givenanswer;
+        answerData.push(item);
+    });
 
-        console.log(answerData);
-/*    jQuery.ajax({
+    //console.log(answerData);
+
+    jQuery.ajax({
             type: "POST", // HTTP method POST or GET
-            url: "grade.php", //Where to make Ajax calls
+            url: "grade_test.php", //Where to make Ajax calls
             dataType:"json", // Data type, HTML, json etc.
-            data:answerData, //Form variables
+            data:{answerData}, //Form variables
             success:function(response){
               //alert("success");
               console.log(response);
@@ -41,5 +44,5 @@ $(document).ready(function() {
                 alert(thrownError);
             }
         });
-  */});
+  });
 });
