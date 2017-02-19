@@ -130,3 +130,11 @@ input#submission_limit {
   padding: 15px;
   margin-top: 10px;
 }
+
+.grade-progress {
+  height: 30px;
+}
+
+.grade-progressbar {
+  line-height: 30px;
+}

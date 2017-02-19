@@ -514,9 +514,14 @@ function drawQuizResultBar ($userId) {
     $quiz_id = $row->quiz_id;
     $result = $row->result;
     $quizName = generateQuizPage ($quiz_id);
-    echo '<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-    '.$quizName['quizname'].'
+    if ($result == 100) {
+      $class = "success";
+    } else {
+      $class = "warning";
+    }
+    echo '<div class="progress grade-progress">
+  <div class="progress-bar grade-progressbar progress-bar-'.$class.'" role="progressbar" aria-valuenow="'.$result.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$result.'%;">
+    '.$quizName['quizname'].': '.$result.'%
   </div>
 </div>';
   }
