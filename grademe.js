@@ -15,13 +15,14 @@ $(document).ready(function() {
         answerData.push(item);
     });
 
-    //console.log(answerData);
+
+    console.log(answerData);
 
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET
             url: "grade_test.php", //Where to make Ajax calls
             dataType:"json", // Data type, HTML, json etc.
-            data:{answerData}, //Form variables
+            data:{answerData, numberOfQuestions}, //Form variables
             success:function(response){
               //alert("success");
               console.log(response);
