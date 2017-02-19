@@ -506,6 +506,37 @@ function getQuizResults ($method) {
 
 }
 
+function drawQuizResultBar ($userId) {
+  $getAllResultForStudentSql = "SELECT * FROM `submissions` where `user_id` = '$userId' " ;
+  $rows = MySQL::getRows($getAllResultForStudentSql);
+
+  foreach ($rows as $row ) {
+    $quiz_id = $row->quiz_id;
+    $result = $row->result;
+    $quizName = generateQuizPage ($quiz_id);
+    echo '<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+    '.$quizName['quizname'].'
+  </div>
+</div>';
+  }
+  $userResults[] = array('quiz_id' => $quiz_id, 'result' => $result );
+  return $userResults;
+}
+
+
+function getQuizResultForUser ($userId) {
+  $getAllResultForStudentSql = "SELECT * FROM `submissions` where `user_id` = '$userId' " ;
+  $rows = MySQL::getRows($getAllResultForStudentSql);
+
+  foreach ($rows as $row ) {
+    $quiz_id = $row->quiz_id;
+    $result = $row->result;
+  }
+  $userResults[] = array('quiz_id' => $quiz_id, 'result' => $result );
+  return $userResults;
+}
+
 function getAllOpenQuizzes() {
   $currentDate = date("Y-m-d");
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
