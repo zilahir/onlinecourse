@@ -14,14 +14,14 @@
      <div id="exercise-list">
        <div class="list-group">
     <a href="#" class="list-group-item">
-      <h4 class="list-group-item-heading">List group item heading</h4>
-      <p class="list-group-item-text">...</p>
+      <h4 class="list-group-item-heading">1. Feladat</h4>
+      <p class="list-group-item-text">HTML Alapok I.</p>
     </a>
   </div>
   <div class="list-group">
 <a href="#" class="list-group-item">
- <h4 class="list-group-item-heading">List group item heading</h4>
- <p class="list-group-item-text">...</p>
+ <h4 class="list-group-item-heading">1. Feladat</h4>
+ <p class="list-group-item-text">HTML Alapok II.</p>
 </a>
 </div>
      </div>

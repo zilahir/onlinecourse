@@ -27,7 +27,9 @@ if ($_SESSION['login'] == true ) {
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 exercise-container">
           <h1 class="exercise-title">1. Lecke - HTML5 / CSS alapok <a href="result/result.html"><i class="fa fa-link solution"></i></a></h1>
-          <h2>Alapok</h1>
+          <h2>Alapok
+            <?php echo $_SESSION['username'];?>
+          </h1>
           <div class="bg-warning exercise-warning">
             <p>
               Az ellenőrző script a következő fájlokat fogja vizsgálni: <code>exercise_01.html, exercise1.css</code>

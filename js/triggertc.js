@@ -50,10 +50,13 @@ $(document).ready(function() {
             if (error === false) {
               $("#buildinprogress").removeClass("alert-warning").addClass("alert-success");
             }
+
+            var pointsgained = jsonObject.points;
             jQuery.ajax({
                 type: "POST",
                 url: "../../php/exercisetodb.php",
                 dataType:"json",
+                data: {'pointsgained': pointsgained},
                 success:function(response){
                   //alert("success")
                   console.log(response);
