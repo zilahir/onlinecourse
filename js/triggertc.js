@@ -15,7 +15,7 @@ $(document).ready(function() {
     jQuery.ajax({
         type: "POST",
         //url: "http://robot:bd6259f0769976dc672fe22d30cb174d@kat.inf.elte.hu/jenkins/job/robot-demo/build?token=m2L5t8jlA0r880pjzQIrxGn9L6pzg410",
-        url: "http://robot:bd6259f0769976dc672fe22d30cb174d@kat.inf.elte.hu/jenkins/job/robot-demo/buildWithParameters?token=m2L5t8jlA0r880pjzQIrxGn9L6pzg410&gitrepo="+parameter,
+        url: "http://robot:0a7a2501313f594fbb7160d22b924566@kat.inf.elte.hu/jenkins/job/robot-demo/buildWithParameters?token=m2L5t8jlA0r880pjzQIrxGn9L6pzg410&gitrepo="+parameter,
         dataType:"html",
         success:function(response){
             //build has started successfully
@@ -30,7 +30,7 @@ $(document).ready(function() {
   function getConsoleText () {
     jQuery.ajax({
         type: "POST",
-        url: "http://robot:bd6259f0769976dc672fe22d30cb174d@kat.inf.elte.hu/jenkins/job/robot-demo/lastBuild/consoleText",
+        url: "http://robot:0a7a2501313f594fbb7160d22b924566@kat.inf.elte.hu/jenkins/job/robot-demo/lastBuild/consoleText",
         dataType:"html",
         success:function(response){
             $("#loading").toggleClass("hidden");
@@ -68,7 +68,7 @@ $(document).ready(function() {
   function getLastBuild () {
     jQuery.ajax({
         type: "POST",
-        url: "http://robot:bd6259f0769976dc672fe22d30cb174d@kat.inf.elte.hu/jenkins/job/robot-demo/lastBuild/api/json?depth=1",
+        url: "http://robot:0a7a2501313f594fbb7160d22b924566@kat.inf.elte.hu/jenkins/job/robot-demo/lastBuild/api/json?depth=1",
         dataType:"json",
         success:function(response){
             if (response.building) {

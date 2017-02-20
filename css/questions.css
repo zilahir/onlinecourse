@@ -143,3 +143,11 @@ input#submission_limit {
   margin-top: 6px;
   margin-right: 10px;
 }
+
+div#result-container {
+  margin-top: 30px;
+}
+
+div#exercise-list {
+  margin-top: 30px;
+}

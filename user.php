@@ -3,12 +3,28 @@
     Kitöltendő kvízed van!
   </div>
   <div class="col-lg-10">
-
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#result-container">Show my results</button>
+    <div id="result-container" class="collapse">
+    <?php drawQuizResultBar($_SESSION['user_id']); ?>
+    </div>
     <?php
-    drawQuizResultBar($_SESSION['user_id']);
     //var_dump($userResults);
     checkIfTheresOpenQuizzes();
      ?>
+     <div id="exercise-list">
+       <div class="list-group">
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">List group item heading</h4>
+      <p class="list-group-item-text">...</p>
+    </a>
+  </div>
+  <div class="list-group">
+<a href="#" class="list-group-item">
+ <h4 class="list-group-item-heading">List group item heading</h4>
+ <p class="list-group-item-text">...</p>
+</a>
+</div>
+     </div>
   </div>
   <div class="col-lg-2">
     <?php var_dump ($_SESSION); ?>

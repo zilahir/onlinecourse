@@ -400,7 +400,9 @@ $tableFooter = '</tbody>
     //$result .= '<a href="submitquiz.php?id="'.$id.'">'.$name.'</a> ';
   }
 
-  echo $tableHead.$result.$tableFooter;
+  if (!empty($result)) {
+    echo $tableHead.$result.$tableFooter;
+  }
 
   //return $result;
 

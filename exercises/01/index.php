@@ -1,3 +1,15 @@
+<?php
+
+include_once("../../functions.php");
+
+session_start();
+if ($_SESSION['login'] == true ) {
+} else {
+  header("Location: ../../login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
