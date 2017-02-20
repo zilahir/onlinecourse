@@ -50,6 +50,18 @@ $(document).ready(function() {
             if (error === false) {
               $("#buildinprogress").removeClass("alert-warning").addClass("alert-success");
             }
+            jQuery.ajax({
+                type: "POST",
+                url: "../../php/exercisetodb.php",
+                dataType:"json",
+                success:function(response){
+                  //alert("success")
+                  console.log(response);
+                },
+                error:function (xhr, ajaxOptions, thrownError){
+                    alert(thrownError);
+                }
+            });
 
         },
         error:function (xhr, ajaxOptions, thrownError){
