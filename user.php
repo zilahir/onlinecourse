@@ -13,7 +13,7 @@
      ?>
      <div id="exercise-list">
        <div class="list-group">
-    <a href="#" class="list-group-item">
+    <a href="submitassignment.php?id=1" class="list-group-item">
       <h4 class="list-group-item-heading">1. Feladat</h4>
       <p class="list-group-item-text">HTML Alapok I.</p>
     </a>

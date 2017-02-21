@@ -38,46 +38,32 @@ $exerciseId = $_GET['id'];
   <body>
     <?php include_once("menu.php");?>
 
-    <div class="container gimmeplace">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>
-            A feladat teljesítéséhez gövesd az utasítoksat a forkolt <code>webfejlesztes1</code> gitrepositoriban.
-          </p>
-          <div class="bg-warning exercise-warning">
-            <p>
-              Az ellenőrző script a következő fájlokat fogja vizsgálni: <code>exercise_01.html, exercise1.css</code>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-10">
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">
-              <i class="fa fa-git"></i>
-            </span>
-            <input id="gitpath" type="text" class="form-control" placeholder="gitrepo url" aria-describedby="basic-addon1">
-          </div>
-        </div>
-        <div class="col-lg-2">
-          <div class="input-group">
-            <button id="grademe" type="button" class="btn btn-success" aria-label="Left Align">
-              Grade me
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
+    <div class="container">
+      <div class="row gimmeplace">
       <div class="col-lg-12">
-        <div id="buildinprogress" class="alert alert-warning alert-dismissible hidden" role="alert">
-            <p id="loading" class=""></p>
-            <p id="buildconsoletext"></p>
-          </div>
+        <div class="col-lg-9">
+          <?php include_once("exercises/0".$exerciseId."/include.html"); ?>
+        </div></div>
+        <div class="col-lg-3">
+          <div class="exercise-details">
+              <p class="result-text">
+                Your result: 100 /100
+              </p>
+              <p class="result-text">
+                Your number of submission: 1 / 5</p>
+              <p class="result-text total">
+                Total number of submissions: 2</p>
+              <div class="progress">
+  <div id="graderesult" style="width:100%" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+  </div>
+  </div>
+            </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    </div>
+
     <?php include_once("footer.php");?>
   </body>
 </html>

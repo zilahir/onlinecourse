@@ -52,11 +52,12 @@ $(document).ready(function() {
             }
 
             var pointsgained = jsonObject.points;
+            var exercise = jsonObject.exercise;
             jQuery.ajax({
                 type: "POST",
                 url: "../../php/exercisetodb.php",
                 dataType:"json",
-                data: {'pointsgained': pointsgained},
+                data: {'pointsgained': pointsgained, 'exercise': exercise},
                 success:function(response){
                   //alert("success")
                   console.log(response);
