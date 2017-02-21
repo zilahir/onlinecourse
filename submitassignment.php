@@ -8,9 +8,8 @@ if ($_SESSION['login'] == true ) {
 include_once("functions.php");
 //$nextQuizDetails($userId);
 
-$details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
 $exerciseId = $_GET['id'];
-
+$lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['user_id']);
 
 ?>
 
@@ -46,15 +45,17 @@ $exerciseId = $_GET['id'];
         </div></div>
         <div class="col-lg-3">
           <div class="exercise-details">
-              <p class="result-text">
-                Your result: 100 /100
-              </p>
-              <p class="result-text">
-                Your number of submission: 1 / 5</p>
-              <p class="result-text total">
-                Total number of submissions: 2</p>
+            <p class="result-text">
+              Your result: <?php echo $lastSubmission['result'];?> /100
+            </p>
+            <p class="result-text">
+              Your number of submission: <?php echo $lastSubmission['numberof_submission'].' / 5'; ?>
+            </p>
+            <p class="result-text total">
+              Total number of submissions: <?php echo $submissionsSum; ?>
+            </p>
               <div class="progress">
-  <div id="graderesult" style="width:100%" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+  <div id="graderesult" style="" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
   </div>
   </div>
             </div>

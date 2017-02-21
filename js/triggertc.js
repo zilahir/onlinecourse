@@ -60,7 +60,8 @@ $(document).ready(function() {
                 data: {'pointsgained': pointsgained, 'exercise': exercise},
                 success:function(response){
                   //alert("success")
-                  console.log(response);
+                  //console.log(response);
+                  $("#graderesult").css("width", response+"%");
                 },
                 error:function (xhr, ajaxOptions, thrownError){
                     alert(thrownError);
