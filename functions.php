@@ -368,10 +368,7 @@ function countSubbmissionForQuiz ($quizId) {
 function checkIfTheresOpenQuizzes() {
   $currentDate = date("Y-m-d");
 
-  $warningBox = '<div class="alert alert-warning alert-dismissible" role="alert">
-  <strong>Kitöltetlen kvíz</strong> Kitöltetlen kvízed van!
-  <button type="button" class="btn btn-warning pull-right showmyresultsbutton" data-toggle="collapse" data-target="#result-container">Show my results</button>
-</div>';
+
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
   $tableHead = '<table id="" class="table table-hover">
     <thead>
@@ -399,14 +396,23 @@ $tableFooter = '</tbody>
     $isThereAnySubmission = MySQL::checkUserSubmisson('`submissions`', '`quiz_id`', $id, '`user_id`', $_SESSION['user_id']);
     if ($isThereAnySubmission == 0 ) {
       //$result .= $name.", ";
+      $warningBox = '<div class="alert alert-warning alert-dismissible" role="alert">
+      <strong>Kitöltetlen kvíz</strong> Kitöltetlen kvízed van!
+      <button type="button" class="btn btn-warning pull-right showmyresultsbutton" data-toggle="collapse" data-target="#result-container">Show my results</button>
+    </div>';
       $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id);
+    } else {
+      $warningBox = '<div class="alert alert-success alert-dismissible" role="alert">
+      Nincs kitöltetlen kvízed!
+      <button type="button" class="btn btn-success pull-right showmyresultsbutton" data-toggle="collapse" data-target="#result-container">Show my results</button>
+    </div>';
     }
     //$result .= '<a href="submitquiz.php?id="'.$id.'">'.$name.'</a> ';
   }
 
-  if (!empty($result)) {
+  //if (!empty($result)) {
     echo $warningBox.$tableHead.$result.$tableFooter;
-  }
+  //}
 
   //return $result;
 
