@@ -15,8 +15,9 @@
     </a>
   </div>
   <div class="list-group">
-<a href="#" class="list-group-item">
+<a href="#" class="list-group-item closedtask">
  <h4 class="list-group-item-heading">1. Feladat</h4>
+ <span class="badge closedbadge">closed</span>
  <p class="list-group-item-text">HTML Alapok II.</p>
 </a>
 </div>
