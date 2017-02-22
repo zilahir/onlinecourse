@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     jQuery.ajax({
             type: "POST", // HTTP method POST or GET
-            url: "grade_test.php", //Where to make Ajax calls
+            url: "grade.php", //Where to make Ajax calls
             dataType:"json", // Data type, HTML, json etc.
             data:{answerData, numberOfQuestions}, //Form variables
             success:function(response){

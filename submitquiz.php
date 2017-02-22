@@ -36,7 +36,6 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
   </head>
   <body>
     <?php include_once("menu.php");?>
-
     <div class="container gimmeplace">
       <div class="row">
         <div id="errorcontainer" class="alert alert-danger hidden" role="alert">
@@ -45,61 +44,14 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
         <div class="col-lg-9 exercise-container">
           <div class="exercise-details">
             <ol>
-              <li id="question-1">
-                  <h3>Mit csinál a következő CSS osztály?</h3>
-                  <code>.important {color: red;}</code>
-                  <div>
-                      <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-                      <label for="question-1-answers-A">Pirosra szinezi az <code>important</code> html elemet </label>
-                  </div>
-
-                  <div>
-                      <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-                      <label for="question-1-answers-B">Pirosra szinezi az <code>important</code> html elem szövegét </label>
-                  </div>
-
-                  <div>
-                      <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-                      <label for="question-1-answers-C">Pirosra szinezni a <code>important</code> css osztállyal ellátott elem szövegét</label>
-                  </div>
-              </li>
-              <li id="question-2">
-                  <h3>Mit csinál a következő CSS definíció?</h3>
-                  <code>.underline {text-decoration: underline;}</code>
-                  <div>
-                      <input type="radio" name="question-2-answers" id="question-1-answers-A" value="A" />
-                      <label for="question-2-answers-A">Aláhúzza a szöveget az <code>underline</code> osztállyal ellátott elemekben</label>
-                  </div>
-
-                  <div>
-                      <input type="radio" name="question-2-answers" id="question-1-answers-B" value="B" />
-                      <label for="question-2-answers-B">Aláhúzza a szöveget az <code>underline</code> egyéni azonosítóval ellátott elemekben</label>
-                  </div>
-              </li>
-              <li id="question-3">
-                  <h3>Hogyan adnál hozzá külső CSS library-t a html fájlodhoz?</h3>
-
-                  <div>
-                      <input type="checkbox" name="question-3-answers" id="question-1-answers-A" value="A" />
-                      <label for="question-3-answers-A"><code> < link rel="stylesheet" type="text/css" href="stylesheet.css"/></code></label>
-                  </div>
-
-                  <div>
-                      <input type="checkbox" name="question-3-answers" id="question-1-answers-B" value="B" />
-                      <label for="question-3-answers-B"><code>< style type="text/css" href="stylesheet.css" /></code></label>
-                  </div>
-                  <div>
-                      <input type="checkbox" name="question-3-answers" id="question-1-answers-B" value="B" />
-                      <label for="question-3-answers-C"><code>< style type="text/css" href="stylesheet.css" /></code></label>
-                  </div>
-              </li>
+                <?php showQuestionsForQuizPage($quizId) ?>
             </ol>
           </div>
           <button id="submitforgrade" class="btn btn-success">Grade me!</button>
         </div>
         <div class="col-lg-3">
           <?php //var_dump($lastSubmission); //testing purposes ?>
-          <div class="exercise-details">        
+          <div class="exercise-details">
             <p class="result-text">
               Your result: <?php echo $lastSubmission['result'];?> /100
             </p>
@@ -110,6 +62,15 @@ $submissionsSum = countSubbmissionForQuiz ($quizId);
               Total number of submissions: <?php echo $submissionsSum; ?>
             </p>
             <div class="progress">
+<div id="graderesult" style="width:<?php echo $lastSubmission['result'].'%';?>" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+</div>
+</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
 <div id="graderesult" style="width:<?php echo $lastSubmission['result'].'%';?>" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
 </div>
 </div>

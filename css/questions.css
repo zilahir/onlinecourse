@@ -181,3 +181,7 @@ a.closedtask:hover {
 a.closedtask {
   color: #fff !important;
 }
+
+.throwmeaway:hover {
+  cursor: pointer;
+}
