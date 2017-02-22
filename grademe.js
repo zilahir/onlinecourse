@@ -39,6 +39,18 @@ $(document).ready(function() {
                       }
                   });
                 } else {
+                  var n = noty({
+                    text: 'Submission was successful!',
+                  	theme: 'relax',
+                  	type: 'success',
+                  	timeout: '5000',
+                      animation: {
+                          open: {height: 'toggle'},
+                          close: {height: 'toggle'},
+                          easing: 'swing',
+                          speed: 500 // opening & closing animation speed
+                      }
+                  });
                   $("#graderesult").css("width", response.result+"%");
                   $.each(response.answers, function(i, obj) {
                     console.log(obj);

@@ -1,25 +1,23 @@
-/*
-Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
-*/
 body {
-    background: url(http://habrastorage.org/files/c9c/191/f22/c9c191f226c643eabcce6debfe76049d.jpg);
+    background: url("img/login_bg.jpg");
 }
 
 .jumbotron {
 	text-align: center;
-	width: 30rem;
+	width: 300px;
+  height: 500px;
 	border-radius: 0.5rem;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	position: absolute;
-	margin: 4rem auto;
-	background-color: #fff;
+	margin: 0rem auto;
+	background-color: #fff !important;
 	padding: 2rem;
 }
 
-.container .login-icon {
+.container-login .login-icon {
 	font-size: 10rem;
 	margin-top: 3rem;
 	color: #f96145;
@@ -98,5 +96,13 @@ input#username:hover, input#password:hover, input#password:focus, input#username
 span.who {
   background-color: #fff;
   color: #ff6961;
+}
 
+div#login-main {
+  margin-top: 40px;
+  
+}
+
+div#login-main:hover {
+  opacity: 1;
 }
