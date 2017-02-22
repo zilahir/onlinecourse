@@ -368,6 +368,10 @@ function countSubbmissionForQuiz ($quizId) {
 function checkIfTheresOpenQuizzes() {
   $currentDate = date("Y-m-d");
 
+  $warningBox = '<div class="alert alert-warning alert-dismissible" role="alert">
+  <strong>Kitöltetlen kvíz</strong> Kitöltetlen kvízed van!
+  <button type="button" class="btn btn-warning pull-right showmyresultsbutton" data-toggle="collapse" data-target="#result-container">Show my results</button>
+</div>';
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
   $tableHead = '<table id="" class="table table-hover">
     <thead>
@@ -401,7 +405,7 @@ $tableFooter = '</tbody>
   }
 
   if (!empty($result)) {
-    echo $tableHead.$result.$tableFooter;
+    echo $warningBox.$tableHead.$result.$tableFooter;
   }
 
   //return $result;

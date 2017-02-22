@@ -1,10 +1,10 @@
 <?php
-$pw = "AdminPassword123";
+$pw = "TestAccount123";
 
-$password = md5($pw);
+$password = crypt($pw);
 
-//echo $password;
+echo $password;
 
-phpinfo();
+//phpinfo();
 
 ?>

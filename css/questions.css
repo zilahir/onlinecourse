@@ -151,3 +151,7 @@ div#result-container {
 div#exercise-list {
   margin-top: 30px;
 }
+
+.showmyresultsbutton {
+  margin-top: -6px;
+}
