@@ -11,7 +11,12 @@
         </li>
         <li>
           <a href="quizzes.php">Quizzes</a>
-        </li>';
+        </li>
+        <li>
+          <a href="exercises.php">Exercises</a>
+        </li>
+        '
+        ;
       }
       ?>
     </ul>

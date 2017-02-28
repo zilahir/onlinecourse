@@ -625,5 +625,29 @@ function getCurrentSubmissionForAssignments ($assignment_id, $userid) {
   return $result;
 }
 
+function getAllExercises () {
+  $getAllExercisesSql = "SELECT * FROM `exercises` ORDER BY `id` ASC  ";
+  $rows = MySQL::getRows($getAllExercisesSql);
+  $count = 0;
+  foreach ($rows as $row ) {
+    $count++;
+    $id = $row->id;
+    $name = $row->name;
+    $deadline = $row->deadline;
+    $owner = $row->owner;
+    $maxpoints = $row->max_points;
+    $quizOwner = getUserDetails($owner);
+
+    echo '<tr class="clickable-row" data-id="'.$id.'">
+    <td>'.$count.'</td>
+    <td>'.$name.'</td>
+    <td>'.$maxpoints.'</td>
+    <td>'.$deadline.'</td>
+    <td>'.$quizOwner['fullname'].'</td>
+    </tr>
+    ';
+  }
+}
+
 
 ?>
