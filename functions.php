@@ -653,5 +653,18 @@ function getAllExercises () {
   }
 }
 
+function getExerCiseDetails($id) {
+  $getExerciseDetailsSql = "SELECT * FROM `exercises` where `exercise_id` = '$id' " ;
+  $rows = MySQL::getRows($getExerciseDetailsSql);
+  $firstRow = $rows[0];
+
+  $maxPoint = $firstRow->max_points;
+
+  $result = array('max_points' => $maxPoint, );
+
+  return $result;
+
+}
+
 
 ?>

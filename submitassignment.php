@@ -9,7 +9,12 @@ include_once("functions.php");
 //$nextQuizDetails($userId);
 
 $exerciseId = $_GET['id'];
+
+$maxPointForThisExercise = getExerCiseDetails($exerciseId);
 $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['user_id']);
+
+$percent = $lastSubmission['result'] / $maxPointForThisExercise['max_points'];
+$percent = $percent*100;
 
 ?>
 
@@ -46,7 +51,7 @@ $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['us
         <div class="col-lg-3">
           <div class="exercise-details">
             <p class="result-text">
-              Your result: <?php echo $lastSubmission['result'];?> /100
+              Your result: <?php echo $lastSubmission['result'].' / '.$maxPointForThisExercise['max_points'] ;?>
             </p>
             <p class="result-text">
               Your number of submission: <?php echo $lastSubmission['numberof_submission'].' / 5'; ?>
@@ -55,7 +60,7 @@ $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['us
               Total number of submissions: <?php echo $submissionsSum; ?>
             </p>
               <div class="progress">
-  <div id="graderesult" style="" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+  <div id="graderesult" style="width:<?php echo $percent; ?>%;" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
   </div>
   </div>
             </div>
