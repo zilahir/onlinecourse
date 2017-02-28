@@ -15,8 +15,10 @@ include_once("functions.php");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script type="text/javascript" src="addnewexercise.js"></script>
+    <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
     <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
     <script type="text/javascript">
             $(function () {
                 $('#deadline').datetimepicker({
@@ -52,7 +54,7 @@ include_once("functions.php");
               <span class="input-group-addon" id="basic-addon1">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <input id="opendate" name="opendate" type="text" class="form-control" placeholder="Opens at" aria-describedby="basic-addon1">
+              <input id="deadline" name="deadline" type="text" class="form-control" placeholder="Deadline" aria-describedby="basic-addon1">
             </div>
 
             <div id="submitbutton" class="input-group pull-right">

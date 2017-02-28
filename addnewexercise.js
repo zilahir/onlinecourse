@@ -4,9 +4,11 @@ $(document).ready(function() {
     });
     $("#submitbutton").click(function(e) {
         var exerciseData = {
-            question: $('#newquestion').val(),
+            exercisename: $('#exercisename').val(),
+            maxpoints: $('#maxpoints').val(),
+            deadline : $('#deadline').val()
         };
-
+        console.log(exerciseData);
         jQuery.ajax({
             type: "POST",
             url: "addnewexercise.php",
