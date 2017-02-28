@@ -25,6 +25,6 @@
      </div>
   </div>
   <div class="col-lg-2">
-    <?php //var_dump ($_SESSION); ?>
+    <?php var_dump ($_SESSION); ?>
   </div>
 </div>

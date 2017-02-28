@@ -33,6 +33,7 @@
             <li><a href="logout.php">Logout</a></li>
           </ul>
         </li>
+        <img id="avatar" class="img-circle" src="<?php echo $_SESSION['avatar']; ?>" />
       </ul>
       <!-- admin related menu -->
     <?php

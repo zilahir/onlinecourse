@@ -194,3 +194,20 @@ a.closedtask {
 .addnewuser {
   margin-top: 100px;
 }
+
+div.avatar-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  position: fixed;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+img#avatar {
+  width: 46px;
+  margin-top: 2px;
+  position: absolute;
+  margin-right: 30px;
+}

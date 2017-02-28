@@ -10,6 +10,16 @@ $postedPassword = $_POST['password'];
 
 $loginCredentials = getUserCredentials($postedUsername, $postedPassword);
 
+// get user avatar
+$EmailHash = md5( strtolower( trim($loginCredentials['email']) ) );
+$str = file_get_contents( 'https://www.gravatar.com/'.$EmailHash.'.php' );
+$profile = unserialize( $str );
+if ( is_array( $profile ) && isset( $profile['entry'] ) )
+    $profilePic = $profile['entry'][0]['photos'];
+    $userProfile = $profilePic[0]['value'];
+//end of getting user avatar
+
+
 if (isset($loginCredentials['username'])) {
   if (crypt($postedPassword, $loginCredentials['password']) == $loginCredentials['password']) {
     //echo 'success';
@@ -21,6 +31,8 @@ if (isset($loginCredentials['username'])) {
     $_SESSION['neptun'] = $loginCredentials['neptun'];
     $_SESSION['user_level'] = $loginCredentials['user_level'];
     $_SESSION['user_id'] = $loginCredentials['user_id'];
+    $_SESSION['email'] = $loginCredentials['email'];
+    $_SESSION['avatar'] = $userProfile;
 
     //var_dump($_SESSION);
 
