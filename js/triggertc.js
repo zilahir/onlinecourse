@@ -11,9 +11,9 @@ $(document).ready(function() {
   $("#grademe").click(function (e) {
     e.preventDefault();
     var gitrepoPath = $("#gitpath").val();
-    var tctorun = $("main-exercise").data("data-exerciseid");
+    var tctorun = $("#main-exercise").data("exerciseid");
 
-    //console.log(parameter);
+    console.log(tctorun);
     jQuery.ajax({
         type: "POST",
         //url: "http://robot:bd6259f0769976dc672fe22d30cb174d@kat.inf.elte.hu/jenkins/job/robot-demo/build?token=m2L5t8jlA0r880pjzQIrxGn9L6pzg410",
