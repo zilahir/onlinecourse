@@ -675,8 +675,8 @@ function getAllExercises () {
     <td>'.$deadline.'</td>
     <td>'.$quizOwner['fullname'].'</td>
     <td>
-      <i class="fa fa-pencil delthis"></i>
-      <i class="fa fa-times edithis"></i>
+      <i class="fa fa-pencil delthis action-icon"></i>
+      <i class="fa fa-times edithis action-icon"></i>
     </td>
     </tr>
     ';
