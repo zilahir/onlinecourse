@@ -161,6 +161,11 @@ div#exercise-list {
   background-color: #d9534f;
 }
 
+.openbadge {
+  margin-top: -12px;
+  background-color: #449d44;
+}
+
 .closedtask {
   background-color: #ff6961;
   color: #fff !important;
