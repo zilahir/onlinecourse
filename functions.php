@@ -370,20 +370,6 @@ function checkIfTheresOpenQuizzes() {
 
 
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
-  $tableHead = '<table id="" class="table table-hover">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Quiz name</th>
-        <th>Deadline</th>
-        <th>Total number of submissions</th>
-      </tr>
-    </thead>
-    <tbody>
-';
-
-$tableFooter = '</tbody>
-</table>';
 
   $rows = MySQL::getRows($getAllOpenQuizzesSql);
   foreach ($rows as $row ) {
@@ -396,6 +382,20 @@ $tableFooter = '</tbody>
     $isThereAnySubmission = MySQL::checkUserSubmisson('`submissions`', '`quiz_id`', $id, '`user_id`', $_SESSION['user_id']);
     if ($isThereAnySubmission == 0 ) {
       //$result .= $name.", ";
+      $tableHead = '<table id="" class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Quiz name</th>
+            <th>Deadline</th>
+            <th>Total number of submissions</th>
+          </tr>
+        </thead>
+        <tbody>
+    ';
+
+    $tableFooter = '</tbody>
+    </table>';
       $warningBox = '<div class="alert alert-warning alert-dismissible" role="alert">
       <strong>Kitöltetlen kvíz</strong> Kitöltetlen kvízed van!
       <button type="button" class="btn btn-warning pull-right showmyresultsbutton" data-toggle="collapse" data-target="#result-container">Show my results</button>
