@@ -555,6 +555,17 @@ function getQuizResultForUser ($userId) {
   return $userResults;
 }
 
+function getAllOpenExercises() {
+  $currentDate = date("Y-m-d");
+  $getAllOpenQuizzesSql = "SELECT * FROM `exercises` where `deadline` > '$currentDate' " ;
+  $rows = MySQL::getRows($getAllOpenQuizzesSql);
+  foreach ($rows as $row ) {
+    $id = $row->exercise_id;
+    $result[] = $id;
+  }
+  return $result;
+}
+
 function getAllOpenQuizzes() {
   $currentDate = date("Y-m-d");
   $getAllOpenQuizzesSql = "SELECT * FROM `quizs` where `deadline` > '$currentDate' " ;
@@ -564,6 +575,25 @@ function getAllOpenQuizzes() {
     $result[] = $id;
   }
   return $result;
+}
+
+function countExerciseSubmissions ($limit) {
+  $rows = MySQL::getRows($countSubmissionForQuizzes);
+  $openExerciseIds = getAllOpenExercises();
+  $numberOfOpenExercises = count($openExerciseIds);
+
+  for ($i=0; $i<$numberOfOpenExercises; $i++) {
+    $result = MySQL::countEntry('exercise_results', 'exercise_id', $openExerciseIds[$i]);
+    //echo $result.", ";
+    //$thisQuizDetails = generateQuizPage($openQuizIds[$i]);
+    $currentId = $openExerciseIds[$i];
+    $exerciseDetails = getExerCiseDetails($currentId);
+    echo '<li class="list-group-item">
+      <span class="badge">'.$result.'</span>
+      '.$exerciseDetails['name'].'
+    </li>';
+  }
+
 }
 
 function countQuizSubmissions ($limit) {
@@ -659,8 +689,10 @@ function getExerCiseDetails($id) {
   $firstRow = $rows[0];
 
   $maxPoint = $firstRow->max_points;
+  $name = $firstRow->name;
 
-  $result = array('max_points' => $maxPoint, );
+  $result = array('name' => $name, 'max_points' => $maxPoint );
+  //$result = array('max_points' => $maxPoint, 'name' => $name );
 
   return $result;
 
