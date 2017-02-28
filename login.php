@@ -66,7 +66,7 @@ if (isset($_GET['error'])) {
   <div class="panel-heading">Mi ez?</div>
   <div class="panel-body">
     <p>
-      Ez a portál a <code>webfejlesztés 1.</code> tárgy gyakorlóportálja. <small>a demoja legalábbis :)</small>
+      Ez a portál a <code>webfejlesztés 1.</code> tárgy <span class="haha">demo</span> gyakorlóportálja.
     </p>
     <p>
       A belépéshez szükséges adatokról a gyakorlatvezetőd fog tájékoztatni.

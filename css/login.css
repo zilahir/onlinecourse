@@ -100,9 +100,13 @@ span.who {
 
 div#login-main {
   margin-top: 40px;
-  
+
 }
 
 div#login-main:hover {
   opacity: 1;
+}
+
+.haha {
+  text-decoration: line-through;
 }
