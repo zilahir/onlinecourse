@@ -8,7 +8,8 @@ for ($i = 0; $row = fgetcsv($handle ); ++$i) {
     //$userNeptun = $row[2];
     $userPassword = generatePassword();
 
-    echo $row[0].', //neptun//'.$generatedUserName.', '.$userEmail.', '.$userPassword.'<br/>';
+    $result .= $row[0].', //neptun//'.$generatedUserName.', '.$userEmail.', '.$userPassword.'<br/>';
+    //echo $result;
 }
 fclose($handle);
 

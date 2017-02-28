@@ -190,3 +190,7 @@ a.closedtask {
 .throwmeaway:hover {
   cursor: pointer;
 }
+
+.addnewuser {
+  margin-top: 100px;
+}

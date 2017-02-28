@@ -15,16 +15,19 @@ include_once("functions.php");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="bower_components/noty/js/noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script src="js/addnewuser.js"></script>
 
 </head>
   <body>
     <?php include_once("menu.php"); ?>
       <div id="main" class="container">
 
-        <div id="addnewuser" class="row">
+        <div id="addnewuser" class="row addnewuser">
           <div class="col-lg-12">
 
-
+            <p id="addnewuser" class="btn btn-success">
+              Add new user
+            </p>
           </div>
         </div>
       </div>
