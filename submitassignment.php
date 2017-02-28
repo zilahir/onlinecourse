@@ -37,7 +37,7 @@ $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['us
   <body>
     <?php include_once("menu.php");?>
 
-    <div class="container">
+    <div id="main-exercise" data-exerciseid="<?php echo $exerciseId;?>" class="container">
       <div class="row gimmeplace">
       <div class="col-lg-12">
         <div class="col-lg-9">
@@ -63,7 +63,6 @@ $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['us
       </div>
     </div>
 
-    </div>
 
     <?php include_once("footer.php");?>
   </body>
