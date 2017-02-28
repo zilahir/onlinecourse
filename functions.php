@@ -644,6 +644,10 @@ function getAllExercises () {
     <td>'.$maxpoints.'</td>
     <td>'.$deadline.'</td>
     <td>'.$quizOwner['fullname'].'</td>
+    <td>
+      <i class="fa fa-pencil delthis"></i>
+      <i class="fa fa-times edithis"></i>
+    </td>
     </tr>
     ';
   }

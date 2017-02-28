@@ -38,14 +38,23 @@
     <?php
       if ($_SESSION['user_level'] == 0) {
         $page = basename($_SERVER['PHP_SELF']);
-        $button = '<button id="" type="button" class="btn btn-success navbar-btn pull-right">
-          <a href="createnewquiz.php">
-            <i class="fa fa-check-square-o"></i>
-          </a>
-        </button>';
+        if ($page == "quizzes.php") {
+          $button = '<button id="" type="button" class="btn btn-success navbar-btn pull-right">
+            <a href="createnewquiz.php">
+              <i class="fa fa-check-square-o"></i>
+            </a>
+          </button>';
+        }
         if ($page == 'questions.php') {
           $button .= '<button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
               <i class="fa fa-plus"></i>
+          </button>';
+        }
+        if ($page == 'exercises.php') {
+          $button = '<button id="showaddnewexerciseform" type="button" class="btn btn-success navbar-btn pull-right">
+            <a href="#">
+              <i class="fa fa-plus-square-o"></i>
+            </a>
           </button>';
         }
 
