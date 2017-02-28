@@ -16,10 +16,10 @@ $(document).ready(function() {
             data: exerciseData,
             success: function(response) {
                 //alert("success");
-                var newLine = '<tr class="newlineadded"><td><span class="badge bg-warning">NEW</span></td><td>' + response.question + '</td><td><i class="fa fa-check"></i></td><td></td></tr>';
+                var newLine = '<tr class="newlineadded"><td><span class="badge bg-warning">NEW</span></td><td>' + response.name + '</td><td>'+response.max_points+'</td><td>'+response.deadline+'</td><td>'+response.owner+'</td><td></td></tr>';
                 $("#questions tbody").prepend(newLine);
                 var n = noty({
-                  text: 'New question has been added successfully!',
+                  text: 'New exercise has been added successfully!',
                 	theme: 'relax',
                 	type: 'success',
                 	timeout: '5000',
