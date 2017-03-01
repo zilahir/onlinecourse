@@ -1,15 +1,4 @@
-<?php
-session_start();
-if ($_SESSION['login'] == true ) {
-} else {
-  header("Location: login.php");
-}
-
-include_once("functions.php");
-$details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
-
-?>
-
+<?php include_once("functions.php"); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,14 +24,21 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
     <?php include_once("menu.php");?>
 
     <div class="container gimmeplace">
-      <?php
-      if ($_SESSION["user_level"] != 0) {
-        include_once ("user.php");
-      } else {
-        include_once("admin.php");
-      }
+      <div class="row">
+        <div class="col-lg-10">
+          <div id="result-container" class="collapse">
+          </div>
+           <div id="exercise-list">
+             <p>
+               
+             </p>
+           </div>
+        </div>
+        <div class="col-lg-2">
+          <?php //var_dump ($_SESSION); ?>
+        </div>
+      </div>
 
-      ?>
     </div>
     <?php include_once("footer.php");?>
   </body>

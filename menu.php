@@ -29,6 +29,7 @@
                 include_once("etc/admindropdown.html");
               }
             ?>
+            <li><a href="settings.php">Settings</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="logout.php">Logout</a></li>
           </ul>

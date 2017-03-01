@@ -700,7 +700,16 @@ function getExerCiseDetails($id) {
 }
 
 function checkIfExerciseIsSubmittedByUser ($exericseId, $userId) {
- return 0;
+ $checkUserSubmissionForExercise = "SELECT * FROM `exercise_results` where `exercise_id` = '$exericseId' " ;
+ $rows = MySQL::getRows($checkUserSubmissionForExercise);
+ $firstRow = $rows[0];
+
+ $submissionCount = $firstRow->submission_count;
+ $resultPoints = $firstRow->result;
+
+
+ $result = array("result" => $resultPoints, 'submission_count' => $submissionCount);
+ return $result;
 }
 
 function checkIfTheresOpenExercises () {
