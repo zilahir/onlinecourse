@@ -31,10 +31,7 @@ $userDetails = getUserDetails_($_SESSION['user_id']);
           <div id="result-container" class="collapse">
           </div>
            <div id="exercise-list">
-             <div class="alert alert-danger alert-dismissible" role="alert">
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               <strong>Figyelem!</strong> Még nem változtattad meg a jelszavad!
-            </div>
+             <?php checkIfUserHasChangedTheDefaultPassword($_SESSION['user_id'])?>
            </div>
         </div>
       </div>
