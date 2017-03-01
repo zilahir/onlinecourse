@@ -181,7 +181,7 @@ function getUserCredentials ($username, $password) {
 
     //$result = array('username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_level' => $loginUserLevel);
     //$result = array('user_level' => $loginUserLevel, 'neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_id' => $loginUserId );
-    $result = array("email" => $loginUserEmail, 'user_level' => $loginUserLevel, 'neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_id' => $loginUserId ); 
+    $result = array("email" => $loginUserEmail, 'user_level' => $loginUserLevel, 'neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_id' => $loginUserId );
     return $result;
 
 }
@@ -691,13 +691,43 @@ function getExerCiseDetails($id) {
 
   $maxPoint = $firstRow->max_points;
   $name = $firstRow->name;
+  $isOpen = $firstRow->is_open;
 
-  $result = array('name' => $name, 'max_points' => $maxPoint );
-  //$result = array('max_points' => $maxPoint, 'name' => $name );
+  $result = array('max_points' => $maxPoint, 'name' => $name, 'exercise_id' => $id, 'is_open' => $isOpen);
 
   return $result;
 
 }
 
+function checkIfExerciseIsSubmittedByUser ($exericseId, $userId) {
+ return 0;
+}
+
+function checkIfTheresOpenExercises () {
+
+  $openExerciseIds = getAllOpenExercises();
+  $numberOfOpenExercises = count($openExerciseIds);
+
+  for ($i=0; $i<$numberOfOpenExercises; $i++) {
+    $result = MySQL::countEntry('exercises', 'exercise_id', $openExerciseIds[$i]);
+    $currentId = $openExerciseIds[$i];
+    $exerciseDetails = getExerCiseDetails($currentId);
+
+    if ($exerciseDetails['is_open'] == 0) {
+      $isOpenClass = "closedbadge";
+    } else {
+      $isOpenClass = "openbadge";
+    }
+
+    echo '<div class="list-group">
+ <a href="submitassignment.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
+   <h4 class="list-group-item-heading">'.$exerciseDetails['name'].'</h4>
+   <span class="badge '.$isOpenClass.'">open</span>
+   <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
+ </a>
+</div';
+  }
+
+}
 
 ?>

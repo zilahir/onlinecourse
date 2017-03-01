@@ -8,20 +8,8 @@
     checkIfTheresOpenQuizzes();
      ?>
      <div id="exercise-list">
-       <div class="list-group">
-    <a href="submitassignment.php?id=3" class="list-group-item">
-      <h4 class="list-group-item-heading">3. Gyakorlat</h4>
-      <span class="badge openbadge">open</span>
-      <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
-    </a>
-  </div>
-  <div class="list-group">
-<a href="#" class="list-group-item closedtask">
- <h4 class="list-group-item-heading">3. Gyakorlat</h4>
- <span class="badge closedbadge">closed</span>
- <p class="list-group-item-text">HTML Alapok II.</p>
-</a>
-</div>
+       <?php checkIfTheresOpenExercises() ?>
+       
      </div>
   </div>
   <div class="col-lg-2">
