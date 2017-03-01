@@ -757,4 +757,11 @@ function getUserDetails_ ($userId) {
 
 }
 
+function checkIfUserHasChangedTheDefaultPassword ($userId) {
+
+  $userDetails = getUserDetails_ ($userId);
+  $userPassword = $userDetails['password'];
+
+}
+
 ?>
