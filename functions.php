@@ -739,4 +739,22 @@ function checkIfTheresOpenExercises () {
 
 }
 
+function getUserDetails_ ($userId) {
+  $getUserCredentialsSql = "SELECT * FROM `users` where `id` = '$userId' LIMIT 1" ;
+  $rows = MySQL::getRows($getUserCredentialsSql);
+  $firstRow = $rows[0];
+
+  $loginUsername = $firstRow->username;
+  $loginPassword = $firstRow->password;
+  $loginFullName = $firstRow->fullname;
+  $loginNeptun = $firstRow->neptun;
+  $loginUserLevel = $firstRow->user_level;
+  $loginUserId = $firstRow->id;
+  $loginUserEmail = $firstRow->email;
+
+  $result = array("email" => $loginUserEmail, 'user_level' => $loginUserLevel, 'neptun' => $loginNeptun, 'username' => $loginUsername, 'password' => $loginPassword, 'fullname' => $loginFullName, 'user_id' => $loginUserId );
+  return $result;
+
+}
+
 ?>

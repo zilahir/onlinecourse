@@ -1,4 +1,6 @@
-<?php include_once("functions.php"); ?>
+<?php include_once("functions.php");
+$userDetails = getUserDetails_($_SESSION['user_id']);
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,17 +27,42 @@
 
     <div class="container gimmeplace">
       <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <div id="result-container" class="collapse">
           </div>
            <div id="exercise-list">
-             <p>
-               
-             </p>
+             <div class="alert alert-danger alert-dismissible" role="alert">
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <strong>Figyelem!</strong> Még nem változtattad meg a jelszavad!
+            </div>
            </div>
         </div>
-        <div class="col-lg-2">
-          <?php //var_dump ($_SESSION); ?>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <i class="fa fa-user"></i>
+            </span>
+            <input value="<?php echo $userDetails['fullname'] ?>" type="text" class="form-control" placeholder="Teljes neved" aria-describedby="basic-addon1" disabled>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              @
+            </span>
+            <input value="<?php echo $userDetails['email']; ?>" type="text" class="form-control" placeholder="Email címed" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <i class="fa fa-key"></i>
+            </span>
+            <input id="newpassword" type="password" class="form-control" placeholder="New password" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group">
+            <p id="edituser" class="btn btn-success fullwidth">
+              Mentés
+            </p>
+          </div>
         </div>
       </div>
 

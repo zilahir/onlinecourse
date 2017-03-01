@@ -168,6 +168,8 @@ class MySQL {
         }
         $query = $query . " WHERE id=" . $id . ";";
 
+        //echo $query;
+
         return self::query($query);
     }
 
