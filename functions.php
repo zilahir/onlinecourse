@@ -724,14 +724,16 @@ function checkIfTheresOpenExercises () {
 
     if ($exerciseDetails['is_open'] == 0) {
       $isOpenClass = "closedbadge";
+      $text = "closed";
     } else {
       $isOpenClass = "openbadge";
+      $text = "open";
     }
 
     echo '<div class="list-group">
  <a href="submitassignment.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
    <h4 class="list-group-item-heading">'.$exerciseDetails['name'].'</h4>
-   <span class="badge '.$isOpenClass.'">open</span>
+   <span class="badge '.$isOpenClass.'">'.$text.'</span>
    <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
  </a>
 </div';
