@@ -2,7 +2,7 @@
 $totalNumberOfQuestions = countAllQuestionsInDb();
 ?>
 <div class="row">
-  <div class="col-lg-12">
+
     <div class="col-lg-6">
       <div class="panel panel-default">
   <div class="panel-heading">
@@ -32,11 +32,11 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
   </div>
 </div>
     </div>
-  </div>
+  
 </div>
 
 <div class="row">
-  <div class="col-lg-12">
+
     <div class="col-lg-6">
       <div class="panel panel-default">
   <div class="panel-heading">Results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-up"></i></div>
@@ -52,6 +52,13 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
     <?php getQuizResults("min") ?>
   </ul>
   </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <?php checkIfTheresOpenExercises () ?>
   </div>
 </div>
 
