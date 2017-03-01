@@ -32,7 +32,7 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
   </div>
 </div>
     </div>
-  
+
 </div>
 
 <div class="row">
@@ -58,7 +58,15 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
 
 <div class="row">
   <div class="col-lg-12">
-    <?php checkIfTheresOpenExercises () ?>
+    <div class="panel panel-default">
+<div class="panel-heading">
+  <span class="badge">n</span> Exercises <i class="fa fa-code"></i></div>
+<div class="panel-body">
+  <?php checkIfTheresOpenExercises () ?>
+
+</div>
+</div>
+
   </div>
 </div>
 
