@@ -39,7 +39,7 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
 
     <div class="col-lg-6">
       <div class="panel panel-default">
-  <div class="panel-heading">Results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-up"></i></div>
+  <div class="panel-heading">Quiz results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-up"></i></div>
   <ul class="list-group">
     <?php getQuizResults("max") ?>
   </ul>
@@ -47,7 +47,7 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
     </div>
     <div class="col-lg-6">
       <div class="panel panel-default">
-  <div class="panel-heading">Results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-down"></i></div>
+  <div class="panel-heading">Quiz results <i class="fa fa-area-chart"></i> <i class="fa fa-long-arrow-down"></i></div>
   <ul class="list-group">
     <?php getQuizResults("min") ?>
   </ul>
