@@ -767,7 +767,7 @@ function checkIfUserHasChangedTheDefaultPassword ($userId) {
     echo '
     <div class="alert alert-danger alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <strong>Figyelem!</strong> Még nem változtattad meg a jelszavad!
+      <strong>Figyelem!</strong> Még nem változtattad meg az alapértelmezett jelszavad!
    </div>
     '
     ;

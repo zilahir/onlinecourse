@@ -17,17 +17,20 @@
   </head>
   <body>
     <?php
-    $array = array(
-      "name" => $exerciseName,
-      "max_points" => $maxPoints,
-      "deadline" => $deadline,
-      "exercise_id" => "3",
-      "owner" => $loggedInUserName,
-    );
-
-    //MySQL::insertIntoGroup('`users`', $array);
 
     include_once ("../functions.php");
+
+function setTeacher ($mon) {
+      if ($mon == 'ATA') {
+        $teacher = 'abonyita';
+      } elseif ($mon == "CST") {
+        $teacher = "tamas.csongradi";
+      } elseif ($mon == "DM") {
+        $teacher = "miklos.demsa";
+      }
+
+      return $teacher;
+    }
 
     $handle = fopen("users.csv", "r");
     for ($i = 0; $row = fgetcsv($handle ); ++$i) {
@@ -36,9 +39,22 @@
         //$userEmail = $row[1];
         $userNeptun = $row[1];
         $userPassword = generatePassword();
-        $teacher = $row[2];
+        $mon = $row[2];
 
-        $result = $row[0].', '.$userNeptun.', '.$teacher.', <span class="username">'.$generatedUserName.'</span>, <span class="hiddenpw">'.$userPassword['crypted'].',</span> ORIGINALPASSWORD: '.$userPassword['original'].'<br/>';
+        $teacher = setTeacher($mon);
+
+        $array = array(
+          "fullname" => $row[0],
+          "username" => $generatedUserName,
+          "password" => $userPassword['crypted'],
+          "neptun" => $userNeptun,
+          "user_level" => "1",
+          "lecture_group" => $teacher,
+        );
+
+        MySQL::insertIntoGroup('`users`', $array);
+
+        $result = $row[0].', '.$userNeptun.', '.$mon.', <span class="username">'.$generatedUserName.'</span>, <span class="hiddenpw">'.$userPassword['crypted'].',</span> ORIGINALPASSWORD: '.$userPassword['original'].'<br/>';
         echo $result;
     }
     fclose($handle);
@@ -52,12 +68,15 @@
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
 
-        $password = crypt($randomString);
+        $defaultPassword = "defPassword123";
+        $password = crypt($defaultPassword);
 
-        $result = array('crypted' => $password, 'original' => $randomString );
+        $result = array('crypted' => $password, 'original' => $defaultPassword );
 
         return $result;
     }
+
+
 
     function createUserName ($fullName) {
       $fullName = strtolower($fullName);
@@ -67,7 +86,7 @@
       $lastName = remove_accents($lastName);
       $firstLetter = $firstName[0];
 
-      $result = $firstLetter.$lastName;
+      $result = $firstName.'.'.$lastName;
       return $result;
 
     }
