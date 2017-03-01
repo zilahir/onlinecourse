@@ -19,7 +19,7 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
     </div>
     <div class="col-lg-6">
       <div class="panel panel-default">
-  <div class="panel-heading">Quizzes submissions <i class="fa fa-check-square-o"></i></div>
+  <div class="panel-heading">Quiz submissions <i class="fa fa-check-square-o"></i></div>
   <div class="panel-body">
     <ul class="list-group">
     <?php countQuizSubmissions("10") ?>
