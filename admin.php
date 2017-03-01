@@ -25,9 +25,9 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
     <?php countQuizSubmissions("10") ?>
   </ul>
   </div>
-  <div class="panel-body">
+  <div class="panel-body hidden">
     <ul class="list-group">
-    <?php countExerciseSubmissions("10") ?>
+    <?php //countExerciseSubmissions("10") ?>
   </ul>
   </div>
 </div>
