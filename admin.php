@@ -60,9 +60,9 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
   <div class="col-lg-12">
     <div class="panel panel-default">
 <div class="panel-heading">
-  <span class="badge">n</span> Exercises <i class="fa fa-code"></i></div>
+  <span class="badge">n</span> Upcoming exercises <i class="fa fa-code"></i></div>
 <div class="panel-body">
-  <?php checkIfTheresOpenExercises () ?>
+  <?php checkIfTheresOpenExercises ("admin") ?>
 
 </div>
 </div>

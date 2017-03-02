@@ -712,31 +712,55 @@ function checkIfExerciseIsSubmittedByUser ($exericseId, $userId) {
  return $result;
 }
 
-function checkIfTheresOpenExercises () {
+function checkIfTheresOpenExercises ($method="user") {
 
   $openExerciseIds = getAllOpenExercises();
   $numberOfOpenExercises = count($openExerciseIds);
 
-  for ($i=0; $i<$numberOfOpenExercises; $i++) {
-    $result = MySQL::countEntry('exercises', 'exercise_id', $openExerciseIds[$i]);
-    $currentId = $openExerciseIds[$i];
-    $exerciseDetails = getExerCiseDetails($currentId);
+  if ($method == "admin") {
+    for ($i=0; $i<$numberOfOpenExercises; $i++) {
+      $result = MySQL::countEntry('exercises', 'exercise_id', $openExerciseIds[$i]);
+      $currentId = $openExerciseIds[$i];
+      $exerciseDetails = getExerCiseDetails($currentId);
 
-    if ($exerciseDetails['is_open'] == 0) {
-      $isOpenClass = "closedbadge";
-      $text = "closed";
-    } else {
-      $isOpenClass = "openbadge";
-      $text = "open";
+      if ($exerciseDetails['is_open'] == 0) {
+        $isOpenClass = "closedbadge";
+        $text = "closed";
+      } else {
+        $isOpenClass = "openbadge";
+        $text = "open";
+      }
+
+      echo '<div class="list-group">
+   <a href="submitassignment.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
+     <h4 class="list-group-item-heading">'.$exerciseDetails['name'].'</h4>
+     <span class="badge '.$isOpenClass.'">'.$text.'</span>
+     <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
+   </a>
+  </div';
     }
+  } elseif ($method=="user") {
+    for ($i=0; $i<$numberOfOpenExercises; $i++) {
+      $result = MySQL::countEntry('exercises', 'exercise_id', $openExerciseIds[$i]);
+      $currentId = $openExerciseIds[$i];
+      $exerciseDetails = getExerCiseDetails($currentId);
 
-    echo '<div class="list-group">
- <a href="submitassignment.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
-   <h4 class="list-group-item-heading">'.$exerciseDetails['name'].'</h4>
-   <span class="badge '.$isOpenClass.'">'.$text.'</span>
-   <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
- </a>
-</div';
+      if ($exerciseDetails['is_open'] == 0) {
+        $isOpenClass = "closedbadge";
+        $text = "closed";
+      } else {
+        $isOpenClass = "openbadge";
+        $text = "open";
+      }
+
+      echo '<div class="list-group">
+   <a href="submitassignment.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
+     <h4 class="list-group-item-heading">'.$exerciseDetails['name'].'</h4>
+     <span class="badge '.$isOpenClass.'">'.$text.'</span>
+     <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
+   </a>
+  </div';
+    }
   }
 
 }
