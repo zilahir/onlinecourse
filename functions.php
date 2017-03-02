@@ -732,7 +732,7 @@ function checkIfTheresOpenExercises ($method="user") {
       }
 
       echo '<div class="list-group">
-   <a href="submitassignment.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
+   <a href="assignmentresult.php?id='.$exerciseDetails['exercise_id'].'" class="list-group-item">
      <h4 class="list-group-item-heading">'.$exerciseDetails['name'].'</h4>
      <span class="badge '.$isOpenClass.'">'.$text.'</span>
      <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
@@ -801,6 +801,32 @@ function checkIfUserHasChangedTheDefaultPassword ($userId) {
     //
   }
 
+}
+
+function drawRowForSubmissionResult ($userDetails, $result, $exerciseDetails) {
+  $div = '
+    <li class="list-group-item">
+      <span class="badge">'.$result.'</span>
+      '.$userDetails['fullname'].'
+    </li>
+  ';
+  //var_dump($userDetails);
+  return $div;
+}
+
+function getSubmissionsForExercise ($exerciseId) {
+  $getAllExerciseSubmissionsSql = "SELECT * FROM `exercise_results` WHERE `exercise_id` = $exerciseId ORDER BY `id` ASC  ";
+  $rows = MySQL::getRows($getAllExerciseSubmissionsSql);
+  $count = 0;
+  foreach ($rows as $row ) {
+    $userId = $row->user_id;
+    $result = $row->result;
+    $exerciseDetails = getExerCiseDetails($exerciseId);
+    $userDetails = getUserById($userId);
+    $div = drawRowForSubmissionResult($userDetails, $result, $exerciseDetails);
+
+    echo $div;
+  }
 }
 
 ?>
