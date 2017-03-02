@@ -121,6 +121,14 @@ function  countAllQuizInDb() {
   return $result;
 }
 
+function countExercises ($which) {
+  if ($which == "upcoming") {
+    $currentDate = date("Y-m-d");
+    $result = MySQL::countUpcoming('exercises', 'deadline', "$currentDate");
+  }
+  return $result;
+}
+
 function countAllQuestionsInDb () {
 
     $result = MySQL::countEverything('questions', 'id', "%");

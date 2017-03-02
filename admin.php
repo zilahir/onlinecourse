@@ -1,5 +1,6 @@
 <?php
 $totalNumberOfQuestions = countAllQuestionsInDb();
+$NumberOfUpcomingExercises = countExercises("upcoming");
 ?>
 <div class="row">
 
@@ -60,7 +61,7 @@ $totalNumberOfQuestions = countAllQuestionsInDb();
   <div class="col-lg-12">
     <div class="panel panel-default">
 <div class="panel-heading">
-  <span class="badge">n</span> Upcoming exercises <i class="fa fa-code"></i></div>
+  <span class="badge"><?php echo $NumberOfUpcomingExercises; ?></span> Upcoming exercises <i class="fa fa-code"></i></div>
 <div class="panel-body">
   <?php checkIfTheresOpenExercises ("admin") ?>
 

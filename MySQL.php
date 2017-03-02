@@ -200,6 +200,12 @@ class MySQL {
 
     // end of function
 
+    static function countUpcoming($table, $key, $value) {
+        $query = "SELECT id FROM " . '`'.$table.'`' . " WHERE " . '`'.$key.'`' . ">'" . $value . "' ;";
+        //echo $query;
+        return count(self::getRows($query)) ;
+    }
+
     static function countEntry($table, $key, $value) {
         $query = "SELECT id FROM " . '`'.$table.'`' . " WHERE " . '`'.$key.'`' . "='" . $value . "' ;";
         //echo $query;

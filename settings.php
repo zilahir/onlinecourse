@@ -57,7 +57,7 @@ $userDetails = getUserDetails_($_SESSION['user_id']);
           </div>
           <div class="input-group">
             <p id="edituser" class="btn btn-success fullwidth">
-              Mentés
+              Save
             </p>
           </div>
         </div>
