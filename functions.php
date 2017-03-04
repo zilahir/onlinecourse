@@ -700,10 +700,11 @@ function getExerCiseDetails($id) {
   $firstRow = $rows[0];
 
   $maxPoint = $firstRow->max_points;
+  $minPoints = $firstRow->min_points;
   $name = $firstRow->name;
   $isOpen = $firstRow->is_open;
 
-  $result = array('max_points' => $maxPoint, 'name' => $name, 'exercise_id' => $id, 'is_open' => $isOpen);
+  $result = array('max_points' => $maxPoint, 'name' => $name, 'exercise_id' => $id, 'is_open' => $isOpen, 'min_points' => $minPoints);
 
   return $result;
 
@@ -768,7 +769,7 @@ function checkIfTheresOpenExercises ($method="user") {
             //TODO: get result for this submission
             $percent = $lastSubmission['result'] /  $maxPointForThisExercise['max_points'] * 100;
             $progressDiv ='
-            <div class="progress hint--bottom" aria-label="lll">
+            <div class="progress hint--bottom" aria-label="'.$exerciseDetails['min_points'].'">
               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: '.$percent.'%">
                 <div style="left:50%" class="required-points">
                 </div>
