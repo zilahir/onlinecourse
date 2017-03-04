@@ -406,8 +406,8 @@ function checkIfTheresOpenQuizzes() {
     $tableFooter = '</tbody>
     </table>';
       $warningBox = '<div class="alert alert-warning alert-dismissible" role="alert">
-      <strong>Kitöltetlen kvíz</strong> Kitöltetlen kvízed van!
-      <button type="button" class="btn btn-warning pull-right showmyresultsbutton" data-toggle="collapse" data-target="#result-container">Show my results</button>
+      <strong>Kitöltetlen kvíz!</strong> Kedves '.$_SESSION['fullname'].'! Kitöltetlen kvízed van!
+      
     </div>';
       $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id);
     } else {
