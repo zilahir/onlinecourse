@@ -29,6 +29,7 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
     <script src="js/user.js"></script>
+    <link rel="stylesheet" href="bower_components/hint.css/src/hint.base.min.css" />
 
   </head>
   <body>
