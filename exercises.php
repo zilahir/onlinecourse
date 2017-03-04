@@ -52,6 +52,12 @@ include_once("functions.php");
             </div>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">
+                <i class="fa fa-sort-numeric-desc"></i>
+              </span>
+              <input id="minpoints" name="minpoints" type="text" class="form-control" placeholder="Min points" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <input id="deadline" name="deadline" type="text" class="form-control" placeholder="Deadline" aria-describedby="basic-addon1">
@@ -71,6 +77,7 @@ include_once("functions.php");
                 <tr>
                   <th>#</th>
                   <th>Name</th>
+                  <th>Minpoints</th>
                   <th>Maxpoints</th>
                   <th>Deadline</th>
                   <th>Owner</th>

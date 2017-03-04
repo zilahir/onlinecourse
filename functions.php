@@ -407,7 +407,7 @@ function checkIfTheresOpenQuizzes() {
     </table>';
       $warningBox = '<div class="alert alert-warning alert-dismissible" role="alert">
       <strong>Kitöltetlen kvíz!</strong> Kedves '.$_SESSION['fullname'].'! Kitöltetlen kvízed van!
-      
+
     </div>';
       $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id);
     } else {
@@ -675,11 +675,13 @@ function getAllExercises () {
     $deadline = $row->deadline;
     $owner = $row->owner;
     $maxpoints = $row->max_points;
+    $minPoints = $row->min_points;
     $quizOwner = getUserDetails($owner);
 
     echo '<tr class="clickable-row" data-id="'.$id.'">
     <td>'.$count.'</td>
     <td>'.$name.'</td>
+    <td>'.$minPoints.'</td>
     <td>'.$maxpoints.'</td>
     <td>'.$deadline.'</td>
     <td>'.$quizOwner['fullname'].'</td>

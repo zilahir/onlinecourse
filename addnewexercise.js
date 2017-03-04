@@ -6,6 +6,7 @@ $(document).ready(function() {
         var exerciseData = {
             exercisename: $('#exercisename').val(),
             maxpoints: $('#maxpoints').val(),
+            minpoints: $('#minpoints').val(),
             deadline : $('#deadline').val()
         };
         console.log(exerciseData);
