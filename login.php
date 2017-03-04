@@ -80,7 +80,10 @@ if (isset($_GET['error'])) {
     Hiba, bug esetén, a hiba leírásával, és reprodukálásához szükséges információkkal kérlek nyiss egy hibajegyet <a href="https://github.com/zilahir/htmlcss/issues">itt</a>.
   </p>
 <p>
-  A portál használatához szükséges leírást megtalálod <a href="#">itt</a>. A leírással, és a portál használatával kapcsolatban <a href="message.html">itt</a> tudsz üzenni, kérdezni.
+  A portál használatához szükséges leírást megtalálod <a href="#">itt</a>. A leírással, és a portállal kapcsolatban közvetlenül nekem <a href="message.html">itt</a> tudsz üzenni, kérdezni.
+</p>
+<p>
+  Készült egy <a href="elte-ik-webfejlesztes1-framework">google-group</a> is, itt is kérhetsz segítséget!
 </p>
 
 </div>
