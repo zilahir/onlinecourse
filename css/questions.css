@@ -166,6 +166,11 @@ div#exercise-list {
   background-color: #449d44;
 }
 
+.warningbadge {
+  background-color: #f0ad4e;
+  margin-top: -12px;
+}
+
 .closedtask {
   background-color: #ff6961;
   color: #fff !important;

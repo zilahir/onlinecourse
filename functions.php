@@ -730,7 +730,6 @@ function checkIfTheresOpenExercises ($method="user") {
       $result = MySQL::countEntry('exercises', 'exercise_id', $openExerciseIds[$i]);
       $currentId = $openExerciseIds[$i];
       $exerciseDetails = getExerCiseDetails($currentId);
-
       if ($exerciseDetails['is_open'] == 0) {
         $isOpenClass = "closedbadge";
         $text = "closed";
@@ -752,13 +751,23 @@ function checkIfTheresOpenExercises ($method="user") {
       $result = MySQL::countEntry('exercises', 'exercise_id', $openExerciseIds[$i]);
       $currentId = $openExerciseIds[$i];
       $exerciseDetails = getExerCiseDetails($currentId);
-
+      $lastSubmission = getCurrentSubmissionForAssignments ($currentId, $_SESSION['user_id']);
       if ($exerciseDetails['is_open'] == 0) {
         $isOpenClass = "closedbadge";
         $text = "closed";
       } else {
-        $isOpenClass = "openbadge";
-        $text = "open";
+        if (!empty($lastSubmission)) {
+          //get max point for this exercise
+          $maxPointForThisExercise = getExerCiseDetails($currentId);
+          $text = $lastSubmission['result'].'/'.$maxPointForThisExercise['max_points'];
+          if ($lastSubmission['result'] < $maxPointForThisExercise['max_points']) {
+            $isOpenClass = "warningbadge";
+          }
+        } else {
+          //show its open
+          $isOpenClass = "openbadge";
+          $text = "open";
+        }
       }
 
       echo '<div class="list-group">
