@@ -757,6 +757,7 @@ function checkIfTheresOpenExercises ($method="user") {
       if ($exerciseDetails['is_open'] == 0) {
         $isOpenClass = "closedbadge";
         $text = "closed";
+        $progressDiv = "";
       } else {
         if (!empty($lastSubmission)) {
           //get max point for this exercise
@@ -764,7 +765,14 @@ function checkIfTheresOpenExercises ($method="user") {
           $text = $lastSubmission['result'].'/'.$maxPointForThisExercise['max_points'];
           if ($lastSubmission['result'] < $maxPointForThisExercise['max_points']) {
             $isOpenClass = "warningbadge";
-            //TODO: check if minimum point is reached
+            //TODO: get result for this submission
+            $percent = $lastSubmission['result'] /  $maxPointForThisExercise['max_points'] * 100;
+            $progressDiv = '
+            <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: '.$percent.'%">
+                <span class="sr-only">40% Complete (success)</span>
+              </div>
+            </div>';
             //$addBorderClass = 'exercise-done';
           }
         } else {
@@ -782,11 +790,7 @@ function checkIfTheresOpenExercises ($method="user") {
      <p class="list-group-item-text">HTML Gyakorlófeladat I.</p>
    </a>
    <div class="progress-container">
-   <div class="progress">
-  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    <span class="sr-only">40% Complete (success)</span>
-  </div>
-</div>
+   '.$progressDiv.'
    </div>
    </div>
   </div';
