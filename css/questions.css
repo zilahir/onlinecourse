@@ -227,3 +227,12 @@ div.required-points {
   position: absolute;
   height: 20px;
 }
+
+[class*=hint--] {
+  position: static !important;
+  display: block !important;
+}
+
+.hint--bottom:after, .hint--bottom:before {
+  top: 65% !important;
+}
