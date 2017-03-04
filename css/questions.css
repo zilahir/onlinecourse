@@ -216,3 +216,8 @@ img#avatar {
   position: absolute;
   margin-right: 30px;
 }
+
+.exercise-done {
+  -webkit-box-shadow:inset 10px 0 0 0 #d6e9c6;
+  box-shadow:inset 10px 0 0 0 #d6e9c6;
+}
