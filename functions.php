@@ -764,14 +764,15 @@ function checkIfTheresOpenExercises ($method="user") {
           //get max point for this exercise
           $maxPointForThisExercise = getExerCiseDetails($currentId);
           $text = $lastSubmission['result'].'/'.$maxPointForThisExercise['max_points'];
+          $minRequirements = $exerciseDetails['min_points'] / $exerciseDetails['max_points'] * 100;
           if ($lastSubmission['result'] < $maxPointForThisExercise['max_points']) {
             $isOpenClass = "warningbadge";
             //TODO: get result for this submission
             $percent = $lastSubmission['result'] /  $maxPointForThisExercise['max_points'] * 100;
             $progressDiv ='
-            <div class="progress hint--bottom" aria-label="'.$exerciseDetails['min_points'].'">
+            <div class="progress hint--bottom" aria-label="Minimum requirements: '.$exerciseDetails['min_points'].' points">
               <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: '.$percent.'%">
-                <div style="left:50%" class="required-points">
+                <div style="left:'.$minRequirements.'%" class="required-points">
                 </div>
               </div>
             </div>';
