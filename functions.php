@@ -368,6 +368,12 @@ function createTemplateForUnsubmittedQuiz ($count, $name, $deadline, $numberOfSu
   return $htmlElement;
 }
 
+function countSubmissionForAssignment ($id) {
+  $result = MySQL::countEntry("exercise_results", "exercise_id", $id);
+
+  return $result;
+}
+
 function countSubbmissionForQuiz ($quizId) {
   $result = MySQL::countEntry("submissions", "quiz_id", $quizId);
 

@@ -16,6 +16,8 @@ $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['us
 $percent = $lastSubmission['result'] / $maxPointForThisExercise['max_points'];
 $percent = $percent*100;
 
+$submissionsSum = countSubmissionForAssignment($exerciseId);
+
 ?>
 
 <!DOCTYPE html>
