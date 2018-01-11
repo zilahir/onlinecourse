@@ -50,6 +50,14 @@
             </a>
           </button>';
         }
+
+        if ($page == "courses.php" && $_SESSOIN['user_level'] == 0) {
+          $button = '
+          <button id="createnewcourse" type="button" class="btn btn-success navbar-btn pull-right">
+              <i class="fa fa-check-square-o"></i>
+          </button>
+          ';
+        }
         if ($page == 'questions.php') {
           $button .= '<button id="showaddnewquestionform" type="button" class="btn btn-success navbar-btn pull-right">
               <i class="fa fa-plus"></i>

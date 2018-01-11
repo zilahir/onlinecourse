@@ -904,7 +904,7 @@ function checkIfUserHasSignedUpForCourse($courseId) {
   return $isSignedUp;
 }
 
-function getAllOpenCourses() {
+function getAllOpenCourses($userLevel) {
   $getAllOpenCoursesSql = "SELECT * FROM `courses` WHERE `is_open` = 1  ";
   $rows = MySQL::getRows($getAllOpenCoursesSql);
   foreach ($rows as $row ) {
@@ -913,16 +913,33 @@ function getAllOpenCourses() {
     //var_dump($hasUserSignedUpForThisCourse);
     $courseCode = $row->course_code;
     $courseName = $row->course_name;
-    $teacher = $row->responsible_teacher;
-    $allOpenCourseList .= '
-      <li data-courseid="'.$thisCourseId.'" class="list-group-item">
-        '.$courseCode.' – '.$courseName.' <br/>
+    $teacherUserId = $row->responsible_teacher;
+    $teacherUserObject = getUserById ($teacherUserId);
+    if ($userLevel == "student") {
+      $allOpenCourseList .= '
+        <li data-courseid="'.$thisCourseId.'" class="list-group-item">
+          '.$courseCode.' – '.$courseName.' <br/>
 
-          Responsible teacher: '.$teacher.'
+            Responsible teacher: '.$teacherUserObject['fullname'].'
 
-        <button type="button" class="btn '.$hasUserSignedUpForThisCourse['buttonClass'].'">'.$hasUserSignedUpForThisCourse['buttonText'].'</button>
-      </li>
-    ';
+          <button type="button" class="btn '.$hasUserSignedUpForThisCourse['buttonClass'].'">'.$hasUserSignedUpForThisCourse['buttonText'].'</button>
+        </li>
+      ';
+    } else {
+      if ($teacherUserId == $_SESSION['user_id']) {
+        $courseOwnerButton = '<button type="button" class="btn btn-edit">Modify</button>';
+      }
+      $allOpenCourseList .= '
+        <li data-courseid="'.$thisCourseId.'" class="list-group-item">
+          '.$courseCode.' – '.$courseName.' <br/>
+
+            Responsible teacher: '.$teacherUserObject['fullname'].'
+            '.$courseOwnerButton.'
+
+        </li>
+      ';
+    }
+
   }
 
   echo $allOpenCourseList;

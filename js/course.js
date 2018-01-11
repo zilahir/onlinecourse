@@ -30,4 +30,9 @@ $(document).ready(function() {
         }
     });
   });
+
+  $("#createnewcourse").click(function(e) {
+    e.preventDefault();
+    alert("lofasz");
+  });
 });

@@ -13,7 +13,7 @@
       </div>
       <ul id="course-list" class="list-group">
         <?php
-          getAllOpenCourses();
+          getAllOpenCourses("user");
         ?>
       </ul>
     </div>

@@ -12,6 +12,14 @@
   .signupedup:hover {
     background-color: #ff5148; }
 
+.btn-edit {
+  padding: 10px;
+  border: 1px solid #ffb347;
+  color: #ffb347; }
+  .btn-edit:hover {
+    background-color: #ffb347;
+    color: #fff; }
+
 #course-list li {
   clear: both;
   display: flex;

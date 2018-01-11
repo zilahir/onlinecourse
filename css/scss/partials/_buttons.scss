@@ -15,3 +15,13 @@
     background-color: $red-hover;
   }
 }
+
+.btn-edit {
+  padding: 10px;
+  border: 1px solid $orange;
+  color: $orange;
+  &:hover {
+    background-color: $orange;
+    color: #fff;
+  }
+}

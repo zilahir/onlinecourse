@@ -42,7 +42,7 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
       if ($_SESSION["user_level"] != 0) {
         include_once ("courses_student.php");
       } else {
-        //include_once("admin.php");
+        include_once("courses_admin.php");
       }
 
       ?>
