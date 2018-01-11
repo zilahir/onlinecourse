@@ -1,0 +1,17 @@
+.signup {
+  padding: 10px;
+  background-color: $green;
+  color: #fff;
+  &:hover {
+    background-color: $green-hover;
+  }
+}
+
+.signupedup {
+  padding: 10px;
+  background-color: $red;
+  color: #fff;
+  &:hover {
+    background-color: $red-hover;
+  }
+}

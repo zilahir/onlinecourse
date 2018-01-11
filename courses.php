@@ -29,7 +29,9 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
     <script src="js/user.js"></script>
-    <link rel="stylesheet" href="bower_components/hint.css/hint.base.min.css" />    
+    <script src="js/course.js"></script>
+    <link rel="stylesheet" href="bower_components/hint.css/hint.base.min.css" />
+    <link rel="stylesheet" href="dist/css/site.css" />
 
   </head>
   <body>
@@ -38,9 +40,9 @@ $details = getCurrentSubmissionForQuiz("17", $_SESSION['user_id']);
     <div class="container gimmeplace">
       <?php
       if ($_SESSION["user_level"] != 0) {
-        include_once ("user.php");
+        include_once ("courses_student.php");
       } else {
-        include_once("admin.php");
+        //include_once("admin.php");
       }
 
       ?>

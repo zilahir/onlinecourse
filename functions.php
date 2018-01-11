@@ -872,4 +872,37 @@ function getSubmissionsForExercise ($exerciseId) {
   }
 }
 
+function checkIfUserHasSignedUpForCourse($courseId) {
+  $thisUserId = $_SESSION['user_id'];
+  $checkIfUserHasSignedUpForCourseSql = "SELECT * FROM `courses_signups` WHERE `course_code` = $courseId AND `user_id` = $thisUserId " ;
+  $rows = MySQL::getRows($checkIfUserHasSignedUpForCourseSql);
+  if (!isset($rows[0]) && $rows[0]->id != "") {
+    $isSignedUp = array('buttonClass' => 'signup', 'buttonText' => 'Sign up' );
+  } else {
+    $isSignedUp = array('buttonClass' => 'signupedup', 'buttonText' => 'Cancel sign up' );
+  }
+  return $isSignedUp;
+}
+
+function getAllOpenCourses() {
+  $getAllOpenCoursesSql = "SELECT * FROM `courses` WHERE `is_open` = 1  ";
+  $rows = MySQL::getRows($getAllOpenCoursesSql);
+  foreach ($rows as $row ) {
+    $thisCourseId = $row->id;
+    $hasUserSignedUpForThisCourse = checkIfUserHasSignedUpForCourse($thisCourseId);
+    //var_dump($hasUserSignedUpForThisCourse);
+    $courseCode = $row->course_code;
+    $courseName = $row->course_name;
+    $allOpenCourseList .= '
+      <li data-courseid="'.$thisCourseId.'" class="list-group-item">
+        '.$courseCode.' – '.$courseName.'
+        <button type="button" class="btn '.$hasUserSignedUpForThisCourse['buttonClass'].' pull-right">'.$hasUserSignedUpForThisCourse['buttonText'].'</button>
+      </li>
+    ';
+  }
+
+  echo $allOpenCourseList;
+
+}
+
 ?>

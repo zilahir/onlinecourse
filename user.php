@@ -9,7 +9,7 @@
      ?>
      <div id="exercise-list">
        <?php checkIfTheresOpenExercises() ?>
-       
+
      </div>
   </div>
   <div class="col-lg-2">

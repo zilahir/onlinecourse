@@ -4,6 +4,9 @@
       <li class="active">
         <a href="index.php">Home</a>
       </li>
+      <li>
+        <a href="courses.php">Courses</a>
+      </li>
       <?php
       if ($_SESSION['user_level'] == 0) {
         echo '<li>

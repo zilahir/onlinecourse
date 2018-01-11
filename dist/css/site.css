@@ -1,0 +1,13 @@
+.signup {
+  padding: 10px;
+  background-color: #77dd77;
+  color: #fff; }
+  .signup:hover {
+    background-color: #4ed34e; }
+
+.signupedup {
+  padding: 10px;
+  background-color: #ff6961;
+  color: #fff; }
+  .signupedup:hover {
+    background-color: #ff5148; }
