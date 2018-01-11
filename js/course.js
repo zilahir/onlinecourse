@@ -33,6 +33,47 @@ $(document).ready(function() {
 
   $("#createnewcourse").click(function(e) {
     e.preventDefault();
-    alert("lofasz");
+    //TODO: add remove hidden class from div here
   });
+
+  $("#exercisescute-createnewcourse").click(function(e) {
+    e.preventDefault();
+    var newCourseName = $("#newcoursename").val();
+    var newCourseCode = $("#newcoursecode").val();
+    var newCourseDesc = $("#newcoursdesc").val();
+    var newCourseIsOpen = $('#newcourseisopen').is(":checked");
+
+    var newCourseObject = {
+      newCourseName: newCourseName,
+      newCourseCode: newCourseCode,
+      newCourseDesc: newCourseDesc,
+      newCourseIsOpen: newCourseIsOpen
+    };
+    jQuery.ajax({
+        type: "POST",
+        url: "php/createnewcourse.php",
+        dataType: "json",
+        data: newCourseObject,
+        success: function(response) {
+          console.log(response);
+          var n = noty({
+            text: 'You hvae signed up to course!',
+            theme: 'relax',
+            type: 'success',
+            timeout: '5000',
+              animation: {
+                  open: {height: 'toggle'},
+                  close: {height: 'toggle'},
+                  easing: 'swing',
+                  speed: 500 // opening & closing animation speed
+              }
+          });
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError);
+        }
+    });
+  });
+
+
 });

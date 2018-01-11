@@ -20,8 +20,24 @@
       </span>
       <input id="newcoursecode" name="newcoursecode" type="text" class="form-control" placeholder="Course code" aria-describedby="basic-addon1">
     </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <i class="fa fa-terminal"></i>
+      </span>
+      <input id="newcoursdesc" name="newcoursdesc" type="text" class="form-control" placeholder="Course description" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+      <span class="label">
+        Is this course open for sign up?
+      </span>
+      <div class="toggle">
+        <input id="newcourseisopen" type="checkbox" class="check">
+        <b class="b switch"></b>
+        <b class="b track"></b>
+      </div>
+    </div>
     <div class="input-group pull-right">
-      <button id="createnewcourse" class="btn btn-success">Create new course</button>
+      <button id="exercisescute-createnewcourse" class="btn btn-success">Create new course</button>
     </div>
   </div>
 </div>
