@@ -929,4 +929,9 @@ function getAllOpenCourses() {
 
 }
 
+function checkIfUserHasSubmittedQuiz () {
+  $usersResult = getQuizResultForUser($_SESSION['user_id']);
+
+}
+
 ?>
