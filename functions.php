@@ -355,10 +355,11 @@ function getCurrentSubmissionForQuiz ($quizid, $userid) {
   return $result;
 }
 
-function createTemplateForUnsubmittedQuiz ($count, $name, $deadline, $numberOfSubmission, $id) {
+function createTemplateForUnsubmittedQuiz ($count, $name, $deadline, $numberOfSubmission, $id, $courseName) {
   $htmlElement = '
   <tr class="throwmeaway" data-id="'.$id.'">
     <td>'.$count.'</td>
+    <td>'.$courseName.'</td>
     <td>'.$name.'</td>
     <td>'.$deadline.'</td>
     <td>'.$numberOfSubmission.'</td>
@@ -380,6 +381,16 @@ function countSubbmissionForQuiz ($quizId) {
   return $result;
 }
 
+function getCourseNameById($courseId) {
+   $getCourseNameByIdSql = "SELECT * FROM `courses` WHERE `id` = $courseId " ;
+   $rows = MySQL::getRows($getCourseNameByIdSql);
+   $firstRow = $rows[0];
+
+   $courseName = $firstRow->course_name;
+
+   return $courseName;
+}
+
 function checkIfTheresOpenQuizzes() {
   $currentDate = date("Y-m-d");
 
@@ -393,14 +404,17 @@ function checkIfTheresOpenQuizzes() {
     //echo 'quiz_id: '.$id.' ';
     $name = $row->name;
     $deadline = $row->deadline;
+    $courseId = $row->course_id;
     $numberOfSubmission = countSubbmissionForQuiz($id);
     $isThereAnySubmission = MySQL::checkUserSubmisson('`submissions`', '`quiz_id`', $id, '`user_id`', $_SESSION['user_id']);
+    $thisCourseName = getCourseNameById($courseId);
     if ($isThereAnySubmission == 0 ) {
       //$result .= $name.", ";
       $tableHead = '<table id="" class="table table-hover">
         <thead>
           <tr>
             <th>#</th>
+            <th>Course name</th>
             <th>Quiz name</th>
             <th>Deadline</th>
             <th>Total number of submissions</th>
@@ -415,7 +429,7 @@ function checkIfTheresOpenQuizzes() {
       <strong>Kitöltetlen kvíz!</strong> Kedves '.$_SESSION['fullname'].'! Kitöltetlen kvízed van!
 
     </div>';
-      $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id);
+      $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id, $thisCourseName);
     } else {
       $warningBox = '<div class="alert alert-success alert-dismissible" role="alert">
       Nincs kitöltetlen kvízed!
@@ -872,14 +886,20 @@ function getSubmissionsForExercise ($exerciseId) {
   }
 }
 
+function countAllOpenCourse () {
+    $result = MySQL::countEntry('courses', 'is_open', '1');
+    echo $result;
+}
+
 function checkIfUserHasSignedUpForCourse($courseId) {
   $thisUserId = $_SESSION['user_id'];
-  $checkIfUserHasSignedUpForCourseSql = "SELECT * FROM `courses_signups` WHERE `course_code` = $courseId AND `user_id` = $thisUserId " ;
+  $checkIfUserHasSignedUpForCourseSql = "SELECT * FROM `course_signups` WHERE `course_code` = $courseId AND `user_id` = $thisUserId " ;
   $rows = MySQL::getRows($checkIfUserHasSignedUpForCourseSql);
-  if (!isset($rows[0]) && $rows[0]->id != "") {
-    $isSignedUp = array('buttonClass' => 'signup', 'buttonText' => 'Sign up' );
-  } else {
+  //echo $checkIfUserHasSignedUpForCourseSql;
+  if (isset($rows[0]) && $rows[0]->id != "") {
     $isSignedUp = array('buttonClass' => 'signupedup', 'buttonText' => 'Cancel sign up' );
+  } else {
+    $isSignedUp = array('buttonClass' => 'signup', 'buttonText' => 'Sign up' );
   }
   return $isSignedUp;
 }
@@ -893,10 +913,14 @@ function getAllOpenCourses() {
     //var_dump($hasUserSignedUpForThisCourse);
     $courseCode = $row->course_code;
     $courseName = $row->course_name;
+    $teacher = $row->responsible_teacher;
     $allOpenCourseList .= '
       <li data-courseid="'.$thisCourseId.'" class="list-group-item">
-        '.$courseCode.' – '.$courseName.'
-        <button type="button" class="btn '.$hasUserSignedUpForThisCourse['buttonClass'].' pull-right">'.$hasUserSignedUpForThisCourse['buttonText'].'</button>
+        '.$courseCode.' – '.$courseName.' <br/>
+
+          Responsible teacher: '.$teacher.'
+
+        <button type="button" class="btn '.$hasUserSignedUpForThisCourse['buttonClass'].'">'.$hasUserSignedUpForThisCourse['buttonText'].'</button>
       </li>
     ';
   }

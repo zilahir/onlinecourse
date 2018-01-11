@@ -11,3 +11,11 @@
   color: #fff; }
   .signupedup:hover {
     background-color: #ff5148; }
+
+#course-list li {
+  clear: both;
+  display: flex;
+  justify-content: space-between; }
+  #course-list li .btn {
+    display: flex;
+    justify-content: end; }

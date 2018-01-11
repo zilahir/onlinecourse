@@ -9,9 +9,9 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Avaliable courses
+        Avaliable courses <span class="badge"><?php countAllOpenCourse(); ?></span>
       </div>
-      <ul class="list-group">
+      <ul id="course-list" class="list-group">
         <?php
           getAllOpenCourses();
         ?>
