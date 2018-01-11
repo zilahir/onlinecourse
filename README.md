@@ -1,9 +1,3 @@
-### This repo contains html / css materials for studying ##
+# THIS IS THE REPO FOR REACT ONLINE COURSE FOR ELTE IK, BUDAPEST
 
-##dependencies
-
-* python
-* robotframework
-  *selenium2library
-  *database library
-* jenkins
+richardzilahi.hu
