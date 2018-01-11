@@ -5,7 +5,7 @@
   error_reporting(E_ALL);
 */
 ?>
-<div class="row addnewquestionbox">
+<div id="createnewcoursebox" class="row addnewquestionbox hidden">
   <div class="col-lg-12">
     <h4>Create new course</h4>
     <div class="input-group">

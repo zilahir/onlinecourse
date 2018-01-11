@@ -33,7 +33,7 @@ $(document).ready(function() {
 
   $("#createnewcourse").click(function(e) {
     e.preventDefault();
-    //TODO: add remove hidden class from div here
+    $("#createnewcoursebox").toggleClass("hidden");
   });
 
   $("#exercisescute-createnewcourse").click(function(e) {
@@ -55,9 +55,9 @@ $(document).ready(function() {
         dataType: "json",
         data: newCourseObject,
         success: function(response) {
-          console.log(response);
+          //console.log(response);
           var n = noty({
-            text: 'You hvae signed up to course!',
+            text: 'New course has been created!',
             theme: 'relax',
             type: 'success',
             timeout: '5000',
@@ -68,6 +68,8 @@ $(document).ready(function() {
                   speed: 500 // opening & closing animation speed
               }
           });
+          $(":input").val("");
+          $("#createnewcoursebox").addClass("hidden");
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError);
