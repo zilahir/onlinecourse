@@ -34,6 +34,7 @@ $(document).ready(function() {
                         speed: 500 // opening & closing animation speed
                     }
                 });
+                $(":input").val("");
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(thrownError);

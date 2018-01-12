@@ -3,6 +3,7 @@ $(document).ready(function() {
       type: "GET",
       url: "php/getchartfortags.php",
       success: function(response) {
+        console.log(response);
           var json = jQuery.parseJSON(response);
           drawPieChart(json);
       },
@@ -23,11 +24,13 @@ function drawPieChart(json) {
             columns: [
                 ['HTML', json.html],
                 ['CSS', json.css],
+                ['React', json.react],
             ],
             type: 'pie',
             colors: {
                 'HTML': '#7ea4b3',
-                'CSS': '#ffb347'
+                'CSS': '#ffb347',
+                'React': '#ff6961'
             },
             /*onclick: function(d, i) { console.log("onclick", d, i); },
             onmouseover: function(d, i) { console.log("onmouseover", d, i); },

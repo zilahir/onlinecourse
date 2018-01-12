@@ -469,6 +469,7 @@ function countQuestionsByTags($tag) {
 function creteListForQuestionTags () {
   $numberOfHtmlQuestions = countQuestionsByTags("html");
   $numberOfCssQuestions = countQuestionsByTags("css");
+  $numberOfReactQuestions = countQuestionsByTags("react");
 
   echo '
   <ul class="list-group">
@@ -479,6 +480,10 @@ function creteListForQuestionTags () {
   <li class="list-group-item">
     <span class="badge">'.$numberOfCssQuestions.'</span>
     <code>css</code> questions
+  </li>
+  <li class="list-group-item">
+    <span class="badge">'.$numberOfReactQuestions.'</span>
+    <code>react</code> questions
   </li>
 </ul>
   ';
