@@ -355,17 +355,20 @@ function getCurrentSubmissionForQuiz ($quizid, $userid) {
   return $result;
 }
 
-function createTemplateForUnsubmittedQuiz ($count, $name, $deadline, $numberOfSubmission, $id, $courseName) {
-  $htmlElement = '
-  <tr class="throwmeaway" data-id="'.$id.'">
-    <td>'.$count.'</td>
-    <td>'.$courseName.'</td>
-    <td>'.$name.'</td>
-    <td>'.$deadline.'</td>
-    <td>'.$numberOfSubmission.'</td>
-  </tr>
-  ';
-
+function createTemplateForUnsubmittedQuiz ($count, $name, $deadline, $numberOfSubmission, $id, $courseId) {
+  $thisCourseName = getCourseNameById($courseId);
+  $hasUserSignedUpForThisCourse = checkIfUserHasSignedUpForCourse($courseId);
+  if ($hasUserSignedUpForThisCourse['hassignedup']) {
+    $htmlElement = '
+    <tr class="throwmeaway" data-id="'.$id.'">
+      <td>'.$count.'</td>
+      <td>'.$thisCourseName.'</td>
+      <td>'.$name.'</td>
+      <td>'.$deadline.'</td>
+      <td>'.$numberOfSubmission.'</td>
+    </tr>
+    ';
+  }
   return $htmlElement;
 }
 
@@ -406,9 +409,13 @@ function checkIfTheresOpenQuizzes() {
     $deadline = $row->deadline;
     $courseId = $row->course_id;
     $numberOfSubmission = countSubbmissionForQuiz($id);
+    //check if user has singed up for this course
+    $hasUserSignedUpForThisCourse = checkIfUserHasSignedUpForCourse($courseId);
     $isThereAnySubmission = MySQL::checkUserSubmisson('`submissions`', '`quiz_id`', $id, '`user_id`', $_SESSION['user_id']);
-    $thisCourseName = getCourseNameById($courseId);
-    if ($isThereAnySubmission == 0 ) {
+
+
+    //$thisCourseName = getCourseNameById($courseId);
+    if ($isThereAnySubmission == 0 && $hasUserSignedUpForThisCourse['hassignedup'] ) {
       //$result .= $name.", ";
       $tableHead = '<table id="" class="table table-hover">
         <thead>
@@ -429,7 +436,7 @@ function checkIfTheresOpenQuizzes() {
       <strong>Kitöltetlen kvíz!</strong> Kedves '.$_SESSION['fullname'].'! Kitöltetlen kvízed van!
 
     </div>';
-      $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id, $thisCourseName);
+      $result .= createTemplateForUnsubmittedQuiz($count, $name, $deadline, $numberOfSubmission, $id, $courseId);
     } else {
       $warningBox = '<div class="alert alert-success alert-dismissible" role="alert">
       Nincs kitöltetlen kvízed!
@@ -902,9 +909,9 @@ function checkIfUserHasSignedUpForCourse($courseId) {
   $rows = MySQL::getRows($checkIfUserHasSignedUpForCourseSql);
   //echo $checkIfUserHasSignedUpForCourseSql;
   if (isset($rows[0]) && $rows[0]->id != "") {
-    $isSignedUp = array('buttonClass' => 'signupedup', 'buttonText' => 'Cancel sign up' );
+    $isSignedUp = array('buttonClass' => 'signupedup', 'buttonText' => 'Cancel sign up', 'hassignedup' => true );
   } else {
-    $isSignedUp = array('buttonClass' => 'signup', 'buttonText' => 'Sign up' );
+    $isSignedUp = array('buttonClass' => 'signup', 'buttonText' => 'Sign up', 'hassignedup' => false );
   }
   return $isSignedUp;
 }
