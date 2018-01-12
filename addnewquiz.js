@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+  $("#course-dropdown li a").click(function(){
+
+      /*$(".btn:first-child").text($(this).text());
+      $(".btn:first-child").val($(this).text());*/
+      console.log($(this).text());
+      $('.course-list-dropdown').text($(this).text());
+   });
+
   var numberOfQuestions = 0;
   var selectedQuestions = [];
   $("input[type='checkbox']").change(function() {
@@ -28,14 +37,13 @@ $(document).ready(function() {
           deadline : deadline,
           quizname : quizname,
           limit : limit
-
         }
         //console.log(quizData);
           jQuery.ajax({
-              type: "POST", // HTTP method POST or GET
-              url: "addnewquiz.php", //Where to make Ajax calls
-              dataType: "json", // Data type, HTML, json etc.
-              data: quizData, //Form variables
+              type: "POST",
+              url: "addnewquiz.php",
+              dataType: "json",
+              data: quizData,
               success: function(response) {
                 //alert("success")
                 console.log(quizData);
@@ -48,16 +56,13 @@ $(document).ready(function() {
                         open: {height: 'toggle'},
                         close: {height: 'toggle'},
                         easing: 'swing',
-                        speed: 500 // opening & closing animation speed
+                        speed: 500
                     }
                 });
-
               },
               error: function(xhr, ajaxOptions, thrownError) {
                   alert(thrownError);
               }
           });
       });
-
-
   });
