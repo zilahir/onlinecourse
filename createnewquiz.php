@@ -63,7 +63,7 @@ include_once("functions.php");
               <span class="input-group-addon" id="basic-addon1">
                 <i class="fa fa-graduation-cap"></i>
               </span>
-              <button type="button" class="btn btn-default dropdown-toggle course-list-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+              <button type="button" class="btn btn-default dropdown-toggle course-list-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose course <span class="caret"></span></button>
               <ul id="course-dropdown" class="dropdown-menu">
                 <?php getAllCourseForTeacher(); ?>
               </ul>

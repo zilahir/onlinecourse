@@ -18,6 +18,7 @@ if ($newCourseIsOpen == "true") {
 $newCourseObject = array('course_code' => $newCourseCode, 'course_name' => $newCourseName, 'course_desc' => $newCourseDesc, 'responsible_teacher' => $_SESSION['user_id'], 'is_open' => $newCourseIsOpen);
 
 MySQL::insertIntoGroup('`courses`', $newCourseObject);
+MySQL::close();
 
 echo json_encode($newCourseObject);
 

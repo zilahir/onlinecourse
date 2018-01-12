@@ -31,12 +31,15 @@ $(document).ready(function() {
         var deadline = $("#deadline").val();
         var quizname = $("#quizname").val();
         var limit = $("#submission_limit").val();
+        var course = $(".course-list-dropdown").text();
+        course = (course.split(' ').join(''));
         var quizData = {
           selectedquestions : selectedQuestions,
           startsFrom : startsFrom,
           deadline : deadline,
           quizname : quizname,
-          limit : limit
+          limit : limit,
+          course: course,
         }
         //console.log(quizData);
           jQuery.ajax({
