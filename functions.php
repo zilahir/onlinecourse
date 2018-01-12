@@ -951,4 +951,24 @@ function checkIfUserHasSubmittedQuiz () {
 
 }
 
+function getAllCourseForTeacher() {
+  $currentUserId = $_SESSION['user_id'];
+  $getAllCourseForTeacherSql = "SELECT * FROM `courses` WHERE `responsible_teacher` = $currentUserId  ";
+  $rows = MySQL::getRows($getAllCourseForTeacherSql);
+  foreach ($rows as $row ) {
+    $thisCourseId = $row->id;
+    $thisCourseCode = $row->course_code;
+    $thisCourseName = $row->course_name;
+    $courseList .= '
+      <li data-id="'.$thisCourseId.'">
+        <a>
+          '.$thisCourseCode.' - '.$thisCourseName.'
+        </a>
+      </li>
+    ';
+  }
+
+  echo $courseList;
+}
+
 ?>

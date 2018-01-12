@@ -9,3 +9,17 @@
     }
   }
 }
+
+.course-list-dropdown {
+  width: 100%;
+}
+
+#course-dropdown {
+  left: initial;
+  width: 500px;
+  li {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -28,6 +28,15 @@
     display: flex;
     justify-content: end; }
 
+.course-list-dropdown {
+  width: 100%; }
+
+#course-dropdown {
+  left: initial;
+  width: 500px; }
+  #course-dropdown li:hover {
+    cursor: pointer; }
+
 .toggle {
   position: absolute;
   top: 50%;
