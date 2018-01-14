@@ -10,7 +10,10 @@ if (isset($_GET['action'])) {
   </div>';
 }
 
+if ($_SESSION['user_level'] == 0) {
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,3 +107,10 @@ if (isset($_GET['action'])) {
       </div>
   </body>
 </html>
+<?php
+
+} else {
+  //TODO: add no rights to visit this page 
+}
+
+ ?>

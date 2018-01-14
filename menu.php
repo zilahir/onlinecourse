@@ -18,6 +18,9 @@
         <li>
           <a href="exercises.php">Exercises</a>
         </li>
+        <li>
+          <a href="results.php">Results</a>
+        </li>
         '
         ;
       }
