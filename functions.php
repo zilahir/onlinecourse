@@ -645,10 +645,11 @@ function countQuizSubmissions ($limit) {
   for ($i=0; $i<$numberOfOpenQuizzes; $i++) {
     $result = MySQL::countEntry('submissions', 'quiz_id', $openQuizIds[$i]);
     //echo $result.", ";
+    $thisCourseName = getCourseNameByQuizId ($openQuizIds[$i]);
     $thisQuizDetails = generateQuizPage($openQuizIds[$i]);
     echo '<li class="list-group-item">
       <span class="badge">'.$result.'</span>
-      '.$thisQuizDetails['quizname'].'
+      '.$thisQuizDetails['quizname'].' <code>'.$thisCourseName.'</code>
     </li>';
   }
 
@@ -981,6 +982,17 @@ function getAllCourseForTeacher() {
   }
 
   echo $courseList;
+}
+
+function getCourseNameByQuizId ($quizId) {
+  $getCourseIdForQuizSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
+  $rows = MySQL::getRows($getCourseIdForQuizSql);
+  $firstRow = $rows[0];
+  $courseId = $firstRow->course_id;
+  $thisCourseName = getCourseNameById($courseId);
+
+  return $thisCourseName;
+
 }
 
 ?>
