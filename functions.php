@@ -995,4 +995,52 @@ function getCourseNameByQuizId ($quizId) {
 
 }
 
+function getQuizDetailsById ($quizId) {
+  $getQuizDetailsSql = "SELECT * FROM `quizs` WHERE `id` = $quizId  ";
+  $rows = MySQL::getRows($getQuizDetailsSql);
+  $firstRow = $rows[0];
+  $thisQuizName = $firstRow->name;
+  $quizObject = array('name' => $thisQuizName, );
+
+  return $quizObject;
+}
+
+function getResultsForSubmissions () {
+  $getAllSubmissionsSql = "SELECT * FROM `submissions` ";
+  $rows = MySQL::getRows($getAllSubmissionsSql);
+  $count = 0;
+  foreach ($rows as $row ) {
+    $count ++;
+    $submissionId = $row->id;
+    $userId = $row->user_id;
+    $timestamp = $row->timestamp;
+    $quizId = $row->quiz_id;
+    $result = $row->result;
+    $submissionCount = $row->submission_count;
+    $userObject = getUserDetails_($userId);
+    $thisCourseName = getCourseNameByQuizId($quizId);
+    $thisQuizObject = getQuizDetailsById($quizId);
+    $listOfResults .= '
+      <tr>
+        <td>
+          '.$count.'
+        </td>
+        <td>
+          '.$userObject['fullname'].'
+        </td>
+        <td>
+          '.$thisCourseName.'
+        </td>
+        <td>
+          '.$thisQuizObject['name'].'
+        </td>
+        <td>
+          '.$result.'
+        </td>
+      </tr>
+    ';
+  }
+  echo $listOfResults;
+}
+
 ?>
