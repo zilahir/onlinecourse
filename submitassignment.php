@@ -7,9 +7,7 @@ if ($_SESSION['login'] == true ) {
 
 include_once("functions.php");
 //$nextQuizDetails($userId);
-
 $exerciseId = $_GET['id'];
-
 $maxPointForThisExercise = getExerCiseDetails($exerciseId);
 $lastSubmission = getCurrentSubmissionForAssignments ($exerciseId, $_SESSION['user_id']);
 
@@ -17,7 +15,6 @@ $percent = $lastSubmission['result'] / $maxPointForThisExercise['max_points'];
 $percent = $percent*100;
 
 $submissionsSum = countSubmissionForAssignment($exerciseId);
-
 ?>
 
 <!DOCTYPE html>
